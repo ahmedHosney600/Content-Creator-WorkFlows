@@ -1,0 +1,204 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: Post-Production Execution Pipeline
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges: []
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: 'Multi-line text containing Brief, Strategy, Storyboard, etc.'
+          label: 'Pre-Planning Package (paste from preplanning flow)'
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: preplanningPackage
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Software Suite'
+          options:
+          - Premiere Pro + After Effects
+          - DaVinci Resolve + Fusion
+          - Final Cut Pro + Motion
+          - Premiere Pro Only
+          - After Effects Only
+          placeholder: ''
+          required: true
+          type: select
+          variable: softwareSuite
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Editor Skill Level'
+          options:
+          - Beginner
+          - Intermediate
+          - Advanced
+          - Expert
+          placeholder: ''
+          required: true
+          type: select
+          variable: editorSkillLevel
+        - default: ''
+          hide: false
+          hint: 'e.g. Boris FX Sapphire, Red Giant Universe, Mister Horse'
+          label: 'Available Plugins'
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: availablePlugins
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Footage Frame Rate'
+          options:
+          - 23.976fps
+          - 24fps
+          - 25fps
+          - 29.97fps
+          - 30fps
+          - 50fps
+          - 60fps
+          - 120fps
+          - Mixed
+          placeholder: ''
+          required: true
+          type: select
+          variable: footageFrameRate
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Footage Resolution'
+          options:
+          - 720p
+          - 1080p
+          - 2K
+          - 4K
+          - Mixed
+          placeholder: ''
+          required: true
+          type: select
+          variable: footageResolution
+        - default: ''
+          hide: false
+          hint: 'e.g. Artgrid, Envato Elements, Storyblocks, YouTube'
+          label: 'Stock Footage Sources (optional)'
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: stockSources
+        - default: ''
+          hide: false
+          hint: 'e.g. Runway Gen-2, Topaz Video AI, ElevenLabs, Midjourney'
+          label: 'AI Tools Available (optional)'
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: aiTools
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Deadline Pressure'
+          options:
+          - No rush — quality first
+          - Standard turnaround
+          - Tight deadline — efficient workflow
+          - Rush — fastest possible
+          placeholder: ''
+          required: true
+          type: select
+          variable: deadlinePressure
+        - default: ''
+          hide: false
+          hint: 'e.g. 120'
+          label: 'Music Track BPM (optional)'
+          options: []
+          placeholder: ''
+          required: false
+          type: number
+          variable: musicBPM
+        - default: ''
+          hide: false
+          hint: 'Track title, artist, or URL reference'
+          label: 'Music Track Link or Name (optional)'
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: musicTrackLink
+        - default: ''
+          hide: false
+          hint: 'Paste the standard Creator Profile — Visual Brand (colors/fonts/logo rules) governs Motion Graphics and Color Grading & Finishing'
+          label: 'Creator Profile (optional)'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+        - default: ''
+          hide: false
+          hint: 'Paste the full Script Package — First Cuts Strategist uses it to sync cuts to dialogue beats'
+          label: 'Script Package from W-02 (optional)'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: scriptPackage
+        - default: ''
+          hide: false
+          hint: 'Paste editor/creator notes on the rough cut before effects begin — leave blank to let the Rough Cut Review Gate auto-review instead'
+          label: 'Rough Cut Feedback (optional)'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: roughCutFeedback
+      height: 785
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: 392.3036262923737
+      y: 212.3816900929795
+      zoom: 0.4603290212635077
+  rag_pipeline_variables: []

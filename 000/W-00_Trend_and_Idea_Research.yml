@@ -1,0 +1,164 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: Trend and Idea Research
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges: []
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: 'Free text — e.g. "personal finance for Gen Z"'
+          label: 'Your niche, interest, or broad topic'
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: niche
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Primary platform to research trends on'
+          options:
+          - YouTube Long-form
+          - YouTube Shorts
+          - TikTok
+          - Instagram Reels
+          - LinkedIn
+          - Podcast
+          - Multi-platform
+          placeholder: ''
+          required: true
+          type: select
+          variable: targetPlatform
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'What is the primary goal of this video?'
+          options:
+          - Educate & inform
+          - Entertain
+          - Build authority
+          - Sell
+          - Inspire & motivate
+          - Go viral
+          - Document
+          placeholder: ''
+          required: true
+          type: select
+          variable: contentGoal
+        - default: ''
+          hide: false
+          hint: 'Age, identity, interests, expertise level'
+          label: 'Describe your target audience'
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: targetAudience
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Channel status'
+          options:
+          - Established (1k+ subscribers)
+          - Growing (under 1k)
+          - New (no channel yet)
+          placeholder: ''
+          required: false
+          type: select
+          variable: existingChannel
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Language & market'
+          options:
+          - English (Global)
+          - English (US only)
+          - Arabic
+          - Spanish
+          - French
+          - Other
+          placeholder: ''
+          required: false
+          type: select
+          variable: languageMarket
+        - default: ''
+          hide: false
+          hint: 'Channel names, URLs, or descriptions'
+          label: 'Competitor or reference channels to analyze'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: competitorChannels
+        - default: ''
+          hide: false
+          hint: 'Topics, angles, or formats to skip'
+          label: 'Topics or angles to explicitly avoid'
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: excludeTopics
+        - default: ''
+          hide: false
+          hint: 'See SYSTEM_OVERVIEW.md for template'
+          label: 'Creator Profile (paste from your profile document)'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+        - default: ''
+          hide: false
+          hint: 'The "Feed-Forward Summary" block from W-09'
+          label: 'Past performance lessons (paste from W-09 output)'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: pastPerformanceNotes
+      height: 785
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: 392.3036262923737
+      y: 212.3816900929795
+      zoom: 0.4603290212635077
+  rag_pipeline_variables: []

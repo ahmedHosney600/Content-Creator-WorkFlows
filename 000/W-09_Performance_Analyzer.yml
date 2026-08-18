@@ -1,0 +1,110 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: Performance Analyzer
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges: []
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: 'Title as published'
+          label: 'Which video is this?'
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: videoTitle
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Platform'
+          options:
+          - YouTube
+          - TikTok
+          - Instagram Reels
+          - LinkedIn
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: platform
+        - default: ''
+          hide: false
+          hint: 'Retention curve data, view counts, CTR, average view duration — whatever the platform''s analytics panel/export gives you. Doesn''t need to be reformatted; the Analytics Parser normalizes it.'
+          label: 'Paste the platform''s analytics export'
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: analyticsData
+        - default: ''
+          hide: false
+          hint: 'A handful of comments that reflect how viewers actually reacted — useful signal the analytics numbers alone don''t capture'
+          label: 'Sample of top/representative comments'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: topComments
+        - default: ''
+          hide: false
+          hint: 'Paste the W-04 Retention Map, W-02 Script Package, or W-06 Viral Package this video was built from — without this, the Comparator can only assess the analytics on their own merits, not against what was predicted'
+          label: 'Original Retention Map / Script / Viral Package (if available)'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: originalPackage
+        - default: ''
+          hide: false
+          hint: 'Your gut sense as the creator — used as a cross-check against the data, not taken as ground truth over it'
+          label: 'Your own read on what worked or didn''t'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: whatYouThinkWorked
+      height: 785
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: 392.3036262923737
+      y: 212.3816900929795
+      zoom: 0.4603290212635077
+  rag_pipeline_variables: []

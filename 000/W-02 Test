@@ -1,0 +1,44 @@
+Viewed W-02_Script_Writer.yml:1-246
+Viewed W-02_Script_Writer.md:1-800
+Viewed W-02_Script_Writer.md:801-1219
+
+To test the **W-02_Script_Writer** workflow, you can use the built-in **Sample Input & Verification Checklist** detailed in section 8 of your guide. 
+
+Here is the step-by-step process:
+
+### 1. Provide Sample Input
+Run the workflow in your environment (like Dify) and paste the following JSON payload into the Start Node fields (or fill the corresponding form fields manually):
+
+```json
+{
+  "researchPackage": "Topic: Why most people fail at building habits. Core thesis: The problem isn't willpower — it's that people try to change behavior without first changing identity. Key findings: UCL study shows habits take 66 days median (not 21). Implementation intentions (if-then plans) double success rates. Identity-based habits (James Clear) vs. outcome-based habits.",
+  "contentType": "Talking head (direct to camera)",
+  "scriptLanguage": "English",
+  "dialectRegister": "",
+  "codeSwitchingLevel": "",
+  "targetDuration": "8 minutes",
+  "targetPlatform": "YouTube Long-form",
+  "voiceStyle": "Conversational & friendly",
+  "audienceLevel": "Beginners",
+  "scriptFormat": "Full word-for-word",
+  "ctaGoal": "Subscribe",
+  "mandatoryMentions": "UCL study, James Clear's Atomic Habits (brief reference), the 21-day myth debunked",
+  "referenceScripts": "Kurzgesagt storytelling structure, but conversational tone not documentary",
+  "sensitiveHandling": "Acknowledge that mental health conditions (depression, ADHD) affect habit formation — don't make it sound like failure is always the person's fault",
+  "creatorProfile": ""
+}
+```
+
+### 2. Run the Verification Checklist
+Once the workflow processes the input, review the output at each stage against this checklist to ensure all nodes are functioning correctly:
+
+- [ ] **Script Strategy Planner**: Did it return a specific narrative structure with justification? Is the word count target calculated? Does the retention schedule show specific timestamps?
+- [ ] **Hook Writer**: Are there three distinct hook types, each with a hook science evaluation table? Is the recommended hook specific and platform-appropriate?
+- [ ] **Script Body Writer**: Is it written in spoken language? Are `[VISUAL NOTE]`, `[PAUSE]`, and `[EMPHASIS]` cues present? Are section headers included with energy levels? Do the factual claims match the research?
+- [ ] **CTA & Retention Layer**: Do the open loops have a plant, reference, and resolution with exact scripted lines? Are three CTA versions present?
+- [ ] *(If testing Arabic Mode)* **Egyptian Dialect Layer**: Did it rewrite every spoken line? Are there any MSA verb conjugations? Is the Dialect score ≥ 8 before the loop exits?
+- [ ] **Script Refinement**: Did it assemble all parts into one continuous document? Is the word count calculated?
+- [ ] **Quality Loop**: Did Grade A exit the loop successfully? Did Grades B/C trigger a revision?
+- [ ] **Final Package**: Was the B-Roll Shot List extracted from all `[VISUAL NOTE]` markers? Is the INTEGRATION DATA block present for upstream workflows?
+
+If you want to specifically test the **Arabic Dialect Authenticity Layer**, you should run a separate test where you change `"scriptLanguage"` to `"Arabic (Egyptian)"` and provide `"dialectRegister"` (e.g., "Cairene media-standard") and `"codeSwitchingLevel"` (e.g., "Light").

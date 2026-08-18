@@ -1,0 +1,201 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: Production Planning Filming Guide
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges: []
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: 'Paste W-02 output, or describe topic + content type + what needs to be filmed'
+          label: 'Script Package (from W-02) or describe what to film'
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: scriptPackage
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Content type to film'
+          options:
+          - Talking head (direct to camera)
+          - VO narration + B-roll
+          - Interview
+          - Documentary style
+          - Tutorial & demo
+          - Cinematic
+          - Mixed approach
+          placeholder: ''
+          required: true
+          type: select
+          variable: contentType
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Production budget level'
+          options:
+          - Micro — phone only
+          - Low — basic DSLR or mirrorless entry
+          - Medium — mirrorless or cinema camera
+          - High — professional with crew support
+          placeholder: ''
+          required: true
+          type: select
+          variable: budgetLevel
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Target quality output'
+          options:
+          - Social-ready (fast & good enough)
+          - Professional (clean, polished)
+          - Cinematic (film aesthetic)
+          - Broadcast (broadcast standards)
+          placeholder: ''
+          required: true
+          type: select
+          variable: qualityTier
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Filming location type'
+          options:
+          - Home studio
+          - Office
+          - Outdoor urban
+          - Outdoor nature
+          - Rented studio
+          - Multiple locations
+          - On location (travel)
+          placeholder: ''
+          required: true
+          type: select
+          variable: location
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Available crew'
+          options:
+          - Solo (no crew)
+          - 1 assistant
+          - Small crew (2–4)
+          - Full crew (5+)
+          placeholder: ''
+          required: true
+          type: select
+          variable: crewSize
+        - default: ''
+          hide: false
+          hint: 'Camera model, lenses, audio gear, lighting, stabilization'
+          label: 'Equipment you already have'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: availableEquipment
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Available filming time'
+          options:
+          - Half day (up to 4 hours)
+          - Full day (8+ hours)
+          - Multi-day (specify in notes)
+          placeholder: ''
+          required: true
+          type: select
+          variable: filmingDays
+        - default: ''
+          hide: false
+          hint: 'e.g., Runway Gen-3, Kling, Veo 3, Luma Dream Machine, Sora, Pika — any you have access to'
+          label: 'AI video tools available'
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: availableAiVideoTools
+        - default: ''
+          hide: false
+          hint: ''
+          label: 'Which editing workflow follows this shoot'
+          options:
+          - W-04 Pre-Planning Pipeline
+          - W-05 Post-Production Execution
+          - W-06 Viral Speed Ramp
+          - Not decided yet
+          placeholder: ''
+          required: false
+          type: select
+          variable: postProductionPlan
+        - default: ''
+          hide: false
+          hint: 'Teleprompter, travel B-roll, product shots, interviews, drone access, etc.'
+          label: 'Special requirements'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: specialRequirements
+        - default: ''
+          hide: false
+          hint: 'Helps prioritize schedule and simplify scope if needed'
+          label: 'Target release date'
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: releaseDeadline
+        - default: ''
+          hide: false
+          hint: 'Paste from your Creator Profile document'
+          label: 'Creator Profile'
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+      height: 785
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: 392.3036262923737
+      y: 212.3816900929795
+      zoom: 0.4603290212635077
+  rag_pipeline_variables: []
