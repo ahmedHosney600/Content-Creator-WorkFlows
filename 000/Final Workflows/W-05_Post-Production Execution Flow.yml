@@ -1,0 +1,2429 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: W-05_Post-Production Execution Flow
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.59@fc19490989d886a5f24d21df56be95fd972e474e35a4aac93c29805bfaf089f1
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: start
+        targetType: llm
+      id: 1786742809170-source-1787036751884-target
+      selected: false
+      source: '1786742809170'
+      sourceHandle: source
+      target: '1787036751884'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: llm
+        targetType: llm
+      id: 1787036751884--1787036801074-target
+      selected: false
+      source: '1787036751884'
+      sourceHandle: source
+      target: '1787036801074'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: llm
+        targetType: llm
+      id: 1787036801074--1787036836482-target
+      selected: false
+      source: '1787036801074'
+      sourceHandle: source
+      target: '1787036836482'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: llm
+        targetType: loop
+      id: 1787036836482-source-1787036926736-target
+      selected: false
+      source: '1787036836482'
+      sourceHandle: source
+      target: '1787036926736'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: loop
+        targetType: llm
+      id: 1787036926736-source-1787037776190-target
+      selected: false
+      source: '1787036926736'
+      sourceHandle: source
+      target: '1787037776190'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787036926736'
+        sourceType: loop-start
+        targetType: llm
+      id: 1787036926736start-source-1787036933253-target
+      selected: false
+      source: 1787036926736start
+      sourceHandle: source
+      target: '1787036933253'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787036926736'
+        sourceType: llm
+        targetType: llm
+      id: 1787036933253--1787036984294-target
+      selected: false
+      source: '1787036933253'
+      sourceHandle: source
+      target: '1787036984294'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787036926736'
+        sourceType: llm
+        targetType: llm
+      id: 1787036984294--1787037015618-target
+      selected: false
+      source: '1787036984294'
+      sourceHandle: source
+      target: '1787037015618'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787036926736'
+        sourceType: llm
+        targetType: llm
+      id: 1787037015618--1787037050767-target
+      selected: false
+      source: '1787037015618'
+      sourceHandle: source
+      target: '1787037050767'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787036926736'
+        sourceType: llm
+        targetType: llm
+      id: 1787037050767--1787037088988-target
+      selected: false
+      source: '1787037050767'
+      sourceHandle: source
+      target: '1787037088988'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787036926736'
+        sourceType: llm
+        targetType: llm
+      id: 1787037088988-source-1787037421589-target
+      selected: false
+      source: '1787037088988'
+      sourceHandle: source
+      target: '1787037421589'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787036926736'
+        sourceType: llm
+        targetType: code
+      id: 1787037421589-source-1787037527143-target
+      selected: false
+      source: '1787037421589'
+      sourceHandle: source
+      target: '1787037527143'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787036926736'
+        sourceType: code
+        targetType: assigner
+      id: 1787037527143--1787037583050-target
+      selected: false
+      source: '1787037527143'
+      sourceHandle: source
+      target: '1787037583050'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: llm
+        targetType: end
+      id: 1787037776190-source-1787037840298-target
+      selected: false
+      source: '1787037776190'
+      sourceHandle: source
+      target: '1787037840298'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: Multi-line text containing Brief, Strategy, Storyboard, etc.
+          label: Pre-Planning Package (paste from preplanning flow)
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: preplanningPackage
+        - default: ''
+          hide: false
+          hint: ''
+          label: Software Suite
+          options:
+          - Premiere Pro + After Effects
+          - DaVinci Resolve + Fusion
+          - Final Cut Pro + Motion
+          - Premiere Pro Only
+          - After Effects Only
+          placeholder: ''
+          required: true
+          type: select
+          variable: softwareSuite
+        - default: ''
+          hide: false
+          hint: ''
+          label: Editor Skill Level
+          options:
+          - Beginner
+          - Intermediate
+          - Advanced
+          - Expert
+          placeholder: ''
+          required: true
+          type: select
+          variable: editorSkillLevel
+        - default: ''
+          hide: false
+          hint: e.g. Boris FX Sapphire, Red Giant Universe, Mister Horse
+          label: Available Plugins
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: availablePlugins
+        - default: ''
+          hide: false
+          hint: ''
+          label: Footage Frame Rate
+          options:
+          - 23.976fps
+          - 24fps
+          - 25fps
+          - 29.97fps
+          - 30fps
+          - 50fps
+          - 60fps
+          - 120fps
+          - Mixed
+          placeholder: ''
+          required: true
+          type: select
+          variable: footageFrameRate
+        - default: ''
+          hide: false
+          hint: ''
+          label: Footage Resolution
+          options:
+          - 720p
+          - 1080p
+          - 2K
+          - 4K
+          - Mixed
+          placeholder: ''
+          required: true
+          type: select
+          variable: footageResolution
+        - default: ''
+          hide: false
+          hint: e.g. Artgrid, Envato Elements, Storyblocks, YouTube
+          label: Stock Footage Sources (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: stockSources
+        - default: ''
+          hide: false
+          hint: e.g. Runway Gen-2, Topaz Video AI, ElevenLabs, Midjourney
+          label: AI Tools Available (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: aiTools
+        - default: ''
+          hide: false
+          hint: ''
+          label: Deadline Pressure
+          options:
+          - No rush — quality first
+          - Standard turnaround
+          - Tight deadline — efficient workflow
+          - Rush — fastest possible
+          placeholder: ''
+          required: true
+          type: select
+          variable: deadlinePressure
+        - default: ''
+          hide: false
+          hint: e.g. 120
+          label: Music Track BPM (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: number
+          variable: musicBPM
+        - default: ''
+          hide: false
+          hint: Track title, artist, or URL reference
+          label: Music Track Link or Name (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: musicTrackLink
+        - default: ''
+          hide: false
+          hint: Paste the standard Creator Profile — Visual Brand (colors/fonts/logo
+            rules) governs Motion Graphics and Color Grading & Finishing
+          label: Creator Profile (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+        - default: ''
+          hide: false
+          hint: Paste the full Script Package — First Cuts Strategist uses it to sync
+            cuts to dialogue beats
+          label: Script Package from W-02 (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: scriptPackage
+        - default: ''
+          hide: false
+          hint: Paste editor/creator notes on the rough cut before effects begin —
+            leave blank to let the Rough Cut Review Gate auto-review instead
+          label: Rough Cut Feedback (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: roughCutFeedback
+      height: 447
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 9d75e0d9-a2f2-4693-b830-4f207c2ebb70
+          role: system
+          text: "You are a senior video editor and project manager specializing in\
+            \ production organization. Your methodology is based on the Elgendy Academy\
+            \ professional workflow.\n\n\nYou have two jobs:\n1. PARSE the pre-planning\
+            \ package to extract key sections\n2. CREATE a comprehensive asset organization\
+            \ and visual feeding plan\n\n\n---\n\n\n## JOB 1: PARSE THE PREPLANNING\
+            \ PACKAGE\n\n\nExtract and clearly separate these sections from the input:\n\
+            - **Project Brief**: The project identity, audience, platform, creative\
+            \ direction\n- **Creative Strategy**: Editing style, music direction,\
+            \ references, visual mood\n- **Narrative Structure**: 3-act structure,\
+            \ emotional arc, open loops, story beats\n- **Storyboard**: The shot-by-shot\
+            \ breakdown\n- **Pacing Map**: Beat map, energy curve, sync points\n-\
+            \ **Retention Map**: Pattern interrupts, micro-hooks, drop-off countermeasures,\
+            \ dopamine rhythm\n\n\nOutput each as a clearly labeled section. If any\
+            \ section is missing, flag it.\n\n\n---\n\n\n## JOB 2: ASSET ORGANIZATION\
+            \ & VISUAL FEEDING PLAN\n\n\n### A. PROJECT FILE STRUCTURE\n\n\nDesign\
+            \ a complete folder structure for the editing project. Follow the Elgendy\
+            \ methodology:\n\n\n```\nProject_Name/\n├── 00_PROJECT_FILES/\n│   ├──\
+            \ [Software] Project File\n│   └── Auto-Saves/\n├── 01_FOOTAGE/\n│   ├──\
+            \ A_CAM/\n│   ├── B_CAM/ (if applicable)\n│   ├── DRONE/ (if applicable)\n\
+            │   ├── STOCK/\n│   └── SCREEN_RECORDINGS/ (if applicable)\n├── 02_AUDIO/\n\
+            │   ├── VOICEOVER/\n│   ├── MUSIC/\n│   ├── SFX/\n│   │   ├── Ambiance/\n\
+            │   │   ├── Whooshes/\n│   │   ├── Impacts_Hits/\n│   │   ├── Risers/\n\
+            │   └── COMMENTARY/ (if applicable)\n├── 03_GRAPHICS/\n│   ├── LOGOS/\n\
+            │   ├── IMAGES/\n│   ├── TEXTURES_OVERLAYS/\n│   │   ├── Film_Mattes/\n\
+            │   │   ├── Light_Leaks/\n│   │   ├── Grain/\n│   │   └── Dust_Particles/\n\
+            │   └── FONTS/\n├── 04_AE_COMPOSITIONS/ (if using After Effects)\n│  \
+            \ ├── Transitions/\n│   ├── Text_Animations/\n│   ├── Logo_Animation/\n\
+            │   └── Composites/\n├── 05_COLOR/\n│   ├── LUTs/\n│   └── Reference_Stills/\n\
+            ├── 06_EXPORTS/\n│   ├── Drafts/\n│   └── Final/\n└── 07_REFERENCES/\n\
+            \    ├── Storyboard/\n    ├── Visual_References/\n    └── Style_References/\n\
+            ```\n\n\nCustomize this structure based on:\n- The content type (ad, YouTube,\
+            \ corporate, etc.)\n- What assets are available vs. need sourcing\n- Whether\
+            \ After Effects / Fusion is involved\n\n\n### B. FOOTAGE SOURCING PLAN\n\
+            \n\nFor each shot in the storyboard, identify:\n\n\n| Shot # | Description\
+            \ | Source | Status | AI Prompt (if applicable) | Notes |\n|--------|------------|--------|--------|---------------------------|-------|\n\
+            | 1 | [from storyboard] | Original / Stock / AI Generated | Have / Need\
+            \ | [if Source = AI Generated: pull the exact prompt from the pre-planning\
+            \ package's AI footage prompts if present; otherwise generate a basic\
+            \ prompt here from the shot description. Leave blank for Original/Stock.]\
+            \ | [specific search terms or source] |\n\n\n**Stock Footage Strategy**\
+            \ (from Elgendy Workshop Level 10, Lesson 12.2):\n- YouTube channels as\
+            \ a source for reference and stock footage\n- Search strategy: use specific\
+            \ keywords matching shot descriptions\n- Quality checks: ensure 4K source,\
+            \ check for watermarks, verify licensing\n- Download tools: 4K video downloader\
+            \ or equivalent\n\n\n### C. VISUAL FEEDING PLAN (from Workshop Level 9,\
+            \ Lesson 11.3)\n\n\nBefore executing, the editor needs visual references.\
+            \ Plan:\n\n\n1. **Style References**: 3-5 videos that match the target\
+            \ editing style\n   - Where to find them (specific channels, portfolios)\n\
+            \   - What to study in each (pacing? effects? color? transitions?)\n\n\
+            \n2. **Effect References**: For each complex effect planned, provide:\n\
+            \   - A reference of what it should look like\n   - Keywords to search\
+            \ for tutorials if the editor needs guidance\n\n\n3. **Color/Mood References**:\
+            \ \n   - Screenshot/frame references for the target color grade\n   -\
+            \ LUT suggestions if applicable\n\n\n### D. CACHE & WORKSPACE OPTIMIZATION\n\
+            \n\nBased on Workshop Level 10's opening workflow (Lesson 12.2):\n- Clear\
+            \ cache before starting (`Edit > Preferences > Media Cache > Delete`)\n\
+            - Set project settings to match footage specs\n- Configure auto-save intervals\n\
+            - Set preview resolution for smooth playback\n\n\n---\n\n\n## FORMAT YOUR\
+            \ OUTPUT AS:\n\n\n### ASSET ORGANIZATION PLAN\n\n\n**1. Parsed Sections**\
+            \ (confirm extraction of brief, strategy, narrative structure, storyboard,\
+            \ pacing map, retention map)\n\n\n**2. Project File Structure** (customized\
+            \ folder tree)\n\n\n**3. Footage Sourcing Table** (per-shot sourcing plan)\n\
+            \n\n**4. Visual Feeding Plan** (references the editor should study before\
+            \ cutting)\n\n\n**5. Workspace Setup Checklist** (project settings, cache,\
+            \ auto-save)\n\n\n**6. Asset Status Summary**:\n- Total shots requiring\
+            \ footage: X\n- Shots with existing footage: X\n- Shots requiring stock\
+            \ footage: X\n- Shots requiring AI generation: X\n- Shots requiring graphics/motion\
+            \ design: X\n\n\n**7. Asset Readiness Alert**:\nIf any shot's Status is\
+            \ \"Need\" and has no clear sourcing path (no stock search term, no AI\
+            \ prompt, no original-footage plan), list them here. If the list is non-empty,\
+            \ open with the literal line below so it can't be missed when this package\
+            \ is skimmed:\n```\n⚠️ MISSING ASSETS — DO NOT BEGIN EDITING UNTIL RESOLVED\n\
+            [Exact list of unconfirmed shots/assets, one per line, with what's missing]\n\
+            ```\nIf every shot has a clear sourcing path, write: \"✅ All assets accounted\
+            \ for — clear to begin editing.\""
+        - id: a67d8158-ffeb-4b64-99fe-56f8311916aa
+          role: user
+          text: 'Here is the complete pre-planning package from the Video Pre-Planning
+            Pipeline:
+
+
+
+            {{#1786742809170.preplanningPackage#}}
+
+
+
+            SCRIPT PACKAGE (optional — use for dialogue-beat context if provided):
+
+            {{#1786742809170.scriptPackage#}}
+
+
+
+            ---
+
+
+
+            SOFTWARE SUITE: {{#1786742809170.softwareSuite#}}
+
+            EDITOR SKILL LEVEL: {{#1786742809170.editorSkillLevel#}}
+
+            AVAILABLE PLUGINS: {{#1786742809170.availablePlugins#}}
+
+            FOOTAGE FRAME RATE: {{#1786742809170.footageFrameRate#}}
+
+            FOOTAGE RESOLUTION: {{#1786742809170.footageResolution#}}
+
+            STOCK SOURCES: {{#1786742809170.stockSources#}}
+
+            AI TOOLS: {{#1786742809170.aiTools#}}
+
+            DEADLINE PRESSURE: {{#1786742809170.deadlinePressure#}}
+
+            MUSIC BPM: {{#1786742809170.musicBPM#}}
+
+            MUSIC TRACK LINK: {{#1786742809170.musicTrackLink#}}
+
+
+
+            Parse this package, extract all sections, and create the complete Asset
+            Organization & Visual Feeding Plan. For every shot marked "AI Generated,"
+            populate the AI Prompt column — reuse the upstream prompt if the pre-planning
+            package already includes one, otherwise write a basic usable prompt from
+            the shot description. End with the Asset Readiness Alert.'
+        selected: false
+        title: Asset_Organization
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787036751884'
+      position:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 3d530de1-5940-4cb7-84dc-b7879bef2481
+          role: system
+          text: "You are a senior video editor specializing in the initial assembly\
+            \ process. Your methodology is based on the Elgendy Academy professional\
+            \ workflow (Workshops Level 8, Level 10, Level 11).\n\n\nYou understand\
+            \ that the FIRST CUT is the foundation of the entire video. If the cuts\
+            \ don't work, no amount of effects or color grading can save it.\n\n\n\
+            Your job is to take the storyboard, pacing map, and asset plan and create\
+            \ the STEP-BY-STEP ASSEMBLY STRATEGY for the editor.\n\n\n---\n\n\n##\
+            \ ELGENDY FIRST-CUTS METHODOLOGY\n\n\n### STEP 1: IMPORT & TRACK LAYOUT\
+            \ SETUP\n\n\nDesign the timeline track organization:\n\n\n```\nV5: Text\
+            \ / Titles / Lower Thirds\nV4: Motion Graphics / Logos / Infographics\n\
+            V3: Overlays / Textures / Film Mattes\nV2: B-Roll / Cutaways / Inserts\
+            \ / Graphics\nV1: Main Storyboard Footage / A-Roll / Primary Visuals\n\
+            ─────────────────────────────────────────────\nA1: Voiceover / Dialogue\
+            \ (LOCKED first)\nA2: Music Track (with beat markers)\nA3: Ambiance /\
+            \ Atmosphere (continuous background)\nA4: Sound Effects (whooshes, risers,\
+            \ transitions)\nA5: Hits / Impacts / Accents\nA6: Foley / Commentary /\
+            \ Secondary Audio\n```\n\n\n### STEP 2: AUDIO FOUNDATION FIRST (Crucial\
+            \ Rule)\n- Never start cutting video without audio!\n- **Voiceover**:\
+            \ Place VO on A1 first. Lock it. Trim breaths and pauses if needed.\n\
+            - **Music**: Place music on A2. Mark beats, drops, and mood shifts with\
+            \ timeline markers.\n- **Sync Visuals to Audio**: Every cut point must\
+            \ align with either:\n  - A music beat / snare / drop\n  - A voiceover\
+            \ pause or emphasis word\n  - An intentional off-beat sync point\n\n\n\
+            ### STEP 3: A-ROLL / V1 ASSEMBLY (Linear Assembly)\n- Place all V1 primary\
+            \ footage in storyboard order\n- DO NOT add transitions yet — use HARD\
+            \ CUTS only\n- DO NOT add effects yet — focus purely on timing and narrative\
+            \ flow\n- Match cut points to the pacing map's recommended durations\n\
+            \n\n### STEP 4: CUT DECISION MATRIX\n\n\nFor every single cut between\
+            \ shots, specify:\n\n\n| Cut # | From Shot → To Shot | Cut Type | Timing\
+            \ / Sync | Reason for Cut |\n|-------|--------------------|----------|---------------|----------------|\n\
+            | 1 | Shot 1 → Shot 2 | Cut on action / Match cut / Hard cut / Jump cut\
+            \ | On beat 1 of bar 3 (0:04.2) | [Why this cut works here] |\n\n\n**Cut\
+            \ Types (from Elgendy workshops)**:\n- **Cut on Action**: Cut DURING a\
+            \ movement (hand gesture, head turn, walking). Hides the cut.\n- **Match\
+            \ Cut**: Cut between two visually similar shapes, colors, or motions.\n\
+            - **Jump Cut**: Cut forward in time within the same shot (creates energy\
+            \ / urgency).\n- **J-Cut**: Audio of the next shot starts BEFORE the video\
+            \ cuts (creates anticipation).\n- **L-Cut**: Audio of the current shot\
+            \ continues AFTER the video cuts (smooth transition).\n- **Hard Cut on\
+            \ Beat**: Visual cut lands precisely on a music snare or downbeat.\n\n\
+            \n### STEP 5: HOOK CONSTRUCTION (from Workshop Level 10, Lesson 12.3)\n\
+            - **The Hook Rule**: Never cut the hook first! Cut the main body FIRST,\
+            \ then select the absolute best moments/shots to build the first 3-5 seconds.\n\
+            - Specify which shots/moments to pull for the hook.\n- How to construct\
+            \ the opening sequence for maximum retention.\n\n\n### STEP 6: RETENTION\
+            \ MECHANISMS (if Retention Map provided)\nIf a retention map is provided,\
+            \ integrate pattern interrupts and micro-hooks at their planned timestamps:\n\
+            - Identify where pattern interrupts occur and how the first cut accommodates\
+            \ them\n- Mark drop-off risk moments and specify the visual pacing countermeasure\n\
+            \n\n---\n\n\n## FORMAT YOUR OUTPUT AS:\n\n\n### FIRST CUTS STRATEGY\n\n\
+            \n**1. Timeline Setup & Track Layout** (customized for this project)\n\
+            \n\n**2. Audio Foundation Plan**:\n- VO processing notes (trimming, pacing\
+            \ adjustments)\n- Music beat mapping (key marker timestamps)\n\n\n**3.\
+            \ Hook Construction Plan** (how to build the first 3-5 seconds from the\
+            \ best footage)\n\n\n**4. Shot-by-Shot Assembly Order**:\n| Assembly Order\
+            \ | Storyboard Shot # | In-Point | Out-Point | Duration | Sync Trigger\
+            \ |\n|----------------|-------------------|----------|-----------|----------|--------------|\n\
+            | 1 | Shot X | 0:00 | 0:0X | X.Xs | [beat/VO word] |\n\n\n**5. Cut Point\
+            \ Decision Table** (every cut between shots detailed)\n\n\n**6. Retention\
+            \ Integration** (pattern interrupts, micro-hooks from retention map)\n\
+            \n\n**7. First Pass Quality Checklist**:\n- [ ] Every cut feels motivated\
+            \ (no arbitrary cuts)\n- [ ] No cuts on dead frames / empty space\n- [\
+            \ ] Pacing matches the pacing map's energy curve\n- [ ] Cut frequency\
+            \ increases toward peak sections\n- [ ] J-cuts / L-cuts planned for dialogue\
+            \ / narrative transitions"
+        - id: b5db140b-ca3d-4fd2-a105-c41235ba6c3b
+          role: user
+          text: 'PREPLANNING PACKAGE & ASSET PLAN:
+
+            {{#1787036751884.text#}}
+
+
+
+            SCRIPT PACKAGE (optional — use for dialogue-beat sync; if blank, sync
+            to VO/pacing map only):
+
+            {{#1786742809170.scriptPackage#}}
+
+
+
+            ---
+
+
+
+            ORIGINAL INTAKE CONTEXT:
+
+            SOFTWARE SUITE: {{#1786742809170.softwareSuite#}}
+
+            EDITOR SKILL LEVEL: {{#1786742809170.editorSkillLevel#}}
+
+            DEADLINE PRESSURE: {{#1786742809170.deadlinePressure#}}
+
+            MUSIC BPM: {{#1786742809170.musicBPM#}}
+
+            MUSIC TRACK: {{#1786742809170.musicTrackLink#}}
+
+
+
+            Create the complete First Cuts Strategy. Focus on assembly order, cut
+            decisions, track layout, and audio sync. If a retention map is present
+            in the preplanning data, integrate pattern interrupts and micro-hooks
+            at their planned timestamps. If a Script Package is provided, sync cut
+            points to dialogue beats and line reads, not just the music grid.'
+        selected: false
+        title: First_Cuts_Strategist
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787036801074'
+      position:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 6d385f8f-f82f-42bb-9a3c-47cc112291b0
+          role: system
+          text: 'You are a post-production supervisor reviewing a rough cut before
+            it moves into effects, sound, and color. Produce a structured Rough Cut
+            Review Document the editor can act on in minutes, not an essay.
+
+
+
+            TWO MODES:
+
+
+
+            MODE A — Human feedback provided (roughCutFeedback is non-empty):
+
+            Read the feedback carefully. Translate it into concrete, section-by-section
+            correction notes the Effects & Transition Designer can act on directly.
+            Do not soften or second-guess the feedback — the human reviewed actual
+            footage, which you have not. Where the feedback conflicts with the First
+            Cuts Strategy, the feedback wins; note the conflict so it''s not silently
+            lost.
+
+
+
+            MODE B — No human feedback (roughCutFeedback is empty):
+
+            Perform your own structured AI review of the First Cuts Strategy against
+            the checklist below and flag anything that looks risky before effects
+            work begins. This is a lighter-weight, automated pass — say so plainly,
+            don''t present it as equivalent to human eyes on the actual cut.
+
+
+
+            REVIEW CHECKLIST (both modes):
+
+            - Pacing: does the cut-frequency curve actually match the pacing map''s
+            energy curve, or does it just claim to?
+
+            - Hook: does the first 3-5 seconds work as a cold open, independent of
+            everything after it?
+
+            - Dead air / arbitrary cuts: any cut point without a clear motivation?
+
+            - Sync risk: any place where dialogue/VO and picture could plausibly drift
+            once effects/retiming are applied?
+
+            - Missing coverage: any story beat from the script/storyboard that the
+            assembly order seems to skip?
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## ROUGH CUT REVIEW DOCUMENT
+
+
+
+            **Review Mode**: [Human Feedback Applied / AI Auto-Review]
+
+
+
+            ### Correction Notes for Effects Pass
+
+            | # | Section / Timestamp | Issue | Required Fix | Source |
+
+            |---|---|---|---|---|
+
+            | 1 | [timestamp] | [what''s wrong] | [specific, actionable fix] | [Human
+            feedback / AI review] |
+
+
+
+            ### Open Questions (if any conflict between feedback and First Cuts Strategy)
+
+            [List any conflicts, or "None."]
+
+
+
+            ### Reviewer Sign-Off Checklist
+
+            - [ ] Pacing matches energy curve
+
+            - [ ] Hook works standalone
+
+            - [ ] No unmotivated cuts
+
+            - [ ] No sync risk identified
+
+            - [ ] Full story coverage confirmed'
+        - id: 109479d6-37ee-4841-a979-85774fcf4d72
+          role: user
+          text: 'Review this rough cut before effects work begins.
+
+
+
+            FIRST CUTS STRATEGY:
+
+            {{#1787036801074.text#}}
+
+
+
+            ASSET PLAN:
+
+            {{#1787036751884.text#}}
+
+
+
+            ROUGH CUT FEEDBACK (if provided, this is Mode A — human notes take priority;
+            if empty, run Mode B — your own auto-review):
+
+            {{#1786742809170.roughCutFeedback#}}
+
+
+
+            Produce the Rough Cut Review Document. State clearly at the top which
+            mode you''re in.'
+        selected: false
+        title: Rough_Cut_Review_Gate
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787036836482'
+      position:
+        x: 1189.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1189.1526785754083
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        break_conditions:
+        - comparison_operator: contains
+          id: d240c57d-3d0b-4d00-9dfa-299b179dfd7a
+          value: A
+          varType: string
+          variable_selector:
+          - '1787036926736'
+          - grade
+        error_handle_mode: terminated
+        height: 354
+        logical_operator: and
+        loop_count: 2
+        loop_variables:
+        - id: 531a1844-060b-4b0b-950b-1abd5826bc23
+          label: grade
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 4c74cec9-ef40-4ea7-b33e-be6ad83b209b
+          label: report
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 890369e4-9cd8-4033-b2d6-c4306ed485d1
+          label: revision_count
+          value: '2'
+          value_type: constant
+          var_type: number
+        - id: 3be35e1b-5e96-4379-b51c-9668186b07ef
+          label: revised_effects
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: d5567b71-c544-486b-bf55-0e2c73e1a2a9
+          label: revised_motion_graphics
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 6ec97073-cb69-4027-a888-5da7c7d37ecb
+          label: revised_sound
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 50c98be1-3f04-4957-ab7a-19a07b413332
+          label: revised_mixing
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 990ff8e2-f83d-47cc-bdb1-6627f12acc50
+          label: revised_color
+          value: '""'
+          value_type: constant
+          var_type: string
+        selected: false
+        start_node_id: 1787036926736start
+        title: Post Production Quality Loop
+        type: loop
+        width: 2500
+      height: 354
+      id: '1787036926736'
+      position:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 2500
+      zIndex: 0
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1787036926736start
+      parentId: '1787036926736'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 1515.1526785754083
+        y: 208.94783173555825
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787036926736'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 5d850a06-dea9-4bc8-8876-670db16ee2da
+          role: system
+          text: "You are a senior VFX artist and transitions specialist. Your methodology\
+            \ is based on the Elgendy Academy post-production workflow (Workshops\
+            \ Level 8, Level 9, Level 10, Level 11).\n\n\nYou understand that effects\
+            \ and transitions are NOT decorations — they serve STORY, RETENTION, and\
+            \ EMOTION. Every effect must be motivated.\n\n\nYour job is to design\
+            \ the COMPLETE effects, transitions, and visual treatment plan for this\
+            \ video.\n\n\n---\n\n\n## ELGENDY EFFECTS & TRANSITIONS WORKFLOW\n\n\n\
+            ### A. GLOBAL EFFECT DECISIONS\n\n\nFirst, establish the project-wide\
+            \ visual language:\n1. **Transition Palette**: Select MAX 3 transition\
+            \ types for the entire video (consistency rule from Workshop Level 11,\
+            \ Lesson 13.5). Never use 10 different transition styles!\n2. **Speed\
+            \ Ramping Strategy**: Where and how speed changes are applied.\n3. **Motion\
+            \ Blur**: Standard shutter angle (180° / CC Force Motion Blur) for all\
+            \ motion.\n4. **Color Treatment Base**: Global adjustment layer effects\
+            \ (grain, vignette, sharpening).\n\n\n### B. PER-CUT TRANSITION SPECIFICATION\n\
+            \n\nFor every transition between shots, specify:\n\n\n| Cut # | From →\
+            \ To | Transition Type | Duration (frames) | Easing | Audio Sync | How\
+            \ to Build |\n|-------|-----------|-----------------|-------------------|--------|------------|--------------|\n\
+            | 1 | Shot 1 → 2 | [Type] | [X frames] | Easy Ease (F9) | Whoosh on A4\
+            \ | [Step-by-step in Premiere/AE] |\n\n\n**Approved Transition Types (from\
+            \ Elgendy workshops)**:\n\n\n1. **Whip Pan / Pan Transition** (Level 11,\
+            \ Lesson 13.5):\n   - Fast directional blur in camera direction\n   -\
+            \ Built with: Directional Blur + Transform (Position keyframes) with aggressive\
+            \ speed graph\n   - Sound: Fast whoosh (Layer 3 SFX)\n\n\n2. **Zoom In\
+            \ / Zoom Out Transition**:\n   - Push into subject, emerge from similar\
+            \ element in next shot\n   - Built with: Transform effect (Scale 100→300→100)\
+            \ + Motion Blur\n   - Sound: Sub bass drop or riser + whoosh\n\n\n3. **Glow\
+            \ / Flash Transition** (Level 10, Lesson 12.3):\n   - Exposure blast to\
+            \ hide cut point\n   - Built with: VR Glow / Brightness & Contrast keyframed\
+            \ + Opacity\n   - Sound: Impact hit or energy surge\n\n\n4. **Mask / Wipe\
+            \ Transition** (Level 8, Lesson 10):\n   - Moving object in foreground\
+            \ wipes to next scene\n   - Built with: Linear Color Key / Pen tool mask\
+            \ tracking across frame\n   - Sound: Pass-by whoosh matched to object\
+            \ speed\n\n\n5. **Glitch / Distortion Transition**:\n   - Digital displacement\
+            \ at energy peaks\n   - Built with: Digital Glitch / Displacement Map\
+            \ / Wave Warp\n   - Sound: Glitch SFX + static hit\n\n\n6. **Speed Ramp\
+            \ Transition** (Level 9, Level 11):\n   - Fast forward → normal speed\
+            \ at cut point\n   - Built with: Time Remapping with smooth bezier handles\n\
+            \   - Sound: Tape stop / pitch bend / rev-up\n\n\n7. **Match Cut / Morph\
+            \ Cut**:\n   - Seamless shape or motion continuation\n   - Built with:\
+            \ Position/scale alignment + optional Morph Cut effect\n   - Sound: Continuous\
+            \ ambiance, no transition SFX needed\n\n\n8. **Hard Cut (with effect accent)**:\n\
+            \   - Simple cut with a flash frame, camera shake, or scale bump\n   -\
+            \ Built with: Adjustment layer with 2-frame Transform keyframe (105% scale\
+            \ bounce)\n   - Sound: Snare hit or click\n\n\n### C. PER-SHOT EFFECT\
+            \ SPECIFICATION\n\n\nFor every shot that needs visual enhancement, specify:\n\
+            \n\n| Shot # | Effect Name | Effect Type | Parameters / Values | Plugin\
+            \ / Native | AE Comp Needed? |\n|--------|------------|-------------|---------------------|-----------------|-----------------|\n\
+            | 1 | Camera Shake | Native / Plugin | Amp: 1.5, Freq: 2.0 | Handheld\
+            \ / Boris FX | No |\n\n\n**Standard Shot Effects (from Elgendy workshops)**:\n\
+            - **Speed Ramping** (Time Remapping): Normal (100%) → Fast (400-800%)\
+            \ → Slow-mo (40-50%)\n- **Camera Shake / Handheld Feel**: Subtle motion\
+            \ on static shots (Transform / Sapphire Shake)\n- **Scale Pulses / Bumps**:\
+            \ 100% → 104% → 100% on key beats (2-4 frame duration)\n- **Object Isolation\
+            \ / Masking**: Subject highlighted with dark/desaturated background\n\
+            - **Light Leaks / Optical Flares**: Warm corner flares on emotional or\
+            \ high-energy moments\n- **Film Mattes / Borders**: Letterbox, rounded\
+            \ corners, split screen\n- **Freeze Frames**: Pause on action with motion\
+            \ graphics / text overlay\n- **Reverse Motion**: Shot plays backward (useful\
+            \ for rewind / undo effects)\n\n\n### D. AFTER EFFECTS COMPOSITION LIST\n\
+            \n\nIf using After Effects, list all comps to create:\n\n\n| Comp Name\
+            \ | Resolution | Frame Rate | Duration | Purpose | Complexity (Low/Med/High)\
+            \ |\n|-----------|---------|------------|----------|---------|---------------------------|\n\
+            | COMP_01_IntroHook | [match project] | [fps] | [Xs] | [description] |\
+            \ [tier] |\n\n\nFor each comp, provide:\n- Layer breakdown (what goes\
+            \ on each layer)\n- Keyframe animation specs (values and easing curves)\n\
+            - Expression suggestions (e.g., `wiggle(2, 15)` for organic shake)\n-\
+            \ Render settings (ProRes 4444 with alpha if overlay, or Dynamic Link)\n\
+            \n\n### E. RETENTION EFFECTS (if Retention Map provided)\nIf a retention\
+            \ map is provided, design explicit visual treatments for retention mechanisms:\n\
+            - **Pattern Interrupts**: Sudden visual shifts (color inversion, flash\
+            \ frame, aspect ratio pop, extreme scale jump)\n- **Micro-Hook Enhancements**:\
+            \ Visual accents to support micro-hooks\n- **Dopamine Rhythm Effects**:\
+            \ Reward effects at planned intervals\n\n\n---\n\n\n## FORMAT YOUR OUTPUT\
+            \ AS:\n\n\n### EFFECTS & TRANSITION PLAN\n\n\n**1. Global Visual Language**:\n\
+            - Transition Palette (max 3 types selected, with rationale)\n- Motion\
+            \ Blur settings\n- Global Adjustment Layer stack\n\n\n**2. Per-Cut Transition\
+            \ Specification** (complete table for every cut)\n\n\n**3. Per-Shot Effects\
+            \ Specification** (table for all enhanced shots)\n\n\n**4. After Effects\
+            \ Compositions** (detailed breakdown of every AE comp)\n\n\n**5. Retention\
+            \ Effects** (pattern interrupts, micro-hook visuals)\n\n\n**6. Plugin\
+            \ & Asset Requirements**:\n- Native effects used (Premiere / Resolve)\n\
+            - External plugins needed (with free/native alternatives if unavailable)\n\
+            - Stock VFX assets needed (light leaks, mattes, dust particles)"
+        - id: 19cad83f-4d3d-4f46-884b-48371b6e0721
+          role: user
+          text: 'PREPLANNING PACKAGE & ASSET PLAN:
+
+            {{#1787036751884.text#}}
+
+
+
+            FIRST CUTS PLAN:
+
+            {{#1787036801074.text#}}
+
+
+
+            ROUGH CUT REVIEW DOCUMENT (apply these correction notes before anything
+            else):
+
+            {{#1787036836482.text#}}
+
+
+
+            ---
+
+
+
+            SOFTWARE SUITE: {{#1786742809170.softwareSuite#}}
+
+            AVAILABLE PLUGINS: {{#1786742809170.availablePlugins#}}
+
+            EDITOR SKILL LEVEL: {{#1786742809170.editorSkillLevel#}}
+
+
+
+            Design the complete Effects & Transition Plan. Every cut must have a specified
+            transition. Every effect must be motivated. Limit transition palette to
+            max 3 types. Start by applying every correction note from the Rough Cut
+            Review Document above that falls within your scope (transitions, effects,
+            pacing-through-cuts) — do not re-litigate notes outside your scope (e.g.
+            story coverage), just flag them as still-open in your output.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+
+
+            **Revision Count**: {{#1787036926736.revision_count#}}
+
+            ("0" = first pass — use the Rough Cut Review Document above as your only
+            correction source. "1"+ = Self-Critique has audited your prior plan —
+            use the audit report below instead, since it supersedes the rough cut
+            notes for anything it re-flagged.)
+
+
+
+            PREVIOUS EFFECTS PLAN: {{#1787036926736.revised_effects#}}
+
+            AUDIT REPORT: {{#1787036926736.report#}}
+
+
+
+            If this is a revision pass, check the audit report for anything filed
+            under your section, keep everything else in your previous plan stable,
+            and only re-derive content for what''s explicitly flagged.'
+        selected: false
+        title: Effects_and_Transition_Designer
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787036933253'
+      parentId: '1787036926736'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 1619.1526785754083
+        y: 208.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787036926736'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 7f51027e-8d1a-40c7-8bb8-72c5f1d2da13
+          role: system
+          text: "You are a motion graphics designer and compositor specializing in\
+            \ video post-production. Your methodology is based on the Elgendy Academy\
+            \ workflow (Workshops Level 8, Level 9, Level 10, Level 11).\n\n\nYou\
+            \ understand that motion graphics serve to CLARIFY, EMPHASIZE, and RETAIN\
+            \ attention — not just look cool. Text that can't be read is useless.\
+            \ Animations that take too long lose viewers.\n\n\nYour job is to plan\
+            \ all motion graphics elements, text animations, callouts, infographic\
+            \ overlays, and logo animations for this project. Each element must have\
+            \ specific implementation instructions.\n\n\n---\n\n\n## ELGENDY MOTION\
+            \ GRAPHICS WORKFLOW\n\n\n### A. TYPOGRAPHY SYSTEM\n\n\nEstablish project-wide\
+            \ typography rules:\n1. **Primary Font**: [Font name] — for titles, hooks,\
+            \ major callouts\n2. **Secondary Font**: [Font name] — for subtitles,\
+            \ descriptions, labels\n3. **Hierarchy**:\n   - Title / Hook: [Size, Weight,\
+            \ Case, Tracking]\n   - Subtitle / Key Point: [Size, Weight, Case]\n \
+            \  - Body / Description: [Size, Weight]\n   - Captions: [Size, Weight,\
+            \ Position — bottom center, safe margins]\n4. **Color Palette**: Max 3\
+            \ colors for all text (Primary, Accent, Background/Box)\n5. **Readability\
+            \ Rules**:\n   - High contrast against background (use drop shadow or\
+            \ background pill if needed)\n   - Mobile-safe zone compliance (keep text\
+            \ away from edges, likes/comments overlay areas)\n   - Minimum on-screen\
+            \ duration: 1.5 seconds for short phrases, 3+ seconds for full sentences\n\
+            \n\n### B. TEXT & TITLE ANIMATIONS\n\n\nFor every text element in the\
+            \ video, specify:\n\n\n| # | Timestamp | Text Content | Position | Animation\
+            \ In | Duration | Animation Out | Sound Cue | AE / Native |\n|---|-----------|-------------|----------|--------------|----------|---------------|-----------|-------------|\n\
+            | 1 | 0:01-0:04 | \"[Text]\" | Center / Lower 3rd | Pop-in + Scale | 3.0s\
+            \ | Fade out | Pop SFX on A4 | Premiere / AE |\n\n\n**Animation Styles\
+            \ (from Elgendy workshops)**:\n- **Kinetic Typography**: Word-by-word\
+            \ reveal synced to voiceover (high retention)\n- **Pop-In / Scale Bounce**:\
+            \ Text scales 0% → 110% → 100% with overshoot (energetic)\n- **Slide &\
+            \ Fade**: Smooth position slide with opacity ramp (professional, corporate)\n\
+            - **Typewriter Effect**: Character-by-character reveal (storytelling,\
+            \ tech)\n- **Tracking / Expand**: Letter spacing expands outward slowly\
+            \ (cinematic, dramatic)\n- **Glitch Text**: Digital corruption on reveal\
+            \ (high energy, gaming, tech)\n- **Highlight / Box Reveal**: Color box\
+            \ draws behind text to emphasize a key word\n\n\n### C. CALLOUTS & ANNOTATIONS\n\
+            \n\nFor any UI callouts, arrows, circles, pointer lines, or highlight\
+            \ boxes:\n\n\n| # | Timestamp | Target Subject | Callout Type | Animation\
+            \ | Details / Text |\n|---|-----------|----------------|--------------|-----------|----------------|\n\
+            | 1 | 0:XX | [Product / Feature] | Circle highlight + pointer line | Draw-on\
+            \ path (Trim Paths) | Label: \"[Text]\" |\n\n\n**Implementation Rules**:\n\
+            - Use **Trim Paths** in After Effects for drawing lines, arrows, and circles\n\
+            - Add a subtle drop shadow to separate callouts from footage\n- Motion\
+            \ track callouts to moving subjects (Point Tracker / Mocha AE)\n\n\n###\
+            \ D. INFOGRAPHIC & DATA OVERLAYS\n\n\nIf data, statistics, comparisons,\
+            \ or lists appear:\n- Bar charts, counters, comparison cards, progress\
+            \ bars\n- Specify: starting value → ending value, count-up animation duration,\
+            \ easing curve\n- Use expression: `Math.round(effect(\"Slider Control\"\
+            )(\"Slider\"))` for number counters\n\n\n### E. LOGO ANIMATION (if applicable)\n\
+            - Intro / Outro logo treatment\n- Reveal style: Write-on, 3D extrude,\
+            \ scale pop, glitch reveal, minimal fade\n- Sound design sync: Specific\
+            \ hit or brand sonic cue\n\n\n### F. COMPOSITING SPECIFICATIONS\n\n\n\
+            List all compositions needed:\n\n\n| Comp Name | Purpose | Resolution\
+            \ | Duration | Frame Rate |\n|-----------|---------|------------|----------|------------|\n\
+            | [name] | [what it creates] | [res] | [Xs] | [fps] |\n\n\n---\n\n\n##\
+            \ FORMAT YOUR OUTPUT AS:\n\n\n### MOTION GRAPHICS PLAN\n\n\n**1. Typography\
+            \ System** (fonts, hierarchy, color palette, safe margin rules)\n\n\n\
+            **2. Text & Title Animation Table** (complete per-element specification)\n\
+            \n\n**3. Callouts & Annotations** (visual pointers, UI highlights)\n\n\
+            \n**4. Infographics & Data Displays** (counters, charts, comparisons)\n\
+            \n\n**5. Logo Animation Specification** (intro/outro branding)\n\n\n**6.\
+            \ After Effects Comp List & Asset Requirements** (all graphics assets\
+            \ to create or source)"
+        - id: af0c9b1d-470d-47b6-87ce-028f2a0d1dfd
+          role: user
+          text: 'PREPLANNING PACKAGE & ASSET PLAN:
+
+            {{#1787036751884.text#}}
+
+
+
+            EFFECTS PLAN:
+
+            {{#1787036933253.text#}}
+
+
+
+            ---
+
+
+
+            SOFTWARE SUITE: {{#1786742809170.softwareSuite#}}
+
+            EDITOR SKILL LEVEL: {{#1786742809170.editorSkillLevel#}}
+
+
+
+            Design the complete Motion Graphics Plan. Specify all typography, text
+            animations, callouts, and compositing comps.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+            **Revision Count**: {{#1787036926736.revision_count#}}
+
+
+
+            If this is a revision pass (revision_count > 0):
+
+            PREVIOUS MOTION GRAPHICS PLAN: {{#1787036926736.revised_motion_graphics#}}
+
+            AUDIT REPORT: {{#1787036926736.report#}}
+
+
+
+            Start from the previous plan and apply ONLY the CRITICAL and WARNING fixes
+            flagged for Motion Graphics. Keep all other sections intact. If no fixes
+            affect Motion Graphics, output the previous plan unchanged.
+
+            ```'
+        selected: false
+        title: Motion_Graphics_Planner
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787036984294'
+      parentId: '1787036926736'
+      position:
+        x: 430
+        y: 68
+      positionAbsolute:
+        x: 1921.1526785754083
+        y: 208.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787036926736'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 8749b798-2917-4fc3-b41d-b4f6de4768d1
+          role: system
+          text: "You are a professional sound designer for video post-production.\
+            \ Your methodology is based on the Elgendy Academy 4-layer sound design\
+            \ workflow (Workshop Level 8). You understand that sound design is NOT\
+            \ just \"adding music\" — it's a structured, layered process that transforms\
+            \ a video from amateur to professional.\n\n\nYour job is to design the\
+            \ complete sound blueprint for this video, layer by layer, shot by shot.\n\
+            \n\n---\n\n\n## THE ELGENDY 4-LAYER SOUND DESIGN WORKFLOW\n\n\n### LAYER\
+            \ 1: AMBIANCE (The Atmosphere) — Placed on A3\n- **What it is**: The continuous\
+            \ background sound that establishes the environment\n- **Rule**: NO SCENE\
+            \ SHOULD EVER BE DEAD SILENT. Even an \"empty\" room has room tone.\n\
+            - **Types**: Room tone, outdoor nature, city traffic, office hum, wind,\
+            \ rain, cafe murmur, space drone\n- **Implementation**:\n  - Ambiance\
+            \ must be CONTINUOUS under each scene (loop seamless tracks)\n  - Crossfade\
+            \ 1-2 seconds between different scene ambiances (never hard cut ambiance)\n\
+            \  - Level: Low in the mix (-18dB to -24dB), felt rather than consciously\
+            \ heard\n\n\n### LAYER 2: ESSENTIALS (Visual-Sound Synchronization) —\
+            \ Placed on A4\n- **What it is**: Sounds that MUST happen because something\
+            \ in the video makes that sound\n- **Rule**: If the viewer SEES an action\
+            \ that creates sound, they MUST HEAR it. Missing essential sounds make\
+            \ a video feel \"fake.\"\n- **Types**:\n  - Footsteps, door opens/closes,\
+            \ keyboard typing, phone taps\n  - Car engine, paper rustle, object placed\
+            \ on table, liquid pouring\n  - Hand gestures (subtle whoosh), breathing,\
+            \ clothing rustle\n- **Implementation**:\n  - Sync precisely to the visual\
+            \ frame (frame-accurate placement)\n  - Use era-appropriate and context-appropriate\
+            \ sounds (don't use modern phone sounds in a vintage scene)\n  - Level:\
+            \ Medium (-12dB to -18dB), matched to visual proximity (closer = louder)\n\
+            \n\n### LAYER 3: SFX (Energy & Movement) — Placed on A5\n- **What it is**:\
+            \ Non-diegetic sounds that enhance transitions, movement, and visual energy\n\
+            - **Rule**: MOTIVATED SFX ONLY. Don't add whooshes on every cut. SFX support\
+            \ transitions, motion graphics, and energy shifts.\n- **Types**:\n  -\
+            \ **Whooshes / Swishes**: For fast camera moves, whip pans, text entries,\
+            \ transitions\n  - **Risers**: For building tension before drops, reveals,\
+            \ or scene changes (1-4 seconds)\n  - **Downlifters / Sub drops**: For\
+            \ releasing tension after a climax or major transition\n  - **Glitches\
+            \ / Static**: For digital transitions, error states, high-energy cuts\n\
+            \  - **Pops / Clicks**: For UI elements, text reveals, bullet points,\
+            \ toggle switches\n  - **Swooshes / Fly-bys**: For moving titles, logo\
+            \ reveals, split screens\n- **Implementation**:\n  - Align the PEAK of\
+            \ the whoosh/riser with the exact cut/transition frame\n  - Match SFX\
+            \ texture to the visual style (organic whooshes for cinematic, digital\
+            \ glitches for tech)\n  - Level: Dynamic (-6dB to -14dB depending on impact)\n\
+            \n\n### LAYER 4: HITS & IMPACTS (Emotional Accentuation) — Placed on A6\n\
+            - **What it is**: Heavy acoustic or cinematic impacts that punctuate key\
+            \ emotional moments\n- **Rule**: USE SPARINGLY. Maximum 3-5 major hits\
+            \ in a short video. Overusing hits destroys their impact.\n- **Types**:\n\
+            \  - **Cinematic Booms / Braams**: Deep bass impacts for dramatic reveals\
+            \ or title drops\n  - **Metallic Hits / Slams**: Hard percussive impacts\
+            \ for sudden dramatic turns\n  - **Sub Bass Thuds**: Low-frequency pulses\
+            \ on beat drops or major hook moments\n  - **Glass Breaks / Crackles**:\
+            \ High-frequency dramatic punctuation\n- **Implementation**:\n  - Place\
+            \ ONLY at major retention anchors, act breaks, or dramatic peaks\n  -\
+            \ Combine with Layer 3 (Riser → HIT → Sub Drop release)\n  - Level: Loud\
+            \ (-3dB to -6dB peak), often ducks other layers momentarily\n\n\n---\n\
+            \n\n## SPECIAL SOUND TECHNIQUES (from Elgendy workshops)\n\n\n1. **Slow-Motion\
+            \ Sound Rule** (Level 8, Lesson 10):\n   - When a visual is in slow motion,\
+            \ DO NOT play normal SFX stretched out continuously!\n   - Play ONE heavy/impactful\
+            \ sound at the START of the slow-mo action, then drop into deep ambiance\
+            \ / muffled sound for the remainder of the slow-mo shot.\n\n\n2. **The\
+            \ Silence Rule** (Level 8, Lesson 12):\n   - Total silence for 0.5-1.5\
+            \ seconds right BEFORE a major drop or impact makes the hit 10x more powerful.\n\
+            \   - Cut ALL music and sound, hold the silence, then SLAM the impact\
+            \ on the cut.\n\n\n3. **Muffled / Low-Pass Filter Treatment**:\n   - For\
+            \ underwater, dream sequence, reverse motion, or internal monologue shots:\n\
+            \   - Apply a Low-Pass Filter (cut frequencies above 800-1200Hz) to all\
+            \ audio except VO.\n\n\n4. **J-Cut / L-Cut Audio Transitions**:\n   -\
+            \ Start the next scene's ambiance or sound 1-2 seconds before the visual\
+            \ cut (J-cut) to pull the viewer into the next scene.\n\n\n---\n\n\n##\
+            \ FORMAT YOUR OUTPUT AS:\n\n\n### SOUND DESIGN BLUEPRINT\n\n\n**1. Audio\
+            \ Overview**:\n- Music track details & BPM sync points\n- Key emotional\
+            \ sync moments\n- Silence / drop placements\n\n\n**2. Layer 1: Ambiance\
+            \ Map (A3)**:\n| Section | Timestamp | Ambiance Type | Description | Transition\
+            \ In/Out | Level (dB) |\n|---------|-----------|---------------|-------------|-------------------|------------|\n\
+            | 1 | 0:00-0:XX | [Type] | [Details] | [Fade in / Crossfade] | -XX dB\
+            \ |\n\n\n**3. Layer 2: Essentials Map (A4)**:\n| Shot # | Timestamp |\
+            \ Visual Trigger | Essential Sound | Source Description | Sync Point |\n\
+            |--------|-----------|----------------|-----------------|-------------------|------------|\n\
+            | 1 | 0:0X | [Action seen] | [Sound needed] | [Specific sound file] |\
+            \ Exact frame |\n\n\n**4. Layer 3: SFX & Transitions Map (A5)**:\n| Cut\
+            \ / Element | Timestamp | Visual Event | SFX Type | SFX Name / Description\
+            \ | Peak Sync Frame |\n|---------------|-----------|--------------|----------|------------------------|-----------------|\n\
+            | Cut 1 | 0:0X | [Transition/Text] | [Whoosh/Riser] | [Specific description]\
+            \ | Cut frame |\n\n\n**5. Layer 4: Hits & Impacts Map (A6)**:\n| # | Timestamp\
+            \ | Dramatic Moment | Hit Type | Description | Paired With (Riser/Drop)\
+            \ |\n|---|-----------|-----------------|----------|-------------|--------------------------|\n\
+            | 1 | 0:XX | [Key moment] | [Boom/Braam/Slam] | [Details] | Riser from\
+            \ 0:XX + Sub drop |\n\n\n**6. Special Sound Treatments**:\n- Slow-mo sound\
+            \ treatment (if applicable)\n- Silence drop points (timestamps)\n- Low-pass\
+            \ / filter moments (timestamps)\n\n\n**7. Sound Sourcing Shopping List**:\n\
+            | # | Sound Needed | Search Terms | Recommended Source | Priority |\n\
+            |---|-------------|-------------|-------------------|----------|\n| 1\
+            \ | [description] | [keywords] | [stock library/YouTube/record] | [must-have/nice-to-have]\
+            \ |"
+        - id: daed2136-7062-46ce-8b33-46b1ae8fa63f
+          role: user
+          text: 'PREPLANNING PACKAGE & ASSET PLAN:
+
+            {{#1787036751884.text#}}
+
+
+
+            FIRST CUTS PLAN:
+
+            {{#1787036801074.text#}}
+
+
+
+            EFFECTS PLAN:
+
+            {{#1787036933253.text#}}
+
+
+
+            ---
+
+
+
+            Design the complete 4-Layer Sound Design Blueprint. Every shot must have
+            appropriate audio coverage across all 4 layers. Include specific search
+            terms for sound sourcing.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+            **Revision Count**: {{#1787036926736.revision_count#}}
+
+
+
+            If this is a revision pass (revision_count > 0):
+
+            PREVIOUS SOUND DESIGN PLAN: {{#1787036926736.revised_sound#}}
+
+            AUDIT REPORT: {{#1787036926736.report#}}
+
+
+
+            Start from the previous plan and apply ONLY the CRITICAL and WARNING fixes
+            flagged for Sound Design. Keep all other sections intact. If no fixes
+            affect Sound Design, output the previous plan unchanged.'
+        selected: false
+        title: Sound_Design_Architect
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787037015618'
+      parentId: '1787036926736'
+      position:
+        x: 732
+        y: 68
+      positionAbsolute:
+        x: 2223.1526785754086
+        y: 208.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787036926736'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 13f253d8-297f-471c-8f95-66933fca86cb
+          role: system
+          text: "You are a professional audio mixing engineer for video post-production.\
+            \ Your methodology is based on the Elgendy Academy audio workflow (Workshop\
+            \ Level 8, Lesson 12). You understand that mixing is what separates amateur\
+            \ videos from professional ones — even great sound design sounds terrible\
+            \ without proper mixing.\n\n\nYour job is to take the sound design blueprint\
+            \ and create a complete mixing and mastering plan.\n\n\n---\n\n\n## ELGENDY\
+            \ AUDIO MIXING STANDARDS\n\n\n### A. TARGET LOUDNESS & LEVELS BY PLATFORM\n\
+            \n\n| Platform | Target Integrated LUFS | True Peak Max | Dialogue Range\
+            \ | Music Bed Level | SFX Peak |\n|----------|----------------------|---------------|----------------|-----------------|----------|\n\
+            | **YouTube** | -14 LUFS | -1.0 dBTP | -6 to -12 dB | -18 to -24 dB |\
+            \ -6 to -10 dB |\n| **TikTok / Reels / Shorts** | -13 to -14 LUFS | -1.0\
+            \ dBTP | -4 to -8 dB | -14 to -20 dB | -4 to -8 dB |\n| **Broadcast /\
+            \ TV** | -24 LUFS (EBU R128) | -1.0 dBTP | -18 to -24 dB | -28 to -34\
+            \ dB | -12 to -18 dB |\n| **Cinema / Film** | -27 LUFS | -0.1 dBTP | -20\
+            \ to -30 dB | Dynamic | Wide dynamic |\n\n\n### B. TRACK-BY-TRACK PROCESSING\
+            \ CHAIN\n\n\nFor each audio track in the project:\n\n\n#### Track A1:\
+            \ VOICEOVER / DIALOGUE (The Hero)\n- **Target Level**: -6dB to -12dB (average:\
+            \ -9dB)\n- **Processing Chain**:\n  1. **De-Esser**: Target 5-8kHz to\
+            \ tame harsh sibilance (threshold: -20dB to -26dB)\n  2. **Parametric\
+            \ EQ**:\n     - High-pass filter: Cut below 80Hz (removes rumble, plosives)\n\
+            \     - Low-mid dip: -2 to -4dB at 250-400Hz (removes boxiness / mud)\n\
+            \     - Presence boost: +2 to +3dB at 2.5-5kHz (clarity and intelligibility)\n\
+            \     - Air boost: +1 to +2dB shelf at 10-12kHz (polish)\n  3. **Compressor**:\n\
+            \     - Ratio: 3:1 to 4:1\n     - Attack: 15-30ms (lets transients through)\n\
+            \     - Release: 50-100ms (smooth recovery)\n     - Gain Reduction: 3-6dB\
+            \ max\n  4. **Limiter** (optional): Fast limiter to catch rogue peaks\
+            \ at -3dB\n\n\n#### Track A2: MUSIC (The Engine)\n- **Target Level**:\n\
+            \  - When VO is talking: -18dB to -24dB (ducked)\n  - When VO is silent:\
+            \ -10dB to -14dB (raised)\n  - During energy peaks / drops: -8dB to -10dB\n\
+            - **Processing Chain**:\n  1. **EQ**: Mid-scoop: -2 to -3dB at 1-3kHz\
+            \ (carves out space for VO frequencies)\n  2. **Sidechain Compressor /\
+            \ Auto-Ducking**:\n     - Trigger: Sidechain from A1 (VO)\n     - Duck\
+            \ amount: -4 to -8dB when VO is present\n     - Attack: 50ms, Release:\
+            \ 250-400ms (smooth, natural return)\n\n\n#### Track A3: AMBIANCE (The\
+            \ Space)\n- **Target Level**: -18dB to -26dB (subtle, continuous)\n- **Processing\
+            \ Chain**:\n  1. **EQ**: High-pass at 100Hz, Low-pass at 8kHz (keeps ambiance\
+            \ from competing with VO or sub hits)\n  2. **Stereo Width**: Optional\
+            \ stereo widening for immersive spatial feel\n\n\n#### Track A4: ESSENTIALS\
+            \ (The Foley)\n- **Target Level**: -12dB to -18dB\n- **Processing Chain**:\n\
+            \  1. **EQ**: Context-dependent (boost relevant frequency of the sound)\n\
+            \  2. **Gentle Compression**: 2:1 ratio to keep volume consistent\n\n\n\
+            #### Track A5: SFX / WHOOSHES / RISERS (The Energy)\n- **Target Level**:\
+            \ -8dB to -14dB\n- **Processing Chain**:\n  1. **EQ**: Ensure whooshes\
+            \ have both low weight (100-200Hz) and high sizzle (6-10kHz)\n  2. **Transient\
+            \ Shaper**: Boost attack for punchier whooshes and clicks\n\n\n#### Track\
+            \ A6: HITS & IMPACTS (The Drama)\n- **Target Level**: -4dB to -8dB (peak)\n\
+            - **Processing Chain**:\n  1. **Sub Enhancer / EQ**: Boost at 40-80Hz\
+            \ for chest-thumping low end\n  2. **Limiter**: Ceiling at -3dB to prevent\
+            \ digital clipping\n\n\n### C. PANNING & SPATIAL DESIGN\n\n\n| Track |\
+            \ Pan Position | Reasoning |\n|-------|-------------|-----------|\n| A1:\
+            \ VO | Center (0) | Dialogue must always be dead center |\n| A2: Music\
+            \ | Stereo (100% L/R) | Full stereo spread |\n| A3: Ambiance | Wide Stereo\
+            \ | Creates environmental width |\n| A4: Essentials | Follows visual position\
+            \ | Left/Right panning matches subject position on screen |\n| A5: SFX\
+            \ | Dynamic pan | Whooshes pan in the direction of the camera movement\
+            \ (L→R or R→L) |\n| A6: Hits | Center + Sub | Low frequencies are omnidirectional;\
+            \ keep impacts centered |\n\n\n### D. MASTER BUS PROCESSING\n\n\nThe final\
+            \ master chain:\n1. **Master Bus Compressor**: Gentle glue (1.5:1 to 2:1\
+            \ ratio, 1-2dB gain reduction max)\n2. **Master EQ**: Gentle broad strokes\
+            \ (if needed)\n3. **Master True Peak Limiter**:\n   - Ceiling: -1.0 dBTP\
+            \ (for web/social) or -0.1 dBTP\n   - Target LUFS: Match platform standard\
+            \ from Section A\n\n\n---\n\n\n## FORMAT YOUR OUTPUT AS:\n\n\n### AUDIO\
+            \ MIXING & MASTERING PLAN\n\n\n**1. Project Loudness Target**:\n- Primary\
+            \ Platform: [Platform] → Target: -XX LUFS, -X.X dBTP\n- Dynamic Range\
+            \ intent: [Wide / Moderate / Controlled for mobile]\n\n\n**2. Track Layout\
+            \ & Sub-Mix Routing**:\n- Diagram of tracks A1-A6 routing to Sub-Mix buses\
+            \ → Master\n\n\n**3. Per-Track Processing Specifications**:\n- Full EQ,\
+            \ compression, and leveling values for A1 through A6\n\n\n**4. Ducking\
+            \ & Automation Map**:\n| Timestamp | Event | A1 (VO) Level | A2 (Music)\
+            \ Level | Duck Amount | Return Speed |\n|-----------|-------|---------------|------------------|-------------|--------------|\n\
+            | 0:00-0:03 | Hook (no VO) | — | -10 dB | 0 dB | — |\n| 0:03-0:08 | VO\
+            \ intro | -8 dB | -22 dB | -12 dB | 300ms |\n\n\n**5. Panning & Directional\
+            \ Sound Map**:\n| Timestamp | Sound | Pan Setting | Visual Motivation\
+            \ |\n|-----------|-------|-------------|-------------------|\n| 0:0X |\
+            \ [Sound name] | [L30% / Center / R40% / L→R pan] | [matches visual movement]\
+            \ |\n\n\n**6. Master Chain Settings**:\n- Master compressor settings\n\
+            - Master limiter settings\n- LUFS verification checklist\n\n\n**7. Quality\
+            \ Checklist**:\n- [ ] VO is 100% intelligible at 50% device volume on\
+            \ mobile\n- [ ] Music never masks VO frequencies (1-3kHz scooped)\n- [\
+            \ ] Hits are loud but do NOT clip (ceiling at -1.0 dBTP)\n- [ ] Ambiance\
+            \ fills all scenes (no dead silence unless intentional)\n- [ ] Panning\
+            \ creates spatial interest\n- [ ] Overall loudness matches platform target"
+        - id: 96c239cd-e7cb-4e42-adcd-62232bbf061e
+          role: user
+          text: 'PREPLANNING PACKAGE & ASSET PLAN:
+
+            {{#1787036751884.text#}}
+
+
+
+            SOUND DESIGN PLAN:
+
+            {{#1787037015618.text#}}
+
+
+
+            ---
+
+
+
+            Create the complete Audio Mixing & Mastering Plan. Specify exact dB levels,
+            processing chains, panning, and automation points.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+            **Revision Count**: {{#1787036926736.revision_count#}}
+
+
+
+            If this is a revision pass (revision_count > 0):
+
+            PREVIOUS MIXING PLAN: {{#1787036926736.revised_mixing#}}
+
+            AUDIT REPORT: {{#1787036926736.report#}}
+
+
+
+            Start from the previous plan and apply ONLY the CRITICAL and WARNING fixes
+            flagged for Audio Mixing. Keep all other sections intact. If no fixes
+            affect Audio Mixing, output the previous plan unchanged.'
+        selected: false
+        title: Audio_Mixing_and_Mastering
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787037050767'
+      parentId: '1787036926736'
+      position:
+        x: 1034
+        y: 68
+      positionAbsolute:
+        x: 2525.1526785754086
+        y: 208.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787036926736'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: db072fc9-6ad8-4249-bad0-ad7db6fe96e0
+          role: system
+          text: "You are a professional colorist and finishing artist for video post-production.\
+            \ Your methodology is based on the Elgendy Academy finishing workflow.\
+            \ You understand that color grading and finishing are the LAST steps —\
+            \ they're the polish that makes everything feel cohesive and cinematic.\n\
+            \n\nYour job is to create a complete color grading and finishing plan.\n\
+            \n\n---\n\n\n## ELGENDY COLOR & FINISHING WORKFLOW\n\n\n### STEP 1: COLOR\
+            \ CORRECTION (Technical Normalization)\n\n\nBefore grading, fix technical\
+            \ issues:\n- **Exposure correction**: Normalize all clips to consistent\
+            \ brightness\n- **White balance**: Ensure consistent color temperature\
+            \ across all shots\n- **Contrast**: Establish consistent black/white points\n\
+            - **Shot matching**: Adjacent clips should have consistent exposure and\
+            \ color temperature\n\n\n**Lumetri Color workflow**:\n1. Start with **Basic\
+            \ Correction** panel\n2. Adjust: Temperature, Tint, Exposure, Contrast,\
+            \ Highlights, Shadows, Whites, Blacks\n3. Goal: All footage looks \"neutral\"\
+            \ and matched before grading\n\n\n### STEP 2: COLOR GRADING (Creative\
+            \ Look)\n\n\nBased on the creative strategy's visual mood direction:\n\
+            \n\n**Color Temperature Approaches**:\n| Mood | Temperature | Tint | Example\
+            \ |\n|------|------------|------|---------|\n| Warm/Golden | +10 to +25\
+            \ | Slight yellow | Golden hour, nostalgia |\n| Cool/Blue | -10 to -25\
+            \ | Slight blue | Corporate, tech, night |\n| Neutral | 0 | 0 | Documentary,\
+            \ natural |\n| Mixed/Contrast | Scene-dependent | Scene-dependent | Warm\
+            \ interiors, cool exteriors |\n\n\n**Contrast Approaches**:\n| Style |\
+            \ Contrast | Highlights | Shadows |\n|-------|----------|------------|---------|\n\
+            | High contrast/Dramatic | +30 to +50 | Crushed | Deep |\n| Medium/Professional\
+            \ | +15 to +25 | Preserved | Defined |\n| Soft/Flat | -10 to +10 | Lifted\
+            \ | Lifted |\n| Vintage/Faded | +10 to +20 | Slightly lifted | Lifted\
+            \ (faded blacks) |\n\n\n**Saturation Approaches**:\n| Style | Saturation\
+            \ | Vibrance | Notes |\n|-------|-----------|----------|-------|\n| Vivid\
+            \ | +15 to +30 | +20 | Pop, energy, social media |\n| Natural | 0 to +10\
+            \ | +10 | Documentary, realistic |\n| Desaturated | -10 to -30 | 0 | Moody,\
+            \ dramatic |\n| Monochrome moments | -100 (selective) | — | Specific shots\
+            \ for impact |\n\n\n### STEP 3: FINISHING ELEMENTS (from Workshops Level\
+            \ 8, Level 10, Level 11)\n\n\n#### Film Grain (Level 10, Lesson 12.7 &\
+            \ Level 11, Lesson 13.5)\n- **Effect**: Add Grain (After Effects) or Film\
+            \ Grain (Premiere)\n- **Intensity**: 0.5-2.0 (subtle is better — viewer\
+            \ should feel it, not see it)\n- **Size**: 1.0-2.0\n- **Application**:\
+            \ Adjustment layer on TOP of everything\n- **Purpose**: Adds organic texture,\
+            \ hides digital perfection, unifies mixed footage\n\n\n#### Vignette (Level\
+            \ 10, Lesson 12.7)\n- **Effect**: CC Vignette or Lumetri → Vignette\n\
+            - **Amount**: -0.5 to -1.5 (subtle darkening of edges)\n- **Midpoint**:\
+            \ 40-60\n- **Feather**: 50-80\n- **Purpose**: Draws eye to center, adds\
+            \ cinematic feel\n\n\n#### Sharpening\n- **Effect**: Unsharp Mask or Lumetri\
+            \ → Creative → Sharpen\n- **Amount**: 20-50 (subtle — too much creates\
+            \ artifacts)\n- **Radius**: 1.0-2.0\n- **When**: After all grading is\
+            \ complete, as the very last effect\n\n\n#### Letterbox / Aspect Ratio\
+            \ Bars\n- **When**: Cinematic content (2.39:1 or 2.00:1 in a 16:9 delivery)\n\
+            - **How**: Adjustment layer with Crop effect, or black solid bars\n- **Purpose**:\
+            \ Cinematic feel, hides edge issues\n\n\n#### 4K Style Grade (Level 10,\
+            \ Lesson 12.7)\nA specific finishing style from the workshops:\n1. Lumetri\
+            \ Basic: boost contrast, adjust temperature\n2. Add CC Vignette for edge\
+            \ darkening\n3. Add film grain (intensity 1.0-1.5)\n4. Slight color wheels\
+            \ adjustment (lift shadows warm, push highlights cool)\n5. Result: Rich,\
+            \ cinematic, premium feel\n\n\n### STEP 4: CONSISTENCY & NARRATIVE MAPPING\n\
+            \n\n#### STEP 4a: CONSISTENCY CHECK\n- Play through the ENTIRE video and\
+            \ watch for:\n  - Color temperature jumps between shots\n  - Exposure\
+            \ inconsistencies\n  - Saturation shifts\n  - Any shot that \"pops out\"\
+            \ as different from its neighbors\n- Use the **Comparison View** in Lumetri\
+            \ to A/B reference shots\n\n\n#### STEP 4b: NARRATIVE ARC COLOR MAPPING\n\
+            If a narrative structure is provided, use it to guide the emotional progression\
+            \ of the grade:\n\n\n| Narrative Beat | Color Temperature | Saturation\
+            \ | Contrast | Mood |\n|---------------|-------------------|-----------|----------|------|\n\
+            | **Setup / Act 1** | Neutral-warm | Normal | Normal | Establishing, inviting\
+            \ |\n| **Rising Tension** | Shifting cooler | Slightly desaturated | Increasing\
+            \ | Building unease or anticipation |\n| **Climax / Peak** | Extreme (hot\
+            \ or cold) | Maximum or minimum | Maximum | Full emotional impact |\n\
+            | **Resolution** | Return to warm | Moderate | Relaxing | Catharsis, completion\
+            \ |\n\n\nThe grade should tell the emotional story even with the sound\
+            \ off. A viewer should FEEL the narrative shift through color alone.\n\
+            \n\n**Implementation**: Use adjustment layers for each narrative section,\
+            \ applying section-specific Lumetri corrections that shift gradually across\
+            \ act transitions.\n\n\n### STEP 5: OVERLAY SYSTEM (from Workshops Level\
+            \ 8, Level 10)\n\n\n**Texture overlays** to apply on adjustment layers:\n\
+            \n\n| Overlay Type | Blend Mode | Opacity | When to Use |\n|-------------|-----------|---------|-------------|\n\
+            | Film Mattes (borders) | Multiply | 100% | Cinematic, vintage |\n| Light\
+            \ Leaks | Screen or Add | 15-30% | Transitions, warm moments |\n| Dust/Particles\
+            \ | Screen | 10-20% | Atmosphere, vintage |\n| Lens Flares | Screen |\
+            \ 20-40% | Sun moments, epic reveals |\n| VHS/Scanlines | Overlay | 5-15%\
+            \ | Retro, flashback |\n| Paper/Grain texture | Multiply | 5-10% | Vintage,\
+            \ organic |\n\n\n**Rules**:\n- Never use overlays on EVERY shot — they're\
+            \ accents, not wallpaper\n- Overlays should be motivated by the story/mood\n\
+            - Test at full resolution — overlays behave differently at preview quality\n\
+            \n\n---\n\n\n## FORMAT YOUR OUTPUT AS:\n\n\n### COLOR GRADING & FINISHING\
+            \ PLAN\n\n\n**Overall Color Direction**:\n- Color Temperature: [warm /\
+            \ cool / neutral / mixed]\n- Contrast Style: [dramatic / professional\
+            \ / soft / vintage]\n- Saturation Level: [vivid / natural / desaturated]\n\
+            - Reference: [describe the target \"look\" in one paragraph]\n\n\n**Base\
+            \ Correction Settings** (apply to all clips):\n| Setting | Value | Notes\
+            \ |\n|---------|-------|-------|\n| Temperature | [value] | [reasoning]\
+            \ |\n| Tint | [value] | |\n| Exposure | [±value] | |\n| Contrast | [+value]\
+            \ | |\n| Highlights | [value] | |\n| Shadows | [value] | |\n| Whites |\
+            \ [value] | |\n| Blacks | [value] | |\n| Saturation | [value] | |\n\n\n\
+            **Per-Shot Adjustments** (shots that need individual attention):\n| Shot\
+            \ # | Correction | Before→After | Reason |\n|--------|-----------|-------------|--------|\n\
+            | X | [what to adjust] | [current→target] | [why] |\n\n\n**Narrative Color\
+            \ Map** (if narrative structure provided):\n| Timeline Section | Act |\
+            \ Color Temp Shift | Saturation | Contrast | Emotional Intent |\n|-----------------|-----|-----------------|-----------|----------|------------------|\n\
+            | 0:00-0:XX | Setup | [warm/neutral/cool] | [normal/+/-] | [normal/+/-]\
+            \ | [mood] |\n\n\n**Finishing Elements**:\n| Element | Applied To | Settings\
+            \ | Purpose |\n|---------|-----------|----------|---------|\n| Film Grain\
+            \ | All (adj. layer) | Intensity: X, Size: X | [purpose] |\n| Vignette\
+            \ | All (adj. layer) | Amount: X, Midpoint: X | [purpose] |\n| Sharpening\
+            \ | All (adj. layer) | Amount: X, Radius: X | [purpose] |\n| Letterbox\
+            \ | All (if needed) | Aspect: X:X | [purpose] |\n\n\n**Overlay Placement**:\n\
+            | Timestamp | Overlay Type | Blend Mode | Opacity | Motivation |\n|-----------|-------------|-----------|---------|------------|\n\
+            | 0:XX | [type] | [mode] | [%] | [why here] |\n\n\n**Export Settings**\
+            \ — Platform Export Presets:\n| Platform | Codec | Resolution | FPS |\
+            \ Bitrate | Color Space | Audio LUFS |\n|---|---|---|---|---|---|---|\n\
+            | YouTube | H.264 / H.265 | Up to 4K | Match source | 35–68 Mbps | Rec.709\
+            \ | −14 |\n| TikTok | H.264 | 1080×1920 | 30 | 15–25 Mbps | Rec.709 |\
+            \ −14 |\n| Instagram Reels | H.264 | 1080×1920 | 30 | 15–20 Mbps | Rec.709\
+            \ | −14 |\n| LinkedIn | H.264 | 1920×1080 | 30 | 5–10 Mbps | Rec.709 |\
+            \ −16 |\n| Broadcast | DNxHR/ProRes | 1920×1080 | Delivery spec | — |\
+            \ Rec.709/2020 | −24 |\n\n\nSelect the row(s) matching the project's target\
+            \ platform(s) from the Start Node intake and confirm the chosen export\
+            \ spec explicitly beneath the table — don't just leave all five rows for\
+            \ the editor to guess from."
+        - id: 62d0dabd-b483-4b51-9e06-1f48a1a0f04c
+          role: user
+          text: 'PREPLANNING PACKAGE & ASSET PLAN:
+
+            {{#1787036751884.text#}}
+
+
+
+            EFFECTS PLAN:
+
+            {{#1787036933253.text#}}
+
+
+
+            ---
+
+
+
+            EDITOR SKILL LEVEL: {{#1786742809170.editorSkillLevel#}}
+
+
+
+            CREATOR PROFILE (visual brand — colors, fonts, logo rules):
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Design the complete Color & Finishing Plan. Every shot needs grading attention.
+            Finishing effects must be in order. If a narrative structure is provided
+            in the preplanning data, map the color progression to the emotional arc.
+            Confirm the specific export preset(s) that apply to this project''s target
+            platform(s) from the Platform Export Presets table. If a Creator Profile
+            is provided, the grade and any overlay/logo placement must stay consistent
+            with its visual brand.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+            **Revision Count**: {{#1787036926736.revision_count#}}
+
+
+
+            If this is a revision pass (revision_count > 0):
+
+            PREVIOUS COLOR PLAN: {{#1787036926736.revised_color#}}
+
+            AUDIT REPORT: {{#1787036926736.report#}}
+
+
+
+            Start from the previous plan and apply ONLY the CRITICAL and WARNING fixes
+            flagged for Color Grading. Keep all other sections intact. If no fixes
+            affect Color Grading, output the previous plan unchanged.'
+        selected: false
+        title: Color_Grading_and_Finishing
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787037088988'
+      parentId: '1787036926736'
+      position:
+        x: 1336
+        y: 68
+      positionAbsolute:
+        x: 2827.1526785754086
+        y: 208.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787036926736'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 3c5f0c49-51d2-4140-9471-006f1340a531
+          role: system
+          text: "You are a senior post-production supervisor auditing a complete execution\
+            \ plan — effects, motion graphics, sound design, mixing, and color — before\
+            \ it goes to an editor to execute. You did not write any of it; audit\
+            \ it as if a mid-level editor handed it to you for sign-off.\n\n\nAUDIT\
+            \ CRITERIA — score each (1–10), flag issues as CRITICAL / WARNING / MINOR:\n\
+            \n\n1. EFFECTS & TRANSITIONS (Critical)\n   - Every cut has a specified,\
+            \ motivated transition (not \"add a transition here\")\n   - Transition\
+            \ palette actually stays within the stated max-3-types limit\n   - Effects\
+            \ match the plugin/software suite actually available\n\n\n2. MOTION GRAPHICS\
+            \ (Warning)\n   - Typography system is fully specified (not just \"add\
+            \ text\")\n   - Text/title animations have exact timing and easing\n \
+            \  - Composited elements are technically buildable in the stated software\n\
+            \n\n3. SOUND DESIGN (Critical)\n   - All 4 layers (ambiance, essentials,\
+            \ SFX, hits) are populated, not just 1–2\n   - Sound choices are motivated\
+            \ by what's on screen, not generic\n   - No conflicting or overlapping\
+            \ timestamp collisions across layers\n\n\n4. MIXING & MASTERING (Critical)\n\
+            \   - LUFS targets match the platform table\n   - Track-by-track processing\
+            \ chain is complete and specific (not \"add compression\")\n   - Master\
+            \ bus processing specified\n\n\n5. COLOR (Warning)\n   - Correction pass\
+            \ is distinct from the creative grading pass\n   - Look is described specifically\
+            \ enough to reproduce (not \"cinematic\")\n   - Consistency/narrative\
+            \ mapping addresses shot-matching, not just look\n\n\n6. INTERNAL CONSISTENCY\
+            \ (Critical)\n   - Do effects, motion, sound, and color plans agree on\
+            \ structure/timing, or do they contradict each other about what happens\
+            \ at a given timestamp?\n   - Does anything here contradict the Rough\
+            \ Cut Review Document's correction notes?\n\n\n7. CUT-TIMING ESCALATION\
+            \ (tag separately, does not by itself fail the grade)\n   - If — and only\
+            \ if — a problem traces back to the actual cut points made in First Cuts\
+            \ Strategist (not something Effects/Color can fix by working around it),\
+            \ tag it `CUT_TIMING` in the report. This flag exists because the loop\
+            \ cannot re-run First Cuts Strategist; it must be surfaced for manual\
+            \ follow-up, not silently absorbed into an effects-level fix that papers\
+            \ over a structural cut problem.\n\n\nREVISION MODE:\nIf revision_count\
+            \ > 0, verify whether the issues in your previous critique_report were\
+            \ actually fixed in the current plans above — a renamed section is not\
+            \ a fixed one.\n\n\nOUTPUT — ONLY valid JSON:\n```json\n{\n  \"critique_grade\"\
+            : \"A\" | \"B\" | \"C\" | \"D\" | \"F\",\n  \"critique_report\": \"Full\
+            \ audit in markdown — per-criterion table with CRITICAL/WARNING/MINOR\
+            \ issues; any CUT_TIMING items called out in their own subsection\"\n\
+            }\n```\n\n\nGRADING:\n- A/A+: All five plans complete, internally consistent,\
+            \ no CRITICAL issues\n- B: 1–2 WARNING issues, no CRITICAL issues\n- C:\
+            \ 1 CRITICAL issue or 3+ WARNING issues\n- D/F: Multiple CRITICAL issues,\
+            \ plans contradict each other, or plan is not execution-ready"
+        - id: 19ffb51b-851f-40f9-80af-c2ca3976eb19
+          role: user
+          text: 'Audit the following post-production execution plan:
+
+
+
+            PREPLANNING PACKAGE & ASSET PLAN:
+
+            {{#1787036751884.text#}}
+
+
+
+            FIRST CUTS PLAN:
+
+            {{#1787036801074.text#}}
+
+
+
+            ROUGH CUT REVIEW DOCUMENT:
+
+            {{#1787036836482.text#}}
+
+
+
+            EFFECTS PLAN:
+
+            {{#1787036933253.text#}}
+
+
+
+            MOTION GRAPHICS PLAN:
+
+            {{#1787036984294.text#}}
+
+
+
+            SOUND DESIGN PLAN:
+
+            {{#1787037015618.text#}}
+
+
+
+            MIXING PLAN:
+
+            {{#1787037050767.text#}}
+
+
+
+            COLOR PLAN:
+
+            {{#1787037088988.text#}}
+
+
+
+            Audit honestly. List every issue with severity. Tag any structural cut-timing
+            problem as CUT_TIMING. Output the grade so the next node can decide whether
+            to revise.
+
+
+
+            ---
+
+
+
+            ## IF THIS IS A RE-AUDIT (revision_count > 0)
+
+
+
+            REVISION COUNT: {{#1787036926736.revision_count#}}
+
+            PREVIOUS AUDIT REPORT: {{#1787036926736.report#}}
+
+
+
+            Verify whether previously flagged issues in the AUDIT REPORT are now resolved.
+            If unresolved, downgrade further.'
+        selected: false
+        title: Self_Critique
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787037421589'
+      parentId: '1787036926736'
+      position:
+        x: 1639.6696262020034
+        y: 68
+      positionAbsolute:
+        x: 3130.822304777412
+        y: 208.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        code: "import json\nimport re\n\ndef main(raw_critique: str) -> dict:\n  \
+          \  clean_text = raw_critique.strip()\n    \n    # 1. Strip markdown code\
+          \ fences if wrapped\n    if clean_text.startswith(\"```\"):\n        lines\
+          \ = clean_text.splitlines()\n        first_line = lines[0]\n        if \"\
+          ```\" in first_line:\n            lines = lines[1:]\n        if lines and\
+          \ lines[-1].strip() == \"```\":\n            lines = lines[:-1]\n      \
+          \  clean_text = \"\\n\".join(lines).strip()\n        \n    try:\n      \
+          \  data = json.loads(clean_text)\n        grade = str(data.get(\"critique_grade\"\
+          , \"\")).strip().upper()\n        report = str(data.get(\"critique_report\"\
+          , \"\")).strip()\n        \n        # Validate grade format\n        if\
+          \ not grade or grade not in [\"A+\", \"A\", \"B\", \"C\", \"D\", \"F\"]:\n\
+          \            match = re.search(r'GRADE:\\s*(A\\+|A|B|C|D|F)', clean_text,\
+          \ re.IGNORECASE)\n            grade = match.group(1).upper() if match else\
+          \ \"F\"\n            \n        if not report:\n            report = raw_critique\n\
+          \            \n        return {\n            \"current_grade\": grade,\n\
+          \            \"current_report\": report\n        }\n    except Exception:\n\
+          \        # Fail Closed to F\n        grade_match = re.search(r'GRADE:\\\
+          s*(A\\+|A|B|C|D|F)', clean_text, re.IGNORECASE)\n        grade = grade_match.group(1).upper()\
+          \ if grade_match else \"F\"\n        \n        return {\n            \"\
+          current_grade\": grade,\n            \"current_report\": raw_critique\n\
+          \        }"
+        code_language: python3
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787036926736'
+        outputs:
+          current_grade:
+            children: null
+            type: string
+          current_report:
+            children: null
+            type: string
+        selected: false
+        title: Critique_Parser
+        type: code
+        variables:
+        - value_selector:
+          - '1787037421589'
+          - text
+          value_type: string
+          variable: raw_critique
+      height: 52
+      id: '1787037527143'
+      parentId: '1787036926736'
+      position:
+        x: 1940.0000000000002
+        y: 69.66962620200303
+      positionAbsolute:
+        x: 3431.1526785754086
+        y: 210.61745793756128
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787037527143'
+          - current_grade
+          variable_selector:
+          - '1787036926736'
+          - grade
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787037527143'
+          - current_report
+          variable_selector:
+          - '1787036926736'
+          - report
+        - input_type: constant
+          operation: +=
+          value: 1
+          variable_selector:
+          - '1787036926736'
+          - revision_count
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787036933253'
+          - text
+          variable_selector:
+          - '1787036926736'
+          - revised_effects
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787036984294'
+          - text
+          variable_selector:
+          - '1787036926736'
+          - revised_motion_graphics
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787037015618'
+          - text
+          variable_selector:
+          - '1787036926736'
+          - revised_sound
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787037050767'
+          - text
+          variable_selector:
+          - '1787036926736'
+          - revised_mixing
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787037088988'
+          - text
+          variable_selector:
+          - '1787036926736'
+          - revised_color
+        loop_id: '1787036926736'
+        selected: false
+        title: Critique_Variable_Assigner
+        type: assigner
+        version: '2'
+      height: 266
+      id: '1787037583050'
+      parentId: '1787036926736'
+      position:
+        x: 2242
+        y: 68
+      positionAbsolute:
+        x: 3733.1526785754086
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: gemini-3.6-flash
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: f2259111-50e9-49df-ac7d-98ca9eefcd98
+          role: system
+          text: 'You are a post-production coordinator compiling the final, execution-ready
+            package for an editor. Assemble every upstream component into one organized
+            document — nothing summarized away, nothing left for the editor to hunt
+            for across separate tools.
+
+
+
+            FORMAT:
+
+
+
+            ---
+
+
+
+            ## FINAL EXECUTION PACKAGE
+
+
+
+            ### 1. Project Metadata
+
+            | Field | Value |
+
+            |---|---|
+
+            | Software Suite | [suite] |
+
+            | Footage Frame Rate / Resolution | [values] |
+
+            | Deadline Pressure | [level] |
+
+            | Final Grade | [grade] |
+
+
+
+            ### 2. Asset Organization & Readiness
+
+            [Full asset plan, including the Asset Readiness Alert verbatim if it flagged
+            anything]
+
+
+
+            ### 3. First Cuts Strategy
+
+            [Full first cuts plan]
+
+
+
+            ### 4. Rough Cut Review Notes
+
+            [Full Rough Cut Review Document — mode, correction notes, any open questions]
+
+
+
+            ### 5. Effects & Transitions Plan
+
+            [Final revised effects plan]
+
+
+
+            ### 6. Motion Graphics Plan
+
+            [Final revised motion graphics plan]
+
+
+
+            ### 7. Sound Design Blueprint
+
+            [Final revised sound design plan]
+
+
+
+            ### 8. Audio Mixing & Mastering Plan
+
+            [Final revised mixing plan]
+
+
+
+            ### 9. Color Grading & Finishing Plan (with confirmed export preset)
+
+            [Final revised color plan, including the specific Platform Export Preset
+            row(s) selected]
+
+
+
+            ### 10. QA Results
+
+            | Criterion | Status |
+
+            |---|---|
+
+            | Effects & transitions | [Pass / Warn / Fail] |
+
+            | Motion graphics | [Pass / Warn / Fail] |
+
+            | Sound design | [Pass / Warn / Fail] |
+
+            | Mixing & mastering | [Pass / Warn / Fail] |
+
+            | Color & finishing | [Pass / Warn / Fail] |
+
+            | Internal consistency | [Pass / Warn / Fail] |
+
+
+
+            [If final grade is "F": ⚠️ Auditor output could not be parsed on the final
+            pass — review this section manually before execution.]
+
+
+
+            ### 11. Revision Changelog
+
+            If revision_count is "0": write "No revision passes — approved on first
+            audit."
+
+            If revision_count is "1" or more, generate one entry per completed pass:
+
+            ```
+
+            **What Changed in Revision Pass 1**:
+
+            - [Section]: [specific fix applied, tied to the CRITICAL/WARNING item
+            it resolves]
+
+            - [Section]: [specific fix applied]
+
+            ```
+
+            Base this on the critique report''s flagged issues and what changed between
+            the original and final plans above — don''t invent changes that aren''t
+            reflected in the plans.
+
+
+
+            ### 12. Escalations
+
+            List anything flagged `CUT_TIMING` in the critique report here explicitly:
+            "Return to First Cuts Strategist — [specific issue]." If none, write "None
+            — no structural cut issues identified."
+
+
+
+            ### 13. Time Budget Estimate
+
+            Using Editor Skill Level as a multiplier on a baseline execution estimate,
+            provide a rough hours estimate per phase (effects, motion graphics, sound,
+            mixing, color) and a total.'
+        - id: 7153416d-c278-456f-be71-180bfd6998dc
+          role: user
+          text: 'Compile the complete Final Execution Package from all the following
+            components:
+
+
+
+            PREPLANNING PACKAGE & ASSET PLAN:
+
+            {{#1787036751884.text#}}
+
+
+
+            FIRST CUTS PLAN:
+
+            {{#1787036801074.text#}}
+
+
+
+            ROUGH CUT REVIEW DOCUMENT:
+
+            {{#1787036836482.text#}}
+
+
+
+            EFFECTS PLAN:
+
+            {{#1787036926736.revised_effects#}}
+
+
+
+            MOTION GRAPHICS PLAN:
+
+            {{#1787036926736.revised_motion_graphics#}}
+
+
+
+            SOUND DESIGN PLAN:
+
+            {{#1787036926736.revised_sound#}}
+
+
+
+            MIXING PLAN:
+
+            {{#1787036926736.revised_mixing#}}
+
+
+
+            COLOR PLAN:
+
+            {{#1787036926736.revised_color#}}
+
+
+
+            CRITIQUE REPORT:
+
+            {{#1787036926736.report#}}
+
+
+
+            FINAL GRADE: {{#1787036926736.grade#}}
+
+
+
+            ---
+
+
+
+            EDITOR SKILL LEVEL: {{#1786742809170.editorSkillLevel#}}
+
+            (Use this for time-budget multiplication in section 13)
+
+
+
+            REVISION COUNT: {{#1787036926736.revision_count#}}
+
+            (If > 0, generate the Revision Changelog in section 11 from what actually
+            changed. If "0", state no revisions occurred.)'
+        selected: false
+        title: Final_Execution_Package
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787037776190'
+      position:
+        x: 4051.1526785754086
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 4051.1526785754086
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1787037776190'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: Output
+        type: end
+      height: 88
+      id: '1787037840298'
+      position:
+        x: 4353.152678575409
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 4353.152678575409
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: -2061.206780991119
+      y: 332.27485582821714
+      zoom: 0.5310964894804874
+  rag_pipeline_variables: []

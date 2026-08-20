@@ -10,6 +10,19 @@ This is a **linear pipeline — no self-critique loop**, for the same reason as 
 
 ---
 
+## 0. 🛠️ Revision Notes (Bug Fixes Applied)
+
+This revision fixes six consistency/integration issues found by tracing every variable from the Start node through to the End node:
+
+1. **[Major] `creatorProfile` never reached the clips node.** The Start node field description explicitly promises *"recurring phrases/sign-offs should carry into clips,"* but `Shorts_Reels_Extraction_Plan` never received `{{#1786742809170.creatorProfile#}}` — only `Platform_Adaptation_Planner` did. Re-hooks and captions were being written with no voice guidance, contradicting the field's own spec. **Fixed**: creatorProfile now feeds Node 3 as well, and Standard 5's compliance note reflects it.
+2. **[Fix] Architecture diagram showed a false linear chain.** The diagram drew Node 2 → Node 3 in sequence, but the Node Connections table (and the actual data dependencies) show `Content_Audit` fanning out to `Platform_Adaptation_Planner` and `Shorts_Reels_Extraction_Plan` **in parallel**, which then fan back into `Content_Calendar_Integration`. **Fixed**: diagram redrawn to show the branch/merge.
+3. **[Fix] `Final_Repurposing_Package`'s Overview table required data it was never given.** The output format calls for `Original Platform` and `Calendar Span starting [date]`, but the node's user prompt never passed `{{#1786742809170.originalPlatform#}}` or `{{#1786742809170.publishStartDate#}}` — the model would've had to fish them out of the embedded calendar text. **Fixed**: both are now passed explicitly.
+4. **[Fix] Node Connections table was incomplete.** It documented only `Start → Content_Audit`, omitting the direct `Start →` edges into `Platform_Adaptation_Planner`, `Shorts_Reels_Extraction_Plan`, `Content_Calendar_Integration`, and `Final_Repurposing_Package` that their user prompts actually rely on. **Fixed**: table rewritten to list every real edge.
+5. **[Risk] `Final_Repurposing_Package` max tokens likely too low.** Its instruction is *"Assemble every upstream component — nothing summarized away,"* but upstream nodes are budgeted up to 3000+4000+3000+2000 = 12,000 tokens combined, against a 5000-token cap on the compiling node. With multiple repurpose targets selected, this risks silent truncation. **Fixed**: raised to 8000.
+6. **[Minor] Naming mismatches.** Node 2's rule section used "Podcast/Audio Clip" while its own output format used "Podcast/Audio Clip Plan" — aligned to one label. Node 3's conditional check said `'Short clips'` while the actual Start field value is `'Short clips (TikTok/Reels/Shorts)'` — tightened so the match is unambiguous.
+
+---
+
 ## 1. 🏗️ Pipeline Architecture & Execution Flow
 
 ```
@@ -18,21 +31,24 @@ This is a **linear pipeline — no self-critique loop**, for the same reason as 
         ▼
 [Node 1: Content Audit]                  ← Finds the 5 most repurposable moments
         │
-        ▼
-[Node 2: Platform Adaptation Planner]    ← TikTok/Reels, X thread, LinkedIn carousel, blog, podcast
-        │
-        ▼
-[Node 3: Shorts/Reels Extraction Plan]   ← 3–5 short clips, re-hooked and re-contextualized
-        │
-        ▼
-[Node 4: Content Calendar Integration]   ← 2-week distribution schedule
-        │
-        ▼
-[Node 5: Final Repurposing Package]
-        │
-        ▼
-[End / Output Node]
+        ├──────────────────────────────────────┐
+        ▼                                        ▼
+[Node 2: Platform Adaptation Planner]    [Node 3: Shorts/Reels Extraction Plan]
+ TikTok/Reels, X thread, LinkedIn          3–5 short clips, re-hooked and
+ carousel, blog, podcast                   re-contextualized (voiced via
+        │                                   creatorProfile)
+        └──────────────────┬─────────────────────┘
+                            ▼
+              [Node 4: Content Calendar Integration]   ← 2-week distribution schedule
+                            │
+                            ▼
+              [Node 5: Final Repurposing Package]
+                            │
+                            ▼
+                   [End / Output Node]
 ```
+
+> Nodes 2 and 3 both depend only on Node 1's output and on Start fields — they run in parallel, not in sequence. Node 4 waits on both before running.
 
 ---
 
@@ -100,10 +116,10 @@ OUTPUT FORMAT:
 Audit this content for repurposable moments.
 
 CONTENT PACKAGE:
-{{#Start.contentPackage#}}
+{{#1786742809170.contentPackage#}}
 
-ORIGINAL PLATFORM: {{#Start.originalPlatform#}}
-REPURPOSE TARGETS REQUESTED: {{#Start.repurposeTargets#}}
+ORIGINAL PLATFORM: {{#1786742809170.originalPlatform#}}
+REPURPOSE TARGETS REQUESTED: {{#1786742809170.repurposeTargets#}}
 
 Find up to 5 genuinely strong standalone moments — fewer is fine if that's what the content actually supports.
 ```
@@ -142,7 +158,7 @@ FORMAT-SPECIFIC RULES:
 - H2-level section breakdown mapped to the source content's actual structure
 - Note where the video's specific examples/data should carry over verbatim vs. where the article format allows adding more depth than the video had room for
 
-**Podcast/Audio Clip**:
+**Podcast/Audio Clip Plan**:
 - Identify segments that work audio-only (no "as you can see" moments, no visual-dependent jokes)
 - Note where a brief spoken intro is needed to replace visual context
 
@@ -176,15 +192,15 @@ OUTPUT FORMAT (only include sections for requested formats):
 Adapt this content into the requested formats.
 
 CONTENT AUDIT:
-{{#Content_Audit.text#}}
+{{#1787051780945.text#}}
 
 FULL CONTENT PACKAGE (for source material and exact quotes/data):
-{{#Start.contentPackage#}}
+{{#1786742809170.contentPackage#}}
 
-REPURPOSE TARGETS: {{#Start.repurposeTargets#}}
+REPURPOSE TARGETS: {{#1786742809170.repurposeTargets#}}
 
 CREATOR PROFILE (voice/tone — apply to thread and carousel copy):
-{{#Start.creatorProfile#}}
+{{#1786742809170.creatorProfile#}}
 
 Only produce sections for the formats listed in REPURPOSE TARGETS.
 ```
@@ -202,13 +218,15 @@ Only produce sections for the formats listed in REPURPOSE TARGETS.
 
 #### System Prompt
 ```markdown
-You are planning short-form vertical clips extracted from the long-form source. This node only runs meaningfully if "Short clips" is in the repurpose targets — if it isn't, produce a one-line note saying short clips weren't requested and stop.
+You are planning short-form vertical clips extracted from the long-form source. This node only runs meaningfully if the repurpose targets include "Short clips (TikTok/Reels/Shorts)" — if that value isn't present, produce a one-line note saying short clips weren't requested and stop.
+
+VOICE: If a creator profile is provided, re-hooks and captions should sound like the creator, not like a generic clip-page. Carry over recurring phrases or sign-offs from the profile where they fit naturally — don't force one into every clip.
 
 FOR EACH CLIP (3–5 total, drawn from the Content Audit's strongest moments):
 - **In/out points**: where the clip starts and ends in the source (should be a complete arc — don't cut off mid-thought)
-- **Re-hook**: the original video's opening doesn't work as this clip's opening — write a new first line specifically for someone with zero context, landing in the first 1 second
+- **Re-hook**: the original video's opening doesn't work as this clip's opening — write a new first line specifically for someone with zero context, landing in the first 1 second, in the creator's voice
 - **Text overlay context**: what on-screen text this clip needs to make sense standalone (since short-form viewers often watch muted first)
-- **Suggested caption**: platform-native caption, not a repost of the long-form description
+- **Suggested caption**: platform-native caption in the creator's voice, not a repost of the long-form description
 - **Why this clip specifically**: what makes it work as a 15–60 second standalone piece
 
 Do not just pick the 5 audited moments mechanically — if two moments are too similar in type, prefer variety (don't submit 3 "surprising fact" clips and skip the emotional beat).
@@ -219,7 +237,7 @@ OUTPUT FORMAT:
 
 ## SHORTS/REELS EXTRACTION PLAN
 
-[If short clips not requested: "Short clips were not requested for this repurposing plan." — stop here.]
+[If "Short clips (TikTok/Reels/Shorts)" is not among the repurpose targets: "Short clips were not requested for this repurposing plan." — stop here.]
 
 ### Clip 1: [short name]
 - **Source timestamp**: [in–out]
@@ -239,15 +257,18 @@ OUTPUT FORMAT:
 Plan short-form clip extraction.
 
 CONTENT AUDIT:
-{{#Content_Audit.text#}}
+{{#1787051780945.text#}}
 
 FULL CONTENT PACKAGE:
-{{#Start.contentPackage#}}
+{{#1786742809170.contentPackage#}}
 
-REPURPOSE TARGETS: {{#Start.repurposeTargets#}}
-ORIGINAL PLATFORM: {{#Start.originalPlatform#}}
+REPURPOSE TARGETS: {{#1786742809170.repurposeTargets#}}
+ORIGINAL PLATFORM: {{#1786742809170.originalPlatform#}}
 
-If "Short clips" is not among the repurpose targets, say so plainly and do not force a plan.
+CREATOR PROFILE (voice/tone — apply to re-hooks and captions):
+{{#1786742809170.creatorProfile#}}
+
+If "Short clips (TikTok/Reels/Shorts)" is not among the repurpose targets, say so plainly and do not force a plan.
 ```
 
 **Output Port**: `text`
@@ -293,14 +314,14 @@ Requested cadence: [cadence]. Pieces scheduled: [count] over 14 days = [actual c
 Build the 2-week content calendar.
 
 PLATFORM ADAPTATIONS:
-{{#Platform_Adaptation_Planner.text#}}
+{{#1787051792211.text#}}
 
 SHORTS/REELS PLAN:
-{{#Shorts_Reels_Extraction_Plan.text#}}
+{{#1787051808445.text#}}
 
-PUBLISH START DATE: {{#Start.publishStartDate#}}
-POSTING CADENCE: {{#Start.postingCadence#}}
-ORIGINAL PLATFORM: {{#Start.originalPlatform#}}
+PUBLISH START DATE: {{#1786742809170.publishStartDate#}}
+POSTING CADENCE: {{#1786742809170.postingCadence#}}
+ORIGINAL PLATFORM: {{#1786742809170.originalPlatform#}}
 
 Schedule every piece produced above, respecting the stated cadence.
 ```
@@ -316,7 +337,7 @@ Schedule every piece produced above, respecting the stated cadence.
 * **Node Type**: `llm`
 * **Model Tier**: Cheap / fast
 * **Temperature**: `0.3`
-* **Max Tokens**: `5000`
+* **Max Tokens**: `8000`
 
 #### System Prompt
 ```markdown
@@ -360,19 +381,21 @@ FORMAT:
 Compile the Final Repurposing Package.
 
 CONTENT AUDIT:
-{{#Content_Audit.text#}}
+{{#1787051780945.text#}}
 
 PLATFORM ADAPTATIONS:
-{{#Platform_Adaptation_Planner.text#}}
+{{#1787051792211.text#}}
 
 SHORTS/REELS EXTRACTION PLAN:
-{{#Shorts_Reels_Extraction_Plan.text#}}
+{{#1787051808445.text#}}
 
 CONTENT CALENDAR:
 {{#Content_Calendar_Integration.text#}}
 
-REPURPOSE TARGETS: {{#Start.repurposeTargets#}}
-POSTING CADENCE: {{#Start.postingCadence#}}
+ORIGINAL PLATFORM: {{#1786742809170.originalPlatform#}}
+REPURPOSE TARGETS: {{#1786742809170.repurposeTargets#}}
+POSTING CADENCE: {{#1786742809170.postingCadence#}}
+PUBLISH START DATE: {{#1786742809170.publishStartDate#}}
 
 Compile the complete package with the execution checklist.
 ```
@@ -384,7 +407,7 @@ Compile the complete package with the execution checklist.
 ### End Node
 * **Node Title**: `End`
 * **Node Type**: `end`
-* **Output**: `text` = `{{#Final_Repurposing_Package.text#}}`
+* **Output**: `text` = `{{#1787051827278.text#}}`
 
 ---
 
@@ -392,11 +415,18 @@ Compile the complete package with the execution checklist.
 
 | From Node | Output | To Node | Input Mapping | Condition |
 |---|---|---|---|---|
-| `Start` | form submission | `Content_Audit` | all `{{#Start.*#}}` | Unconditional |
+| `Start` | form submission | `Content_Audit` | `contentPackage`, `originalPlatform`, `repurposeTargets` | Unconditional |
+| `Start` | form submission | `Platform_Adaptation_Planner` | `contentPackage`, `repurposeTargets`, `creatorProfile` | Unconditional |
+| `Start` | form submission | `Shorts_Reels_Extraction_Plan` | `contentPackage`, `repurposeTargets`, `originalPlatform`, `creatorProfile` | Unconditional |
+| `Start` | form submission | `Content_Calendar_Integration` | `publishStartDate`, `postingCadence`, `originalPlatform` | Unconditional |
+| `Start` | form submission | `Final_Repurposing_Package` | `originalPlatform`, `repurposeTargets`, `postingCadence`, `publishStartDate` | Unconditional |
 | `Content_Audit` | `text` | `Platform_Adaptation_Planner` | via prompt | Unconditional |
 | `Content_Audit` | `text` | `Shorts_Reels_Extraction_Plan` | via prompt | Unconditional |
-| `Platform_Adaptation_Planner`, `Shorts_Reels_Extraction_Plan` | `text` | `Content_Calendar_Integration` | via prompt | Unconditional |
-| All four upstream nodes | `text` | `Final_Repurposing_Package` | via prompt | Unconditional |
+| `Content_Audit` | `text` | `Final_Repurposing_Package` | via prompt | Unconditional |
+| `Platform_Adaptation_Planner`, `Shorts_Reels_Extraction_Plan` | `text` | `Content_Calendar_Integration` | via prompt (Nodes 2 and 3 run in parallel off Node 1; Node 4 waits on both) | Unconditional |
+| `Platform_Adaptation_Planner` | `text` | `Final_Repurposing_Package` | via prompt | Unconditional |
+| `Shorts_Reels_Extraction_Plan` | `text` | `Final_Repurposing_Package` | via prompt | Unconditional |
+| `Content_Calendar_Integration` | `text` | `Final_Repurposing_Package` | via prompt | Unconditional |
 | `Final_Repurposing_Package` | `text` | `End` | `text` output | Unconditional |
 
 ---
@@ -406,4 +436,4 @@ Compile the complete package with the execution checklist.
 - **Standard 1 (Loop Architecture)**: Not applicable — linear pipeline.
 - **Standard 3 (Node Reference Style)**: All references use `{{#Node_Title.field#}}`.
 - **Standard 4 (Model Tier)**: Content Audit, Platform Adaptation Planner, Shorts/Reels Extraction Plan (judgment-heavy: deciding what's worth repurposing and how) = Standard. Content Calendar and Final Package (rules-driven compilation) = Cheap/fast.
-- **Standard 5 (Creator Profile)**: Present in Start Node; wired into Platform Adaptation Planner, where voice governs thread/carousel copy.
+- **Standard 5 (Creator Profile)**: Present in Start Node; wired into `Platform_Adaptation_Planner` (voice governs thread/carousel copy) **and** `Shorts_Reels_Extraction_Plan` (voice governs re-hooks and captions, per the Start field's own spec that recurring phrases/sign-offs should carry into clips).

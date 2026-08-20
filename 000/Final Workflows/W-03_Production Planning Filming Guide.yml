@@ -1,0 +1,759 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: W-03_Production Planning Filming Guide
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.59@fc19490989d886a5f24d21df56be95fd972e474e35a4aac93c29805bfaf089f1
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1786742809170-source-1787011286741-target
+      source: '1786742809170'
+      sourceHandle: source
+      target: '1787011286741'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787011286741--1787011294924-target
+      source: '1787011286741'
+      sourceHandle: ''
+      target: '1787011294924'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787011294924--1787011306732-target
+      source: '1787011294924'
+      sourceHandle: ''
+      target: '1787011306732'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787011306732--1787011330358-target
+      source: '1787011306732'
+      sourceHandle: ''
+      target: '1787011330358'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787011330358--1787011344799-target
+      source: '1787011330358'
+      sourceHandle: ''
+      target: '1787011344799'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787011344799--1787011356407-target
+      source: '1787011344799'
+      sourceHandle: ''
+      target: '1787011356407'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: loop
+      id: 1787011356407--1787011375107-target
+      source: '1787011356407'
+      sourceHandle: ''
+      target: '1787011375107'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787011375107'
+        sourceType: loop-start
+        targetType: llm
+      id: 1787011375107start-source-1787011468370-target
+      source: 1787011375107start
+      sourceHandle: source
+      target: '1787011468370'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787011375107'
+        sourceType: llm
+        targetType: code
+      id: 1787011468370--1787011489333-target
+      source: '1787011468370'
+      sourceHandle: ''
+      target: '1787011489333'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787011375107'
+        sourceType: code
+        targetType: assigner
+      id: 1787011489333-source-1787011513475-target
+      source: '1787011489333'
+      sourceHandle: source
+      target: '1787011513475'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: loop
+        targetType: llm
+      id: 1787011375107-source-1787011529491-target
+      source: '1787011375107'
+      sourceHandle: source
+      target: '1787011529491'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1787011529491-source-1787011672451-target
+      source: '1787011529491'
+      sourceHandle: source
+      target: '1787011672451'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: Paste W-02 output, or describe topic + content type + what needs to
+            be filmed
+          label: Script Package (from W-02) or describe what to film
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: scriptPackage
+        - default: ''
+          hide: false
+          hint: ''
+          label: Content type to film
+          options:
+          - Talking head (direct to camera)
+          - VO narration + B-roll
+          - Interview
+          - Documentary style
+          - Tutorial & demo
+          - Cinematic
+          - Mixed approach
+          placeholder: ''
+          required: true
+          type: select
+          variable: contentType
+        - default: ''
+          hide: false
+          hint: ''
+          label: Production budget level
+          options:
+          - Micro — phone only
+          - Low — basic DSLR or mirrorless entry
+          - Medium — mirrorless or cinema camera
+          - High — professional with crew support
+          placeholder: ''
+          required: true
+          type: select
+          variable: budgetLevel
+        - default: ''
+          hide: false
+          hint: ''
+          label: Target quality output
+          options:
+          - Social-ready (fast & good enough)
+          - Professional (clean, polished)
+          - Cinematic (film aesthetic)
+          - Broadcast (broadcast standards)
+          placeholder: ''
+          required: true
+          type: select
+          variable: qualityTier
+        - default: ''
+          hide: false
+          hint: ''
+          label: Filming location type
+          options:
+          - Home studio
+          - Office
+          - Outdoor urban
+          - Outdoor nature
+          - Rented studio
+          - Multiple locations
+          - On location (travel)
+          placeholder: ''
+          required: true
+          type: select
+          variable: location
+        - default: ''
+          hide: false
+          hint: ''
+          label: Available crew
+          options:
+          - Solo (no crew)
+          - 1 assistant
+          - Small crew (2–4)
+          - Full crew (5+)
+          placeholder: ''
+          required: true
+          type: select
+          variable: crewSize
+        - default: ''
+          hide: false
+          hint: Camera model, lenses, audio gear, lighting, stabilization
+          label: Equipment you already have
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: availableEquipment
+        - default: ''
+          hide: false
+          hint: ''
+          label: Available filming time
+          options:
+          - Half day (up to 4 hours)
+          - Full day (8+ hours)
+          - Multi-day (specify in notes)
+          placeholder: ''
+          required: true
+          type: select
+          variable: filmingDays
+        - default: ''
+          hide: false
+          hint: e.g., Runway Gen-3, Kling, Veo 3, Luma Dream Machine, Sora, Pika —
+            any you have access to
+          label: AI video tools available
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: availableAiVideoTools
+        - default: ''
+          hide: false
+          hint: ''
+          label: Which editing workflow follows this shoot
+          options:
+          - W-04 Pre-Planning Pipeline
+          - W-05 Post-Production Execution
+          - W-06 Viral Speed Ramp
+          - Not decided yet
+          placeholder: ''
+          required: false
+          type: select
+          variable: postProductionPlan
+        - default: ''
+          hide: false
+          hint: Teleprompter, travel B-roll, product shots, interviews, drone access,
+            etc.
+          label: Special requirements
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: specialRequirements
+        - default: ''
+          hide: false
+          hint: Helps prioritize schedule and simplify scope if needed
+          label: Target release date
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: releaseDeadline
+        - default: ''
+          hide: false
+          hint: Paste from your Creator Profile document
+          label: Creator Profile
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+      height: 421
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: ''
+        selected: false
+        title: Shot_List_Extractor
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787011286741'
+      position:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: ''
+        selected: false
+        title: AI_Footage_Prompt_Writer
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787011294924'
+      position:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: ''
+        selected: false
+        title: Equipment_Planner
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787011306732'
+      position:
+        x: 1189.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1189.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: ''
+        selected: false
+        title: Location_Lighting_Planner
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787011330358'
+      position:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: ''
+        selected: false
+        title: On_Camera_Performance_Director
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787011344799'
+      position:
+        x: 1793.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1793.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: ''
+        selected: false
+        title: Production_Schedule_Builder
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787011356407'
+      position:
+        x: 2095.1526785754086
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 2095.1526785754086
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        break_conditions:
+        - comparison_operator: contains
+          id: ca266570-de18-4037-9860-e8ab95e04ca5
+          value: A
+          varType: string
+          variable_selector:
+          - '1787011375107'
+          - grade
+        height: 195
+        logical_operator: and
+        loop_count: 2
+        loop_variables:
+        - id: e3a3a343-f08c-44e3-a281-4f6281ee5b43
+          label: grade
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: bd919390-55be-4ee0-b1b0-a5ece006c94b
+          label: report
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 5263f6c4-266c-4392-9dea-1a5338842ff0
+          label: revised_bible
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 9e922ae7-4f86-4041-aacc-3a2e4e08337a
+          label: revision_count
+          value: '0'
+          value_type: constant
+          var_type: number
+        selected: false
+        start_node_id: 1787011375107start
+        title: Bible_Quality_Loop
+        type: loop
+        width: 990
+      height: 195
+      id: '1787011375107'
+      position:
+        x: 2397.1526785754086
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 2397.1526785754086
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 990
+      zIndex: 0
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1787011375107start
+      parentId: '1787011375107'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 2421.1526785754086
+        y: 208.94783173555825
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787011375107'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: ''
+        selected: false
+        title: Self_Critique
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787011468370'
+      parentId: '1787011375107'
+      position:
+        x: 128
+        y: 67.11335291411774
+      positionAbsolute:
+        x: 2525.1526785754086
+        y: 208.061184649676
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        code: "\ndef main(arg1: str, arg2: str):\n    return {\n        \"result\"\
+          : arg1 + arg2,\n    }\n"
+        code_language: python3
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787011375107'
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: Critique_Parser
+        type: code
+        variables:
+        - value_selector: []
+          variable: arg1
+        - value_selector: []
+          variable: arg2
+      height: 52
+      id: '1787011489333'
+      parentId: '1787011375107'
+      position:
+        x: 430
+        y: 68
+      positionAbsolute:
+        x: 2827.1526785754086
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items: []
+        loop_id: '1787011375107'
+        selected: false
+        title: Critique_Variable_Assigner
+        type: assigner
+        version: '2'
+      height: 84
+      id: '1787011513475'
+      parentId: '1787011375107'
+      position:
+        x: 732
+        y: 68
+      positionAbsolute:
+        x: 3129.1526785754086
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: ''
+        selected: false
+        title: Final_Production_Bible
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787011529491'
+      position:
+        x: 3447.1526785754086
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 3447.1526785754086
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs: []
+        selected: true
+        title: Output
+        type: end
+      height: 52
+      id: '1787011672451'
+      position:
+        x: 3749.1526785754086
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 3749.1526785754086
+        y: 140.94783173555825
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -3644.9665883375983
+      y: 191.2637598372446
+      zoom: 1.1278444557283747
+  rag_pipeline_variables: []

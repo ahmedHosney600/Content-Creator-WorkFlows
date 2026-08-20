@@ -1,0 +1,745 @@
+agent_packages:
+  agent_1:
+    metadata:
+      description: ''
+      icon: null
+      icon_background: null
+      icon_type: null
+      name: Workflow Agent 1786875003856
+      role: ''
+    omitted_assets: []
+    schema_version: 1
+    soul:
+      app_features:
+        file_upload:
+          allowed_file_extensions:
+          - JPG
+          - JPEG
+          - PNG
+          - GIF
+          - WEBP
+          - SVG
+          allowed_file_types:
+          - document
+          - image
+          - audio
+          - video
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          enabled: true
+          image:
+            enabled: true
+          number_limits: 3
+        opening_statement: null
+        retriever_resource: null
+        sensitive_word_avoidance: null
+        speech_to_text: null
+        suggested_questions: null
+        suggested_questions_after_answer: null
+        text_to_speech: null
+      app_variables: []
+      config_files: []
+      config_note: ''
+      config_skills: []
+      env:
+        secret_refs: []
+        variables: []
+      files:
+        files: []
+        skills: []
+      human:
+        contacts: []
+        tools: []
+      knowledge:
+        sets: []
+      memory:
+        artifacts: []
+        budget: null
+        scope: null
+      misc_legacy:
+        file_upload:
+          allowed_file_extensions:
+          - JPG
+          - JPEG
+          - PNG
+          - GIF
+          - WEBP
+          - SVG
+          allowed_file_types:
+          - document
+          - image
+          - audio
+          - video
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          enabled: true
+          image:
+            enabled: true
+          number_limits: 3
+        opening_statement: null
+        retriever_resource: null
+        sensitive_word_avoidance: null
+        speech_to_text: null
+        suggested_questions: null
+        suggested_questions_after_answer: null
+        text_to_speech: null
+      model:
+        credential_ref: null
+        model: gemini-3.1-pro
+        model_provider: langgenius/openai_api_compatible/openai_api_compatible
+        model_settings:
+          frequency_penalty: null
+          max_tokens: null
+          presence_penalty: null
+          response_format: null
+          stop: null
+          temperature: null
+          top_p: null
+        plugin_id: langgenius/openai_api_compatible
+      prompt:
+        system_prompt: 'You are a research journalist. Your job is to gather real,
+          verifiable information about a topic by performing targeted web searches.
+          You MUST use your web search tool — do not draw from your own knowledge
+          for factual claims.
+
+
+          RESEARCH CATEGORIES — search for information in each:
+
+
+          CATEGORY 1 — STATISTICS & DATA
+
+          Search for: specific numbers, percentages, study findings, survey results
+
+          Format: "[Statistic] — Source: [publication/institution], Year: [year],
+          URL: [if available]"
+
+          Minimum: 3 items | Target: 5+ items
+
+
+          CATEGORY 2 — EXPERT AUTHORITY
+
+          Search for: quotes from recognized experts, conclusions from researchers,
+          professional opinions
+
+          Format: "[Quote or finding] — Expert: [name, credentials], Source: [publication],
+          Year: [year]"
+
+          Minimum: 2 items | Target: 3+ items
+
+
+          CATEGORY 3 — REAL-WORLD EXAMPLES & CASE STUDIES
+
+          Search for: specific people, companies, or situations that illustrate the
+          topic
+
+          Format: "[Example description] — Source: [publication or URL], Year: [year]"
+
+          Minimum: 3 items | Target: 5+ items
+
+
+          CATEGORY 4 — HISTORICAL CONTEXT
+
+          Search for: background information that explains how the current situation
+          came to be
+
+          Format: "[Historical fact or development] — Source: [publication], Year:
+          [year]"
+
+          Minimum: 1 item | Target: 2–3 items
+
+
+          CATEGORY 5 — COUNTER-ARGUMENTS & OPPOSING VIEWS
+
+          Search for: the strongest arguments against the main thesis or topic claim
+
+          Format: "[Counter-argument] — Source: [publication], Year: [year]"
+
+          Minimum: 1 item (the strongest opposition, even if ultimately rejected)
+
+
+          CATEGORY 6 — RECENT DEVELOPMENTS
+
+          Search for: anything published in the last 12 months on this topic
+
+          Format: "[Recent finding or news] — Source: [publication], Date: [month/year],
+          URL: [if available]"
+
+          Minimum: 2 items | Target: 3+ items
+
+
+          RESEARCH HONESTY RULES:
+
+          1. Every claim gets its source. No source = do not include the claim.
+
+          2. If a search returns no credible results for a question, say so explicitly.
+
+          3. Do not restate information you already found under a new category.
+
+          4. Do not synthesize or summarize — collect raw findings with attribution.
+
+          5. TOOL CALLING REQUIREMENT: When you have completed all your searches,
+          you MUST submit your final Markdown table by calling the `final_output`
+          tool (place your markdown table inside the `text` parameter). Do NOT output
+          raw text outside of a tool call.
+
+
+          OUTPUT FORMAT:
+
+
+          ---
+
+
+          ## RAW RESEARCH COLLECTION: [Topic]
+
+
+          ### Category 1: Statistics & Data
+
+          | # | Finding | Source | Year | Confidence |
+
+          |---|---|---|---|---|
+
+
+          ### Category 2: Expert Authority
+
+          | # | Quote / Finding | Expert | Source | Year |
+
+          |---|---|---|---|---|
+
+
+          ### Category 3: Real-World Examples & Case Studies
+
+          | # | Example | Source | Year |
+
+          |---|---|---|---|
+
+
+          ### Category 4: Historical Context
+
+          | # | Historical Fact | Source | Year |
+
+          |---|---|---|---|
+
+
+          ### Category 5: Counter-Arguments & Opposing Views
+
+          | # | Counter-Argument | Source | Year |
+
+          |---|---|---|---|
+
+
+          ### Category 6: Recent Developments (last 12 months)
+
+          | # | Development | Source | Date |
+
+          |---|---|---|---|
+
+
+          ### Research Gaps (questions I searched for but could not find credible
+          answers to)
+
+          - [Gap 1]: [what was searched, why results were insufficient]
+
+          - [Gap 2]: [same]'
+      sandbox:
+        config:
+          cpu: null
+          env: []
+          image: null
+          working_dir: null
+        provider: null
+      schema_version: 1
+      tools:
+        cli_tools: []
+        dify_tools:
+        - credential_ref: null
+          credential_type: unauthorized
+          description: null
+          enabled: true
+          name: null
+          plugin_id: null
+          provider: langgenius/searxng/searxng
+          provider_id: langgenius/searxng/searxng
+          provider_type: builtin
+          runtime_parameters: {}
+          tool_name: searxng_search
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: W-01_Topic Research Info Collector
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.59@fc19490989d886a5f24d21df56be95fd972e474e35a4aac93c29805bfaf089f1
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/searxng:0.0.12@74b2b396aed04aa41d728b611fcf16848be9118495058930bf7165a97eee1331
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1786742809170--1786855274195-target
+      source: '1786742809170'
+      sourceHandle: source
+      target: '1786855274195'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: agent
+      id: 1786855274195-source-1786875003856-target
+      source: '1786855274195'
+      sourceHandle: source
+      target: '1786875003856'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: agent
+        targetType: end
+      id: 1786875003856-source-1786876150914-target
+      source: '1786875003856'
+      sourceHandle: source
+      target: '1786876150914'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: The full idea spec, or just the topic + angle
+          label: Video topic (or paste Idea Package from W-00)
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: chosenTopic
+        - default: ''
+          hide: false
+          hint: ''
+          label: Content type
+          options:
+          - Educational
+          - Documentary
+          - Opinion & argument
+          - Tutorial & how-to
+          - Story-based
+          - Review & breakdown
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: contentType
+        - default: ''
+          hide: false
+          hint: ''
+          label: Approximate target video duration
+          options:
+          - Under 60 seconds
+          - 1–3 minutes
+          - 3–7 minutes
+          - 7–15 minutes
+          - 15–30 minutes
+          - 30+ minutes
+          placeholder: ''
+          required: true
+          type: select
+          variable: targetDuration
+        - default: ''
+          hide: false
+          hint: ''
+          label: Research depth needed
+          options:
+          - Surface (quick overview, 5–10 sources)
+          - Standard (thorough, 15–20 sources)
+          - Deep (comprehensive, 25+ sources)
+          - Academic (peer-reviewed preferred)
+          placeholder: ''
+          required: true
+          type: select
+          variable: researchDepth
+        - default: ''
+          hide: false
+          hint: Existing knowledge, opinions, relevant expertise
+          label: What you already know / your personal take on this topic
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: userKnowledge
+        - default: ''
+          hide: false
+          hint: Specific anecdotes, examples from your own life or work
+          label: Personal experiences or stories to integrate
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: personalStories
+        - default: ''
+          hide: false
+          hint: Specific numbers, quotes, or studies you already have
+          label: Key facts or stats that MUST appear in the video
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: mandatoryFacts
+        - default: ''
+          hide: false
+          hint: The point of view the video will defend
+          label: The specific angle or thesis you want to argue
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: anglePerspective
+        - default: ''
+          hide: false
+          hint: Angles, claims, or areas to skip
+          label: Subtopics or claims to avoid
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: topicsToAvoid
+        - default: ''
+          hide: false
+          hint: Areas needing nuance, disclaimers, or extra care
+          label: Sensitive topics requiring careful handling
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: sensitiveAreas
+        - default: ''
+          hide: false
+          hint: Paste from your Creator Profile document
+          label: Creator Profile
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+      height: 369
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gemini-3.6-flash
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 1c8d6e09-833a-4630-bf94-94d00b17de8e
+          role: system
+          text: 'You are a research strategist. You take a video topic and produce
+            a precise research architecture — a structured set of questions that defines
+            exactly what to research, in what order, and what to deliberately exclude
+            to prevent scope creep.
+
+
+            Your output has three purposes:
+
+            1. Guide the web search process (tell it exactly what to look for)
+
+            2. Define the skeleton that the final research package will follow
+
+            3. Set hard limits on scope to prevent the research from becoming unfocused
+
+
+            QUALITY STANDARDS:
+
+            - Primary questions must be answerable with real sources. Not "what is
+            the meaning of X" — but "what percentage of Y experience X, according
+            to what studies?"
+
+            - Secondary questions are valuable but optional — pursue if primary questions
+            leave content gaps
+
+            - Out-of-scope questions are explicitly excluded — once named, they will
+            not be researched
+
+            - The skeleton sections become the exact sections of the Final Research
+            Package
+
+
+            OUTPUT FORMAT:
+
+
+            ---
+
+
+            ## RESEARCH ARCHITECTURE: [Topic]
+
+
+            ### Primary Research Questions (must answer)
+
+            | # | Question | Why It Matters | Source Type Needed |
+
+            |---|---|---|---|
+
+            | 1 | [specific, answerable question] | [why the video needs this] | [study
+            / statistic / expert quote / example] |
+
+
+            ### Secondary Research Questions (answer if possible)
+
+            | # | Question | Why It''s Valuable |
+
+            |---|---|---|
+
+
+            ### Out-of-Scope (explicitly excluded)
+
+            | Excluded Area | Reason for Exclusion |
+
+            |---|---|
+
+
+            ### Information Architecture Skeleton
+
+            The research package will organize findings into these sections:
+
+            1. [Section name] — [what this section covers]
+
+            2. [Section name] — [what this section covers]
+
+            3. [Section name] — [what this section covers]
+
+            [continue as needed]
+
+
+            ### Mandatory Fact Integration
+
+            The following facts/stats provided by the creator must be incorporated:
+
+            [List of mandatory facts, or "None specified"]'
+        - id: 1030187a-afdf-4592-9466-754a8b4b83d1
+          role: user
+          text: 'Build a research architecture for the following:
+
+
+            TOPIC / IDEA:
+
+            {{#1786742809170.chosenTopic#}}
+
+
+            CONTENT TYPE: {{#1786742809170.contentType#}}
+
+            TARGET DURATION: {{#1786742809170.targetDuration#}}
+
+            RESEARCH DEPTH: {{#1786742809170.researchDepth#}}
+
+            ANGLE / THESIS: {{#1786742809170.anglePerspective#}}
+
+            TOPICS TO AVOID: {{#1786742809170.topicsToAvoid#}}
+
+            SENSITIVE AREAS: {{#1786742809170.sensitiveAreas#}}
+
+            MANDATORY FACTS: {{#1786742809170.mandatoryFacts#}}
+
+
+            Produce the full Research Architecture. Be specific — primary questions
+            must be answerable with real, searchable sources.'
+        selected: false
+        title: Research_Question_Architect
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1786855274195'
+      position:
+        x: 586.2546494596311
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 586.2546494596311
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        agent_binding:
+          binding_type: inline_agent
+          package_ref: agent_1
+        agent_declared_outputs: []
+        agent_job:
+          declared_outputs: []
+          human_contacts: []
+          metadata:
+            agent_soul: null
+            file_refs: null
+          mode: tell_agent_what_to_do
+          previous_node_output_refs:
+          - key: null
+            name: null
+            node_id: '1786742809170'
+            output: chosenTopic
+            selector:
+            - '1786742809170'
+            - chosenTopic
+            value_selector: null
+            variable: null
+            variable_selector: null
+          - key: null
+            name: null
+            node_id: '1786855274195'
+            output: text
+            selector:
+            - '1786855274195'
+            - text
+            value_selector: null
+            variable: null
+            variable_selector: null
+          - key: null
+            name: null
+            node_id: '1786742809170'
+            output: contentType
+            selector:
+            - '1786742809170'
+            - contentType
+            value_selector: null
+            variable: null
+            variable_selector: null
+          - key: null
+            name: null
+            node_id: '1786742809170'
+            output: sensitiveAreas
+            selector:
+            - '1786742809170'
+            - sensitiveAreas
+            value_selector: null
+            variable: null
+            variable_selector: null
+          - key: null
+            name: null
+            node_id: '1786742809170'
+            output: topicsToAvoid
+            selector:
+            - '1786742809170'
+            - topicsToAvoid
+            value_selector: null
+            variable: null
+            variable_selector: null
+          schema_version: 1
+          workflow_prompt: "Please conduct comprehensive web research for the topic\
+            \ and parameters provided in your Workflow Context. \n\nRead the {{#1786742809170.chosenTopic#}}\
+            \ to understand the core subject. Use the 'text' variable {{#1786855274195.text#}}\
+            \ to guide your specific search queries. Tailor your findings to match\
+            \ the requested {{#1786742809170.contentType#}}, and strictly respect\
+            \ any constraints listed in {{#1786742809170.sensitiveAreas#}} and {{#1786742809170.topicsToAvoid#}}.\n\
+            \nSearch for real information across all 6 categories using your SearXNG\
+            \ tool for every factual claim. Report all research gaps honestly. Do\
+            \ not output conversational text—use the final_output tool when finished."
+        agent_node_kind: dify_agent
+        agent_task: "Please conduct comprehensive web research for the topic and parameters\
+          \ provided in your Workflow Context. \n\nRead the {{#1786742809170.chosenTopic#}}\
+          \ to understand the core subject. Use the 'text' variable {{#1786855274195.text#}}\
+          \ to guide your specific search queries. Tailor your findings to match the\
+          \ requested {{#1786742809170.contentType#}}, and strictly respect any constraints\
+          \ listed in {{#1786742809170.sensitiveAreas#}} and {{#1786742809170.topicsToAvoid#}}.\n\
+          \nSearch for real information across all 6 categories using your SearXNG\
+          \ tool for every factual claim. Report all research gaps honestly. Do not\
+          \ output conversational text—use the final_output tool when finished."
+        selected: false
+        title: SearXNG Search
+        type: agent
+        version: '2'
+      height: 118
+      id: '1786875003856'
+      position:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1786875003856'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: Output
+        type: end
+      height: 88
+      id: '1786876150914'
+      position:
+        x: 1489.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1489.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: -520.1329975304516
+      y: 44.89882298253485
+      zoom: 0.9062078503148084
+  rag_pipeline_variables: []

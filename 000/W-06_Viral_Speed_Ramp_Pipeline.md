@@ -176,6 +176,13 @@ Final clip: FAST → FREEZE or SLOW (resolution)
 - Vary clip subjects if possible (don't show the same thing twice)
 - Ensure color/brightness variety between adjacent clips
 
+### STEP 4: IN/OUT POINT SELECTION
+
+For each clip, identify:
+- **In-point**: The frame where the clip starts (should be a "calm before storm" moment for slow-mo buildup)
+- **Peak frame**: The single most impactful frame (this is where the speed ramp peaks)
+- **Out-point**: Where to cut to the next clip (should be during fast motion for seamless transition)
+
 ### STEP 5: LOOP PLANNING (CRITICAL FOR VIRAL — from Level 11, Lesson 13.3)
 
 Viral content MUST loop seamlessly. Replays = more watch time = more views.
@@ -195,13 +202,6 @@ Viral content MUST loop seamlessly. Replays = more watch time = more views.
 | Speed at boundary | [X% speed] | [X% speed] | ✓/✗ |
 | Color temperature | [warm/cool] | [should match] | ✓/✗ |
 | Energy level | [low/medium/high] | [should match] | ✓/✗ |
-
-### STEP 4: IN/OUT POINT SELECTION
-
-For each clip, identify:
-- **In-point**: The frame where the clip starts (should be a "calm before storm" moment for slow-mo buildup)
-- **Peak frame**: The single most impactful frame (this is where the speed ramp peaks)
-- **Out-point**: Where to cut to the next clip (should be during fast motion for seamless transition)
 
 ---
 
@@ -249,9 +249,13 @@ For each clip, identify:
 PRE-PLANNING PACKAGE:
 {{#1786742809170.preplanningPackage#}}
 
+CLIP INTELLIGENCE REPORT (use these scores to prioritize and reject clips):
+{{#1787044016692.text#}}
+
 CLIP DESCRIPTIONS:
 {{#1786742809170.clipDescriptions#}}
 
+CLIP COUNT: {{#1786742809170.clipCount#}}
 TARGET DURATION: {{#1786742809170.targetDuration#}}
 MUSIC BPM: {{#1786742809170.musicBPM#}}
 MUSIC DROP TIMESTAMPS: {{#1786742809170.musicDrops#}}
@@ -264,6 +268,8 @@ Create the complete Clip Arrangement Plan. Every clip must be placed with specif
 ```
 
 ---
+
+> **Note — Loop Sub-Nodes**: Nodes 1–3 below (Speed Ramp Designer, Viral Effects & Transitions, Sound Design & Finishing) are placed **inside** the Viral Quality Loop container (Section 4). Build the loop container first, then drag these nodes inside it.
 
 ### Loop Sub-Node 1: Speed Ramp Designer
 * **Node Type**: `LLM`
@@ -485,6 +491,7 @@ CLIP ARRANGEMENT:
 MUSIC BPM: {{#1786742809170.musicBPM#}}
 MUSIC DROP TIMESTAMPS: {{#1786742809170.musicDrops#}}
 SOURCE FRAME RATE: {{#1786742809170.sourceFrameRate#}}
+REFERENCE VIDEOS: {{#1786742809170.referenceVideos#}}
 
 PACING MAP (FROM PREPLANNING):
 {{#1786742809170.preplanningPackage#}}
@@ -768,6 +775,7 @@ CREATIVE STRATEGY & BRIEF (FROM PREPLANNING):
 
 AVAILABLE PLUGINS: {{#1786742809170.availablePlugins#}}
 TREND STYLE: {{#1786742809170.trendStyleDetailed#}}
+REFERENCE VIDEOS: {{#1786742809170.referenceVideos#}}
 
 CREATOR PROFILE (visual brand — colors, fonts, logo rules):
 {{#1786742809170.creatorProfile#}}
@@ -791,6 +799,7 @@ Start from the previous plan and apply ONLY the CRITICAL and WARNING fixes flagg
 ### Loop Sub-Node 3: Sound Design & Finishing
 * **Node Type**: `LLM`
 * **Node Title**: `Sound_Design_and_Finishing`
+* **Node ID (for variable references)**: `1787044154011`
 * **Model Settings**: `Temperature: 0.7`, `Max Tokens: 4096`
 
 #### System Prompt
@@ -995,6 +1004,9 @@ CREATIVE STRATEGY & BRIEF (FROM PREPLANNING):
 
 MUSIC BPM: {{#1786742809170.musicBPM#}}
 
+CREATOR PROFILE (visual brand — governs color grading palette and finishing look):
+{{#1786742809170.creatorProfile#}}
+
 Create the combined Sound Design & Finishing Plan. Every speed ramp peak must have sound. Color must be specified. Finishing effects must be in order.
 
 ---
@@ -1101,6 +1113,8 @@ CREATIVE STRATEGY (FROM PREPLANNING):
 {{#1786742809170.preplanningPackage#}}
 
 MUSIC BPM: {{#1786742809170.musicBPM#}}
+CLIP COUNT: {{#1786742809170.clipCount#}}
+TARGET DURATION: {{#1786742809170.targetDuration#}}
 
 ## IF THIS IS A RE-AUDIT (revision_count > 0)
 REVISION COUNT: {{#1787044110253.revision_count#}}
@@ -1185,6 +1199,23 @@ def main(llm_output: str) -> dict:
 * **Node Type**: `LLM`
 * **Node Title**: `Final_Viral_Package`
 * **Model Settings**: `Temperature: 0.7`, `Max Tokens: 4096`
+
+#### System Prompt
+```
+You are a senior viral content editor compiling a final, actionable edit package for a speed ramp video. Your output is the editor's complete execution guide — they should be able to open After Effects and follow this document step-by-step without any guesswork.
+
+Compile the approved plans into a single, clean deliverable. Structure your output as:
+1. **Executive Summary** — video concept, target platform, total duration, music BPM
+2. **Clip Order & Timing** — final sequence with in/out points and speed patterns
+3. **Speed Ramp Specifications** — per-clip ramp curves, keyframe positions, easing
+4. **Effects & Transitions** — per-clip effects and per-cut transitions with exact parameters
+5. **Sound Design** — SFX placement table with timestamps, levels, and descriptions
+6. **Color & Finishing** — grade settings and finishing layer order
+7. **Export Settings** — platform-specific format, resolution, bitrate
+8. **Editor Time Estimate** — realistic hours broken down by phase
+
+Be direct and specific. Use tables wherever possible. Keep it action-oriented.
+```
 
 #### User Prompt
 ```

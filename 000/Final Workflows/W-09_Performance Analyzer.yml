@@ -1,0 +1,758 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: W-09_Performance Analyzer
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.59@fc19490989d886a5f24d21df56be95fd972e474e35a4aac93c29805bfaf089f1
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1786742809170-source-1787052471764-target
+      source: '1786742809170'
+      sourceHandle: source
+      target: '1787052471764'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787052471764--1787052491172-target
+      source: '1787052471764'
+      sourceHandle: ''
+      target: '1787052491172'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787052491172--1787052510913-target
+      source: '1787052491172'
+      sourceHandle: ''
+      target: '1787052510913'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787052510913--1787052529734-target
+      source: '1787052510913'
+      sourceHandle: ''
+      target: '1787052529734'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1787052529734--1787052557185-target
+      source: '1787052529734'
+      sourceHandle: ''
+      target: '1787052557185'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: Title as published
+          label: Which video is this?
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: videoTitle
+        - default: ''
+          hide: false
+          hint: ''
+          label: Platform
+          options:
+          - YouTube
+          - TikTok
+          - Instagram Reels
+          - LinkedIn
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: platform
+        - default: ''
+          hide: false
+          hint: Retention curve data, view counts, CTR, average view duration — whatever
+            the platform's analytics panel/export gives you. Doesn't need to be reformatted;
+            the Analytics Parser normalizes it.
+          label: Paste the platform's analytics export
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: analyticsData
+        - default: ''
+          hide: false
+          hint: A handful of comments that reflect how viewers actually reacted —
+            useful signal the analytics numbers alone don't capture
+          label: Sample of top/representative comments
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: topComments
+        - default: ''
+          hide: false
+          hint: Paste the W-04 Retention Map, W-02 Script Package, or W-06 Viral Package
+            this video was built from — without this, the Comparator can only assess
+            the analytics on their own merits, not against what was predicted
+          label: Original Retention Map / Script / Viral Package (if available)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: originalPackage
+        - default: ''
+          hide: false
+          hint: Your gut sense as the creator — used as a cross-check against the
+            data, not taken as ground truth over it
+          label: Your own read on what worked or didn't
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: whatYouThinkWorked
+      height: 239
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 767c2472-3cd9-4eec-8545-b39348026f33
+          role: system
+          text: 'You are normalizing a pasted analytics export into a consistent internal
+            format. Platform exports vary wildly in structure (raw CSV dumps, screenshot-transcribed
+            tables, narrative descriptions) — your job is extraction and normalization,
+            not analysis or interpretation. Do not draw conclusions here; that happens
+            in the next node.
+
+
+
+            EXTRACT WHATEVER IS PRESENT (do not fabricate missing fields — mark them
+            "Not provided"):
+
+            - Total views
+
+            - Average view duration / average % viewed
+
+            - Retention curve — a series of (timestamp or % of video, % of viewers
+            remaining) points if provided
+
+            - Click-through rate (impressions → views), if provided
+
+            - Likes, comments, shares, saves — whatever engagement metrics are present
+
+            - Traffic source breakdown, if provided
+
+            - Audience retention "spikes" or "drops" the platform itself flagged,
+            if the export includes them
+
+
+
+            If the pasted data is ambiguous (e.g., a number without a clear label),
+            state your best interpretation and flag the ambiguity rather than silently
+            guessing.
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## NORMALIZED ANALYTICS
+
+
+
+            ### Summary Metrics
+
+            | Metric | Value | Notes |
+
+            |---|---|---|
+
+            | Total Views | [value or "Not provided"] | |
+
+            | Average View Duration | [value or "Not provided"] | |
+
+            | Average % Viewed | [value or "Not provided"] | |
+
+            | CTR | [value or "Not provided"] | |
+
+            | Likes / Comments / Shares / Saves | [values or "Not provided"] | |
+
+
+
+            ### Retention Curve (if provided)
+
+            | Timestamp / % of video | % viewers remaining |
+
+            |---|---|
+
+            | [point] | [%] |
+
+            (as many rows as the data supports)
+
+
+
+            ### Platform-Flagged Moments (if provided)
+
+            [Any drop-off or spike the platform itself identified]
+
+
+
+            ### Parsing Notes
+
+            [Any ambiguity, missing data, or assumptions made while normalizing]'
+        - id: 0c64a679-7965-4050-b04d-5c3f44b5ce4b
+          role: user
+          text: 'Normalize this analytics export.
+
+
+
+            PLATFORM: {{#1786742809170.platform#}}
+
+
+
+            RAW ANALYTICS DATA:
+
+            {{#1786742809170.analyticsData#}}
+
+
+
+            Extract and normalize only. Do not analyze or draw conclusions yet.'
+        selected: false
+        title: Analytics_Parser
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787052471764'
+      position:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: c46d679f-8d73-4eff-81b6-b9d3929e0e22
+          role: system
+          text: 'You are comparing what this video''s creators predicted would happen
+            against what the analytics show actually happened. This is the core diagnostic
+            step in the workflow — be honest about misses, not just hits. A comparator
+            that only confirms what the original plan predicted is worthless; the
+            value here is specifically in catching where the prediction was wrong.
+
+
+
+            IF an originalPackage was provided (Retention Map, Script, or Viral Package):
+
+            - Extract every specific, checkable prediction it made: planned retention
+            mechanism timestamps, predicted drop-off points, hook design intent, viral/loop
+            score, pacing energy curve
+
+            - For each, compare against the actual retention curve from Analytics
+            Parser
+
+            - Classify each as: **HIT** (prediction matched reality within a reasonable
+            margin), **MISS** (prediction did not hold), or **PARTIAL** (directionally
+            right, but off on magnitude or timing)
+
+            - For every MISS or PARTIAL, be specific about the gap — "predicted a
+            re-engagement lift at 1:30, actual curve shows continued decline through
+            1:45" not "retention was lower than expected"
+
+
+
+            IF no originalPackage was provided:
+
+            - You cannot compare against a prediction that doesn''t exist — say so
+            explicitly
+
+            - Instead, analyze the actual retention curve on its own terms: where
+            are the real drop-off points, where (if anywhere) does retention hold
+            or climb, and what does the shape suggest about pacing/hook/structure
+            — framed as observations, not predictions being graded
+
+
+
+            Cross-reference `topComments` and `whatYouThinkWorked` as qualitative
+            signal — note where they agree or disagree with what the data shows, but
+            the data is the primary source of truth. If the creator''s own read contradicts
+            the retention curve, say so plainly rather than deferring to their intuition.
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## PREDICTION VS. REALITY
+
+
+
+            [If no originalPackage: "No original prediction package was provided —
+            this section analyzes the actual retention curve directly rather than
+            grading it against a prior prediction." Then proceed with the retention-curve-only
+            analysis below.]
+
+
+
+            ### Prediction Scorecard (if originalPackage provided)
+
+            | # | Predicted | Actual | Result | Gap |
+
+            |---|---|---|---|---|
+
+            | 1 | [specific prediction] | [what actually happened] | HIT / MISS /
+            PARTIAL | [specific magnitude/timing gap] |
+
+
+
+            ### Retention Curve Analysis
+
+            [Where the curve holds, where it drops, where — if anywhere — it climbs.
+            Tie specific % points to specific timestamps/sections where the source
+            material identifies them.]
+
+
+
+            ### Qualitative Cross-Check
+
+            [How topComments and whatYouThinkWorked align or conflict with the data]'
+        - id: 7128fe49-4f7b-40da-9492-6bda6921332b
+          role: user
+          text: 'Compare prediction to reality for this video.
+
+
+
+            NORMALIZED ANALYTICS:
+
+            {{#1787052471764.text#}}
+
+
+
+            ORIGINAL PACKAGE (Retention Map / Script / Viral Package — if provided):
+
+            {{#1786742809170.originalPackage#}}
+
+
+
+            TOP COMMENTS:
+
+            {{#1786742809170.topComments#}}
+
+
+
+            CREATOR''S OWN READ:
+
+            {{#1786742809170.whatYouThinkWorked#}}
+
+
+
+            VIDEO TITLE: {{#1786742809170.videoTitle#}}
+
+            PLATFORM: {{#1786742809170.platform#}}
+
+
+
+            If no original package was provided, say so explicitly and analyze the
+            retention curve on its own terms instead of forcing a comparison that
+            doesn''t exist.'
+        selected: false
+        title: Prediction_vs_Reality_Comparator
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787052491172'
+      position:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.6
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: b3725afe-bb90-400f-aec8-94d0c4308c90
+          role: system
+          text: 'You are extracting reusable lessons from the prediction-vs-reality
+            analysis. This is the step that actually makes the feedback loop worth
+            running — a lesson tied to outcome only ("retention was low") teaches
+            nothing repeatable; a lesson tied to mechanism ("the pattern interrupt
+            at 0:45 didn''t land because the topic shift was too abrupt — no visual
+            cue signaled the change") tells the next script/idea what to actually
+            do differently.
+
+
+
+            THE OUTCOME-VS-MECHANISM TEST — every lesson must pass this before it
+            ships:
+
+            - ❌ "Retention was low in the middle section." (outcome only — not reusable)
+
+            - ✅ "The middle section''s retention dropped sharply at the second re-engagement
+            hook (2:10) — the hook referenced the open loop verbally but didn''t change
+            anything visually, so it read as more of the same rather than a genuine
+            pattern interrupt. Future scripts should pair verbal re-hooks with a visual
+            or energy shift, not rely on the line alone."
+
+            - ❌ "The hook worked well." (outcome only)
+
+            - ✅ "The hook''s cold-open visual (no intro, straight into the action)
+            held retention through the first 15 seconds where prior videos on this
+            channel dropped ~20% in the same window. The specific mechanism — starting
+            mid-action rather than with a spoken intro — is what to repeat, not just
+            ''good hooks.''"
+
+
+
+            For each lesson, tag which upstream workflow it''s most relevant to:
+
+            - **[IDEA]** — relevant to W-00''s idea scoring (topic/angle resonance)
+
+            - **[SCRIPT]** — relevant to W-02''s script calibration (hook, pacing,
+            retention mechanics, dialect/voice)
+
+            - **[GENERAL]** — relevant to both or to production/editing choices outside
+            script scope
+
+
+
+            Extract 3–6 lessons. Quality over quantity — three sharp, mechanism-tied
+            lessons beat six vague ones.
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## LESSONS EXTRACTED
+
+
+
+            | # | Tag | Lesson |
+
+            |---|---|---|
+
+            | 1 | [IDEA / SCRIPT / GENERAL] | [full mechanism-tied lesson, written
+            the way the ✅ examples above are written] |
+
+
+
+            ### What Not to Over-Generalize From
+
+            [If this video''s sample size, novelty, or context limits how far these
+            lessons should be trusted — say so. A single video''s data point is a
+            hypothesis, not a rule.]'
+        - id: 51564fd0-8a32-47eb-a3db-958cf9366aaf
+          role: user
+          text: 'Extract reusable lessons from this analysis.
+
+
+
+            PREDICTION VS. REALITY:
+
+            {{#1787052491172.text#}}
+
+
+
+            NORMALIZED ANALYTICS:
+
+            {{#1787052471764.text#}}
+
+
+
+            Extract 3–6 mechanism-tied lessons, each tagged for which upstream workflow
+            it feeds. Every lesson must pass the outcome-vs-mechanism test in your
+            instructions — no lesson that just restates the outcome.'
+        selected: false
+        title: Lessons_Extractor
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787052510913'
+      position:
+        x: 1190.931457789341
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1190.931457789341
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 2aea7158-d7fa-47ec-b3d1-234b97ddeab3
+          role: system
+          text: 'You are compiling the complete Performance Analysis Package, ending
+            with a feed-forward summary formatted specifically to paste into W-00''s
+            `pastPerformanceNotes` field and into W-02''s `pastPerformanceNotes` field.
+
+
+
+            FORMAT:
+
+
+
+            ---
+
+
+
+            ## PERFORMANCE ANALYSIS PACKAGE
+
+
+
+            ### Quick Reference Card
+
+            Video: [title] | Platform: [platform]
+
+            Views: [X] | Avg. view duration: [X] | Avg. % viewed: [X]
+
+            CTR: [X, or "Not provided"]
+
+
+
+            ### Prediction vs. Reality
+
+            [Full Prediction vs. Reality Comparator output]
+
+
+
+            ### Lessons Extracted
+
+            [Full Lessons Extractor output]
+
+
+
+            ---
+
+
+
+            ### FEED-FORWARD SUMMARY (paste into W-00''s pastPerformanceNotes and/or
+            W-02''s pastPerformanceNotes)
+
+            ```
+
+            PAST PERFORMANCE — [video title] ([platform], [datePublished, or "date
+            unknown" if not provided])
+
+
+
+            Idea-relevant lessons:
+
+            [Every lesson tagged [IDEA] or [GENERAL] above, condensed to one line
+            each]
+
+
+
+            Script-relevant lessons:
+
+            [Every lesson tagged [SCRIPT] or [GENERAL] above, condensed to one line
+            each]
+
+
+
+            Confidence note: [carry forward the "What Not to Over-Generalize From"
+            caveat, condensed]
+
+            ```'
+        - id: 40d752c4-701f-4e8c-9b39-7c9d6914323e
+          role: user
+          text: 'Compile the Final Performance Package.
+
+
+
+            VIDEO TITLE: {{#1786742809170.videoTitle#}}
+
+            PLATFORM: {{#1786742809170.platform#}}
+
+
+
+            NORMALIZED ANALYTICS:
+
+            {{#1787052471764.text#}}
+
+
+
+            PREDICTION VS. REALITY:
+
+            {{#1787052491172.text#}}
+
+
+
+            LESSONS EXTRACTED:
+
+            {{#1787052510913.text#}}
+
+
+
+            Compile the complete package, ending with the feed-forward summary formatted
+            exactly as specified — it needs to be copy-pasteable directly into W-00
+            and W-02''s intake fields. If DATE PUBLISHED is blank, write "date unknown"
+            rather than omitting it or guessing.'
+        selected: true
+        title: Final_Performance_Package
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787052529734'
+      position:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1787052529734'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: Output
+        type: end
+      height: 88
+      id: '1787052557185'
+      position:
+        x: 1793.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1793.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -563.4333974675501
+      y: 155.42336234446321
+      zoom: 0.5621833177311988
+  rag_pipeline_variables: []

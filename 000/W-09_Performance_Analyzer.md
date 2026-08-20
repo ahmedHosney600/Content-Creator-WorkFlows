@@ -6,14 +6,14 @@
 > **Purpose**: Closes the loop the rest of the system leaves open. Every upstream workflow predicts something — retention %, viral potential, hook strength — and nothing checks those predictions against reality until now. This workflow takes real platform analytics and produces reusable lessons that feed back into [[W-00]] (idea scoring) and [[W-02]] (script calibration).
 > **Can work standalone?** Yes — works for any published video, with or without prior pipeline output. Richer input (an original Retention Map, viral score, or script) produces sharper prediction-vs-reality comparisons, but isn't required.
 
-This is a **linear pipeline — no self-critique loop**. There's nothing to revise here — this workflow reports on something that already happened; grading its own analysis against itself would add a step without a purpose. Standards 3, 4, and 5 apply (Standard 5 is intentionally out of scope — see the note under Standards Compliance below).
+This is a **linear pipeline — no self-critique loop**. There's nothing to revise here — this workflow reports on something that already happened; grading its own analysis against itself would add a step without a purpose. Standards 3 and 4 apply. Standard 5 (Creator Profile) is intentionally out of scope — see the note under Standards Compliance below.
 
 ---
 
 ## 1. 🏗️ Pipeline Architecture & Execution Flow
 
 ```
-[Start Node — 6 fields]
+[Start Node — 7 fields]
         │
         ▼
 [Node 1: Analytics Parser]                     ← normalizes whatever export format was pasted
@@ -30,6 +30,7 @@ This is a **linear pipeline — no self-critique loop**. There's nothing to revi
         ▼
 [End / Output Node]
 ```
+> The diagram above shows execution order. It's not a full data-flow map — `Start` fields (like `originalPackage`, `topComments`, `datePublished`) and `Analytics_Parser`'s output also feed directly into later nodes, not only through the immediately preceding node. See the Node Connections table in Section 5 for the complete mapping.
 
 ---
 
@@ -45,6 +46,7 @@ This is a **linear pipeline — no self-critique loop**. There's nothing to revi
 | 4 | `topComments` | Sample of top/representative comments | paragraph | No | A handful of comments that reflect how viewers actually reacted — useful signal the analytics numbers alone don't capture |
 | 5 | `originalPackage` | Original Retention Map / Script / Viral Package (if available) | paragraph | No | Paste the W-04 Retention Map, W-02 Script Package, or W-06 Viral Package this video was built from — without this, the Comparator can only assess the analytics on their own merits, not against what was predicted |
 | 6 | `whatYouThinkWorked` | Your own read on what worked or didn't | paragraph | No | Your gut sense as the creator — used as a cross-check against the data, not taken as ground truth over it |
+| 7 | `datePublished` | When was it published? | text | No | Used only to timestamp the Feed-Forward Summary. Leave blank if unknown — the package will say so rather than guessing. |
 
 ---
 
@@ -106,10 +108,10 @@ OUTPUT FORMAT:
 ```text
 Normalize this analytics export.
 
-PLATFORM: {{#Start.platform#}}
+PLATFORM: {{#1786742809170.platform#}}
 
 RAW ANALYTICS DATA:
-{{#Start.analyticsData#}}
+{{#1786742809170.analyticsData#}}
 
 Extract and normalize only. Do not analyze or draw conclusions yet.
 ```
@@ -166,19 +168,19 @@ OUTPUT FORMAT:
 Compare prediction to reality for this video.
 
 NORMALIZED ANALYTICS:
-{{#Analytics_Parser.text#}}
+{{#1787052471764.text#}}
 
 ORIGINAL PACKAGE (Retention Map / Script / Viral Package — if provided):
-{{#Start.originalPackage#}}
+{{#1786742809170.originalPackage#}}
 
 TOP COMMENTS:
-{{#Start.topComments#}}
+{{#1786742809170.topComments#}}
 
 CREATOR'S OWN READ:
-{{#Start.whatYouThinkWorked#}}
+{{#1786742809170.whatYouThinkWorked#}}
 
-VIDEO TITLE: {{#Start.videoTitle#}}
-PLATFORM: {{#Start.platform#}}
+VIDEO TITLE: {{#1786742809170.videoTitle#}}
+PLATFORM: {{#1786742809170.platform#}}
 
 If no original package was provided, say so explicitly and analyze the retention curve on its own terms instead of forcing a comparison that doesn't exist.
 ```
@@ -230,10 +232,10 @@ OUTPUT FORMAT:
 Extract reusable lessons from this analysis.
 
 PREDICTION VS. REALITY:
-{{#Prediction_vs_Reality_Comparator.text#}}
+{{#1787052491172.text#}}
 
 NORMALIZED ANALYTICS:
-{{#Analytics_Parser.text#}}
+{{#1787052471764.text#}}
 
 Extract 3–6 mechanism-tied lessons, each tagged for which upstream workflow it feeds. Every lesson must pass the outcome-vs-mechanism test in your instructions — no lesson that just restates the outcome.
 ```
@@ -276,7 +278,7 @@ CTR: [X, or "Not provided"]
 
 ### FEED-FORWARD SUMMARY (paste into W-00's pastPerformanceNotes and/or W-02's pastPerformanceNotes)
 ```
-PAST PERFORMANCE — [video title] ([platform], [date if known])
+PAST PERFORMANCE — [video title] ([platform], [datePublished, or "date unknown" if not provided])
 
 Idea-relevant lessons:
 [Every lesson tagged [IDEA] or [GENERAL] above, condensed to one line each]
@@ -292,19 +294,20 @@ Confidence note: [carry forward the "What Not to Over-Generalize From" caveat, c
 ```text
 Compile the Final Performance Package.
 
-VIDEO TITLE: {{#Start.videoTitle#}}
-PLATFORM: {{#Start.platform#}}
+VIDEO TITLE: {{#1786742809170.videoTitle#}}
+PLATFORM: {{#1786742809170.platform#}}
+DATE PUBLISHED: {{#1786742809170.datePublished#}}
 
 NORMALIZED ANALYTICS:
-{{#Analytics_Parser.text#}}
+{{#1787052471764.text#}}
 
 PREDICTION VS. REALITY:
-{{#Prediction_vs_Reality_Comparator.text#}}
+{{#1787052491172.text#}}
 
 LESSONS EXTRACTED:
-{{#Lessons_Extractor.text#}}
+{{#1787052510913.text#}}
 
-Compile the complete package, ending with the feed-forward summary formatted exactly as specified — it needs to be copy-pasteable directly into W-00 and W-02's intake fields.
+Compile the complete package, ending with the feed-forward summary formatted exactly as specified — it needs to be copy-pasteable directly into W-00 and W-02's intake fields. If DATE PUBLISHED is blank, write "date unknown" rather than omitting it or guessing.
 ```
 
 **Output Port**: `text`
@@ -322,10 +325,13 @@ Compile the complete package, ending with the feed-forward summary formatted exa
 
 | From Node | Output | To Node | Input Mapping | Condition |
 |---|---|---|---|---|
-| `Start` | form submission | `Analytics_Parser` | all `{{#Start.*#}}` | Unconditional |
+| `Start` | form submission | `Analytics_Parser` | `{{#1786742809170.platform#}}`, `{{#1786742809170.analyticsData#}}` | Unconditional |
 | `Analytics_Parser` | `text` | `Prediction_vs_Reality_Comparator` | via prompt | Unconditional |
+| `Start` | form submission | `Prediction_vs_Reality_Comparator` | `{{#1786742809170.originalPackage#}}`, `{{#1786742809170.topComments#}}`, `{{#1786742809170.whatYouThinkWorked#}}`, `{{#1786742809170.videoTitle#}}`, `{{#1786742809170.platform#}}` | Unconditional |
+| `Analytics_Parser` | `text` | `Lessons_Extractor` | via prompt | Unconditional |
 | `Prediction_vs_Reality_Comparator` | `text` | `Lessons_Extractor` | via prompt | Unconditional |
 | `Analytics_Parser`, `Prediction_vs_Reality_Comparator`, `Lessons_Extractor` | `text` | `Final_Performance_Package` | via prompt | Unconditional |
+| `Start` | form submission | `Final_Performance_Package` | `{{#1786742809170.videoTitle#}}`, `{{#1786742809170.platform#}}`, `{{#1786742809170.datePublished#}}` | Unconditional |
 | `Final_Performance_Package` | `text` | `End` | `text` output | Unconditional |
 
 ---

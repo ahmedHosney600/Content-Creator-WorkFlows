@@ -1,0 +1,897 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: W-08_Content Repurposing Agent
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.59@fc19490989d886a5f24d21df56be95fd972e474e35a4aac93c29805bfaf089f1
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1786742809170-source-1787051780945-target
+      source: '1786742809170'
+      sourceHandle: source
+      target: '1787051780945'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787051780945--1787051792211-target
+      source: '1787051780945'
+      sourceHandle: ''
+      target: '1787051792211'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787051792211--1787051808445-target
+      source: '1787051792211'
+      sourceHandle: ''
+      target: '1787051808445'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787051808445--1787051827278-target
+      source: '1787051808445'
+      sourceHandle: ''
+      target: '1787051827278'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787051827278--1787051851299-target
+      source: '1787051827278'
+      sourceHandle: ''
+      target: '1787051851299'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1787051851299--1787051864365-target
+      source: '1787051851299'
+      sourceHandle: ''
+      target: '1787051864365'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: The richer this is, the better the extraction — a full package with
+            timestamps beats a plain description
+          label: Content package (paste W-05/W-06/W-07 output, or script + storyboard)
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: contentPackage
+        - default: ''
+          hide: false
+          hint: ''
+          label: Where the original was/will be published
+          options:
+          - YouTube Long-form
+          - YouTube Shorts
+          - TikTok
+          - Instagram Reels
+          - Podcast
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: originalPlatform
+        - default: ''
+          hide: false
+          hint: e.g. Short clips (TikTok/Reels/Shorts) / Thread (X/Twitter) / Carousel
+            (LinkedIn/Instagram) / Blog/article / Podcast/audio clip
+          label: Which formats to plan for
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: repurposeTargets
+        - default: ''
+          hide: false
+          hint: e.g. "2026-08-20", or "the day the main video goes live"
+          label: When does the repurposing calendar start?
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: publishStartDate
+        - default: ''
+          hide: false
+          hint: ''
+          label: How often can you realistically post repurposed content?
+          options:
+          - Daily
+          - Every other day
+          - 2–3x per week
+          - Once per week
+          placeholder: ''
+          required: true
+          type: select
+          variable: postingCadence
+        - default: ''
+          hide: false
+          hint: Paste from your Creator Profile document — voice/tone governs thread
+            and carousel copy; recurring phrases/sign-offs should carry into clips
+          label: Creator Profile
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+      height: 239
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.6
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: d35363cc-bcd3-4956-aacc-a18bb13eb7aa
+          role: system
+          text: 'You are auditing a piece of long-form content to find what''s actually
+            worth repurposing. Most videos have 2–3 genuinely strong standalone moments
+            and several mediocre ones — your job is to find the strong ones honestly,
+            not pad the list to five.
+
+
+
+            WHAT MAKES A MOMENT REPURPOSABLE:
+
+            - **Stands alone**: makes sense without the surrounding context, or needs
+            only a one-sentence setup
+
+            - **Has a complete arc**: a claim + payoff, a question + answer, a before
+            + after — not a fragment that trails off
+
+            - **Carries emotional or informational density**: the single most useful
+            tip, the most surprising fact, the most relatable moment, the funniest
+            exchange
+
+            - **Has a natural hook**: the first line of the moment could work as a
+            hook on its own
+
+
+
+            FOR EACH MOMENT IDENTIFY:
+
+            - Approximate timestamp/location in the source
+
+            - What type of moment it is (key insight / emotional beat / surprising
+            fact / demonstration / relatable struggle / punchline)
+
+            - Why it works standalone
+
+            - Which repurposed formats it''s best suited for (not every moment fits
+            every format — a visual demonstration doesn''t work as a text thread point;
+            a single punchy stat works great as one)
+
+
+
+            Identify up to 5 moments. If the content genuinely only has 2–3 strong
+            ones, say so — do not manufacture two more mediocre entries just to hit
+            a round number.
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## CONTENT AUDIT
+
+
+
+            ### Repurposable Moments
+
+            | # | Timestamp/Location | Type | What It Is | Why It Stands Alone | Best-Fit
+            Formats |
+
+            |---|---|---|---|---|---|
+
+            | 1 | [time] | [type] | [1 sentence] | [1 sentence] | [formats] |
+
+
+
+            ### Overall Assessment
+
+            [1 short paragraph: how repurposable is this content overall, and what''s
+            the strongest angle to lead with across formats]'
+        - id: 46b39ce9-74b6-45c2-a0b5-9003bae10a21
+          role: user
+          text: 'Audit this content for repurposable moments.
+
+
+
+            CONTENT PACKAGE:
+
+            {{#1786742809170.contentPackage#}}
+
+
+
+            ORIGINAL PLATFORM: {{#1786742809170.originalPlatform#}}
+
+            REPURPOSE TARGETS REQUESTED: {{#1786742809170.repurposeTargets#}}
+
+
+
+            Find up to 5 genuinely strong standalone moments — fewer is fine if that''s
+            what the content actually supports.'
+        selected: false
+        title: Content_Audit
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787051780945'
+      position:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.65
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 0c79f9ce-d706-47b7-8b24-c29599ec165b
+          role: system
+          text: 'You are adapting the audited content into the specific formats requested.
+            Only produce sections for formats actually listed in `repurposeTargets`
+            — do not pad the output with formats nobody asked for.
+
+
+
+            FORMAT-SPECIFIC RULES:
+
+
+
+            **Thread (X/Twitter)**:
+
+            - Opening tweet must work as a standalone hook — the reader hasn''t seen
+            anything else yet
+
+            - One idea per tweet, not paragraphs crammed together
+
+            - 5–12 tweets is the usable range; more than that loses readers
+
+            - Close with either a synthesis/takeaway or a soft CTA — not both
+
+
+
+            **Carousel (LinkedIn/Instagram)**:
+
+            - Slide 1 is the hook — must work with zero context, since it''s what
+            shows in-feed
+
+            - One point per slide, written to be read in 2–3 seconds
+
+            - 6–10 slides is the usable range
+
+            - Last slide = takeaway + CTA
+
+
+
+            **Blog/Article Outline**:
+
+            - Not a full article — an outline a writer (human or AI) can expand from
+
+            - H2-level section breakdown mapped to the source content''s actual structure
+
+            - Note where the video''s specific examples/data should carry over verbatim
+            vs. where the article format allows adding more depth than the video had
+            room for
+
+
+
+            **Podcast/Audio Clip Plan**:
+
+            - Identify segments that work audio-only (no "as you can see" moments,
+            no visual-dependent jokes)
+
+            - Note where a brief spoken intro is needed to replace visual context
+
+
+
+            For each format produced, cite which Content Audit moment(s) it draws
+            from.
+
+
+
+            OUTPUT FORMAT (only include sections for requested formats):
+
+
+
+            ---
+
+
+
+            ## PLATFORM ADAPTATIONS
+
+
+
+            ### Thread (X/Twitter)
+
+            [If requested — full thread, tweet by tweet, numbered]
+
+            **Source moment(s)**: [reference from Content Audit]
+
+
+
+            ### Carousel (LinkedIn/Instagram)
+
+            [If requested — full slide-by-slide copy]
+
+            **Source moment(s)**: [reference]
+
+
+
+            ### Blog/Article Outline
+
+            [If requested — H2-level outline with notes]
+
+            **Source moment(s)**: [reference]
+
+
+
+            ### Podcast/Audio Clip Plan
+
+            [If requested — segment selection + intro notes]
+
+            **Source moment(s)**: [reference]'
+        - id: 08ca4422-fd8e-4b1b-a763-e14521112a23
+          role: user
+          text: 'Adapt this content into the requested formats.
+
+
+
+            CONTENT AUDIT:
+
+            {{#1787051780945.text#}}
+
+
+
+            FULL CONTENT PACKAGE (for source material and exact quotes/data):
+
+            {{#1786742809170.contentPackage#}}
+
+
+
+            REPURPOSE TARGETS: {{#1786742809170.repurposeTargets#}}
+
+
+
+            CREATOR PROFILE (voice/tone — apply to thread and carousel copy):
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Only produce sections for the formats listed in REPURPOSE TARGETS.'
+        selected: false
+        title: Platform_Adaptation_Planner
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787051792211'
+      position:
+        x: 893.6697562772782
+        y: 145.2925502034715
+      positionAbsolute:
+        x: 893.6697562772782
+        y: 145.2925502034715
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.65
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 84f40872-712d-4cae-bef6-db701d697468
+          role: system
+          text: 'You are planning short-form vertical clips extracted from the long-form
+            source. This node only runs meaningfully if the repurpose targets include
+            "Short clips (TikTok/Reels/Shorts)" — if that value isn''t present, produce
+            a one-line note saying short clips weren''t requested and stop.
+
+
+
+            VOICE: If a creator profile is provided, re-hooks and captions should
+            sound like the creator, not like a generic clip-page. Carry over recurring
+            phrases or sign-offs from the profile where they fit naturally — don''t
+            force one into every clip.
+
+
+
+            FOR EACH CLIP (3–5 total, drawn from the Content Audit''s strongest moments):
+
+            - **In/out points**: where the clip starts and ends in the source (should
+            be a complete arc — don''t cut off mid-thought)
+
+            - **Re-hook**: the original video''s opening doesn''t work as this clip''s
+            opening — write a new first line specifically for someone with zero context,
+            landing in the first 1 second, in the creator''s voice
+
+            - **Text overlay context**: what on-screen text this clip needs to make
+            sense standalone (since short-form viewers often watch muted first)
+
+            - **Suggested caption**: platform-native caption in the creator''s voice,
+            not a repost of the long-form description
+
+            - **Why this clip specifically**: what makes it work as a 15–60 second
+            standalone piece
+
+
+
+            Do not just pick the 5 audited moments mechanically — if two moments are
+            too similar in type, prefer variety (don''t submit 3 "surprising fact"
+            clips and skip the emotional beat).
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## SHORTS/REELS EXTRACTION PLAN
+
+
+
+            [If "Short clips (TikTok/Reels/Shorts)" is not among the repurpose targets:
+            "Short clips were not requested for this repurposing plan." — stop here.]
+
+
+
+            ### Clip 1: [short name]
+
+            - **Source timestamp**: [in–out]
+
+            - **Re-hook (first line, zero context)**: "[exact line]"
+
+            - **Text overlay needed**: [what and roughly when]
+
+            - **Suggested caption**: [caption]
+
+            - **Why this works standalone**: [1 sentence]
+
+
+
+            (repeat per clip, 3–5 total)
+
+
+
+            ### Sequencing Note
+
+            [If multiple clips: any reason to post them in a particular order, e.g.
+            building curiosity across a series — or "No dependency between clips;
+            any order works."]'
+        - id: 912e1b26-cb06-44a9-b1f1-cf05ab5a1fe8
+          role: user
+          text: 'Plan short-form clip extraction.
+
+
+
+            CONTENT AUDIT:
+
+            {{#1787051780945.text#}}
+
+
+
+            FULL CONTENT PACKAGE:
+
+            {{#1786742809170.contentPackage#}}
+
+
+
+            REPURPOSE TARGETS: {{#1786742809170.repurposeTargets#}}
+
+            ORIGINAL PLATFORM: {{#1786742809170.originalPlatform#}}
+
+
+
+            CREATOR PROFILE (voice/tone — apply to re-hooks and captions):
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            If "Short clips (TikTok/Reels/Shorts)" is not among the repurpose targets,
+            say so plainly and do not force a plan.'
+        selected: false
+        title: Shorts_Reels_Extraction_Plan
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787051808445'
+      position:
+        x: 1189.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1189.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 57ada097-4b5f-46a7-a4d6-6eeb1ef95d23
+          role: system
+          text: 'You are scheduling the repurposed content pieces into a realistic
+            2-week calendar, respecting the stated posting cadence — do not schedule
+            more posts than the cadence allows.
+
+
+
+            SEQUENCING LOGIC:
+
+            - A short teaser clip (if any) can go 1–2 days BEFORE the main content
+            publishes, to build anticipation
+
+            - Core repurposed pieces (thread, carousel, article) typically follow
+            the main publish date, spaced across the two weeks — don''t dump them
+            all on day one
+
+            - If multiple short clips exist, space them out rather than posting back-to-back
+
+            - Leave natural gaps — a calendar with something scheduled every single
+            cadence slot with zero flexibility isn''t realistic
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## CONTENT CALENDAR (2 Weeks)
+
+
+
+            | Day | Date (if known) | Content Piece | Platform | Type |
+
+            |---|---|---|---|---|
+
+            | Day -1 | [date] | [teaser clip, if applicable] | [platform] | Pre-publish
+            teaser |
+
+            | Day 0 | [date] | Main video | [original platform] | Main publish |
+
+            | Day X | [date] | [repurposed piece] | [platform] | Post-publish |
+
+            ...
+
+
+
+            ### Cadence Check
+
+            Requested cadence: [cadence]. Pieces scheduled: [count] over 14 days =
+            [actual cadence]. [Confirm it matches, or explain the adjustment made
+            and why.]'
+        - id: f42681e3-645b-4d2f-8ab1-f748629b2839
+          role: user
+          text: 'Build the 2-week content calendar.
+
+
+
+            PLATFORM ADAPTATIONS:
+
+            {{#1787051792211.text#}}
+
+
+
+            SHORTS/REELS PLAN:
+
+            {{#1787051808445.text#}}
+
+
+
+            PUBLISH START DATE: {{#1786742809170.publishStartDate#}}
+
+            POSTING CADENCE: {{#1786742809170.postingCadence#}}
+
+            ORIGINAL PLATFORM: {{#1786742809170.originalPlatform#}}
+
+
+
+            Schedule every piece produced above, respecting the stated cadence.'
+        selected: true
+        title: Content_Calendar_Integration
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787051827278'
+      position:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 22e84a6d-fa26-49b6-a7cb-ba1eb4966ee8
+          role: system
+          text: 'You are compiling the complete repurposing package. Assemble every
+            upstream component — nothing summarized away.
+
+
+
+            FORMAT:
+
+
+
+            ---
+
+
+
+            ## FINAL REPURPOSING PACKAGE
+
+
+
+            ### Overview
+
+            | Field | Value |
+
+            |---|---|
+
+            | Original Platform | [platform] |
+
+            | Repurpose Targets | [targets] |
+
+            | Posting Cadence | [cadence] |
+
+            | Calendar Span | 2 weeks starting [date] |
+
+
+
+            ### Content Audit
+
+            [Full Content Audit output]
+
+
+
+            ### Platform Adaptations
+
+            [Full Platform Adaptation Planner output]
+
+
+
+            ### Shorts/Reels Extraction Plan
+
+            [Full Shorts/Reels Extraction Plan output]
+
+
+
+            ### Content Calendar
+
+            [Full Content Calendar Integration output]
+
+
+
+            ### Execution Checklist
+
+            - [ ] Clips cut per Shorts/Reels Extraction Plan
+
+            - [ ] Thread/carousel copy finalized and formatted for platform
+
+            - [ ] Blog outline handed off (if applicable)
+
+            - [ ] Calendar entries added to scheduling tool'
+        - id: 2cbfbc89-9206-4035-83eb-2b8b21106a5c
+          role: user
+          text: 'Compile the Final Repurposing Package.
+
+
+
+            CONTENT AUDIT:
+
+            {{#1787051780945.text#}}
+
+
+
+            PLATFORM ADAPTATIONS:
+
+            {{#1787051792211.text#}}
+
+
+
+            SHORTS/REELS EXTRACTION PLAN:
+
+            {{#1787051808445.text#}}
+
+
+
+            CONTENT CALENDAR:
+
+            {{#1787051827278.text#}}
+
+
+
+            ORIGINAL PLATFORM: {{#1786742809170.originalPlatform#}}
+
+            REPURPOSE TARGETS: {{#1786742809170.repurposeTargets#}}
+
+            POSTING CADENCE: {{#1786742809170.postingCadence#}}
+
+            PUBLISH START DATE: {{#1786742809170.publishStartDate#}}
+
+
+
+            Compile the complete package with the execution checklist.'
+        selected: false
+        title: Final_Repurposing_Package
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787051851299'
+      position:
+        x: 1793.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1793.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1787051851299'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: Output
+        type: end
+      height: 88
+      id: '1787051864365'
+      position:
+        x: 2092.980319341452
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 2092.980319341452
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -446.6963737076263
+      y: 91.38169009297951
+      zoom: 0.4603290212635077
+  rag_pipeline_variables: []

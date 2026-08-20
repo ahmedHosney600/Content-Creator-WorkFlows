@@ -190,15 +190,15 @@ Shots flagged as AI-gen candidates — these can be replaced with AI video gener
 Extract the complete shot list from the following script / content plan.
 
 SCRIPT / CONTENT PLAN:
-{{#Start.scriptPackage#}}
+{{#1786742809170.scriptPackage#}}
 
-CONTENT TYPE: {{#Start.contentType#}}
-BUDGET LEVEL: {{#Start.budgetLevel#}}
-QUALITY TIER: {{#Start.qualityTier#}}
-LOCATION TYPE: {{#Start.location#}}
-CREW SIZE: {{#Start.crewSize#}}
-SPECIAL REQUIREMENTS: {{#Start.specialRequirements#}}
-AI VIDEO TOOLS AVAILABLE: {{#Start.availableAiVideoTools#}}
+CONTENT TYPE: {{#1786742809170.contentType#}}
+BUDGET LEVEL: {{#1786742809170.budgetLevel#}}
+QUALITY TIER: {{#1786742809170.qualityTier#}}
+LOCATION TYPE: {{#1786742809170.location#}}
+CREW SIZE: {{#1786742809170.crewSize#}}
+SPECIAL REQUIREMENTS: {{#1786742809170.specialRequirements#}}
+AI VIDEO TOOLS AVAILABLE: {{#1786742809170.availableAiVideoTools#}}
 
 Extract every shot. Tag each as A-Roll / B-Roll / B-Roll (AI-gen candidate). Group by location/setup. Mark priority (must-have vs. nice-to-have).
 ```
@@ -294,15 +294,15 @@ For each shot flagged as B-Roll (AI-gen candidate):
 Write AI video generation prompts for all B-roll shots flagged as AI-gen candidates.
 
 SHOT LIST (full):
-{{#Shot_List_Extractor.text#}}
+{{#1787011286741.text#}}
 
-CONTENT TYPE: {{#Start.contentType#}}
-QUALITY TIER: {{#Start.qualityTier#}}
-AVAILABLE AI VIDEO TOOLS: {{#Start.availableAiVideoTools#}}
-BUDGET LEVEL: {{#Start.budgetLevel#}}
+CONTENT TYPE: {{#1786742809170.contentType#}}
+QUALITY TIER: {{#1786742809170.qualityTier#}}
+AVAILABLE AI VIDEO TOOLS: {{#1786742809170.availableAiVideoTools#}}
+BUDGET LEVEL: {{#1786742809170.budgetLevel#}}
 
 CREATOR PROFILE (for style context):
-{{#Start.creatorProfile#}}
+{{#1786742809170.creatorProfile#}}
 
 Write a complete generation prompt for every AI-gen candidate shot. If no AI tools are specified, write prompts compatible with the most popular tools (Runway, Kling, Veo) and let the creator choose.
 ```
@@ -407,15 +407,15 @@ OUTPUT FORMAT:
 Build the equipment plan for this production.
 
 SHOT LIST:
-{{#Shot_List_Extractor.text#}}
+{{#1787011286741.text#}}
 
-CONTENT TYPE: {{#Start.contentType#}}
-BUDGET LEVEL: {{#Start.budgetLevel#}}
-QUALITY TIER: {{#Start.qualityTier#}}
-CREW SIZE: {{#Start.crewSize#}}
-AVAILABLE EQUIPMENT: {{#Start.availableEquipment#}}
-LOCATION TYPE: {{#Start.location#}}
-SPECIAL REQUIREMENTS: {{#Start.specialRequirements#}}
+CONTENT TYPE: {{#1786742809170.contentType#}}
+BUDGET LEVEL: {{#1786742809170.budgetLevel#}}
+QUALITY TIER: {{#1786742809170.qualityTier#}}
+CREW SIZE: {{#1786742809170.crewSize#}}
+AVAILABLE EQUIPMENT: {{#1786742809170.availableEquipment#}}
+LOCATION TYPE: {{#1786742809170.location#}}
+SPECIAL REQUIREMENTS: {{#1786742809170.specialRequirements#}}
 
 Build the three-tier equipment plan and the full camera settings quick reference table. Tailor recommendations to the specific shot types in this shot list.
 ```
@@ -530,18 +530,18 @@ A one-page printable summary for on-set use:
 Build the lighting plan for each location and setup in this production.
 
 SHOT LIST (for context on what's being filmed where):
-{{#Shot_List_Extractor.text#}}
+{{#1787011286741.text#}}
 
-CONTENT TYPE: {{#Start.contentType#}}
-LOCATION TYPE: {{#Start.location#}}
-BUDGET LEVEL: {{#Start.budgetLevel#}}
-QUALITY TIER: {{#Start.qualityTier#}}
-CREW SIZE: {{#Start.crewSize#}}
-AVAILABLE EQUIPMENT: {{#Start.availableEquipment#}}
-SPECIAL REQUIREMENTS: {{#Start.specialRequirements#}}
+CONTENT TYPE: {{#1786742809170.contentType#}}
+LOCATION TYPE: {{#1786742809170.location#}}
+BUDGET LEVEL: {{#1786742809170.budgetLevel#}}
+QUALITY TIER: {{#1786742809170.qualityTier#}}
+CREW SIZE: {{#1786742809170.crewSize#}}
+AVAILABLE EQUIPMENT: {{#1786742809170.availableEquipment#}}
+SPECIAL REQUIREMENTS: {{#1786742809170.specialRequirements#}}
 
 CREATOR PROFILE (for aesthetic / visual brand reference):
-{{#Start.creatorProfile#}}
+{{#1786742809170.creatorProfile#}}
 
 Build a complete lighting plan for every location / setup. Include specific positions, types, color temperatures, ratios. Include the lighting quick reference card at the end.
 ```
@@ -637,16 +637,16 @@ If filming reaction shots for overlay:
 Write on-camera performance direction for this project.
 
 SCRIPT / CONTENT PLAN:
-{{#Start.scriptPackage#}}
+{{#1786742809170.scriptPackage#}}
 
-CONTENT TYPE: {{#Start.contentType#}}
+CONTENT TYPE: {{#1786742809170.contentType#}}
 VOICE STYLE: [extracted from script or: conversational/authoritative/energetic/calm]
 
 SHOT LIST (for timing reference):
-{{#Shot_List_Extractor.text#}}
+{{#1787011286741.text#}}
 
 CREATOR PROFILE:
-{{#Start.creatorProfile#}}
+{{#1786742809170.creatorProfile#}}
 
 Write specific, section-by-section performance direction. Tie every note to specific script sections or timestamps.
 ```
@@ -769,19 +769,19 @@ Recommended folder structure:
 Build the production schedule for this shoot.
 
 SHOT LIST (full, with priorities):
-{{#Shot_List_Extractor.text#}}
+{{#1787011286741.text#}}
 
 EQUIPMENT PLAN (for setup time estimates):
-{{#Equipment_Planner.text#}}
+{{#1787011294924.text#}}
 
 LIGHTING PLAN (for setup change time estimates):
-{{#Location_Lighting_Planner.text#}}
+{{#1787011330358.text#}}
 
-FILMING TIME AVAILABLE: {{#Start.filmingDays#}}
-CREW SIZE: {{#Start.crewSize#}}
-LOCATION TYPE: {{#Start.location#}}
-RELEASE DEADLINE: {{#Start.releaseDeadline#}}
-SPECIAL REQUIREMENTS: {{#Start.specialRequirements#}}
+FILMING TIME AVAILABLE: {{#1786742809170.filmingDays#}}
+CREW SIZE: {{#1786742809170.crewSize#}}
+LOCATION TYPE: {{#1786742809170.location#}}
+RELEASE DEADLINE: {{#1786742809170.releaseDeadline#}}
+SPECIAL REQUIREMENTS: {{#1786742809170.specialRequirements#}}
 
 Build a realistic, time-blocked schedule. Group shots by location. Include contingency buffer. Include post-shoot checklist and folder structure.
 ```
@@ -795,7 +795,7 @@ Build a realistic, time-blocked schedule. Group shots by location. Include conti
 **Node Title**: `Bible_Quality_Loop`
 **Node Type**: Loop (Dify native)
 **Max Iterations**: `2`
-**Break Condition**: `{{#Bible_Quality_Loop.grade#}} contains "A"`
+**Break Condition**: `{{#1787011375107.grade#}} contains "A"`
 
 **Loop Variables:**
 | Variable | Type | Initial Value |
@@ -857,39 +857,39 @@ GRADING:
 ```text
 Audit the following Production Bible.
 
-REVISION COUNT: {{#Bible_Quality_Loop.revision_count#}}
+REVISION COUNT: {{#1787011375107.revision_count#}}
 (If > 0, start from revised_bible.)
 
 PRIOR CRITIQUE REPORT:
-{{#Bible_Quality_Loop.report#}}
+{{#1787011375107.report#}}
 
 CURRENT BIBLE STATE (use if revision_count > 0):
-{{#Bible_Quality_Loop.revised_bible#}}
+{{#1787011375107.revised_bible#}}
 
 ORIGINAL COMPONENTS (use for first pass):
 
 SHOT LIST:
-{{#Shot_List_Extractor.text#}}
+{{#1787011286741.text#}}
 
 AI FOOTAGE PROMPTS:
-{{#AI_Footage_Prompt_Writer.text#}}
+{{#1787011294924.text#}}
 
 EQUIPMENT PLAN:
-{{#Equipment_Planner.text#}}
+{{#1787011294924.text#}}
 
 LIGHTING PLAN:
-{{#Location_Lighting_Planner.text#}}
+{{#1787011330358.text#}}
 
 PERFORMANCE DIRECTION:
-{{#On_Camera_Performance_Director.text#}}
+{{#1787011344799.text#}}
 
 PRODUCTION SCHEDULE:
-{{#Production_Schedule_Builder.text#}}
+{{#1787011356407.text#}}
 
-QUALITY TIER: {{#Start.qualityTier#}}
-BUDGET: {{#Start.budgetLevel#}}
-CREW: {{#Start.crewSize#}}
-FILMING TIME: {{#Start.filmingDays#}}
+QUALITY TIER: {{#1786742809170.qualityTier#}}
+BUDGET: {{#1786742809170.budgetLevel#}}
+CREW: {{#1786742809170.crewSize#}}
+FILMING TIME: {{#1786742809170.filmingDays#}}
 
 Output ONLY the JSON object. Include the full revised production bible.
 ```
@@ -899,7 +899,7 @@ Output ONLY the JSON object. Include the full revised production bible.
 ### Loop Sub-Node 2: Critique Parser
 * **Node Title**: `Critique_Parser`
 * **Node Type**: `code` (Python 3)
-* **Input Variables**: `llm_output` = `{{#Self_Critique.text#}}`
+* **Input Variables**: `llm_output` = `{{#1787011468370.text#}}`
 * **Output Ports**: `current_grade`, `current_report`, `current_revised_bible`
 
 #### Python 3 Script
@@ -939,10 +939,10 @@ def main(llm_output: str) -> dict:
 #### Operations
 | # | Target | Operation | Value |
 |---|---|---|---|
-| 1 | `{{#Bible_Quality_Loop.grade#}}` | over-write | `{{#Critique_Parser.current_grade#}}` |
-| 2 | `{{#Bible_Quality_Loop.report#}}` | over-write | `{{#Critique_Parser.current_report#}}` |
-| 3 | `{{#Bible_Quality_Loop.revised_bible#}}` | over-write | `{{#Critique_Parser.current_revised_bible#}}` |
-| 4 | `{{#Bible_Quality_Loop.revision_count#}}` | += | `1` |
+| 1 | `{{#1787011375107.grade#}}` | over-write | `{{#1787011489333.current_grade#}}` |
+| 2 | `{{#1787011375107.report#}}` | over-write | `{{#1787011489333.current_report#}}` |
+| 3 | `{{#1787011375107.revised_bible#}}` | over-write | `{{#1787011489333.current_revised_bible#}}` |
+| 4 | `{{#1787011375107.revision_count#}}` | += | `1` |
 
 ---
 
@@ -1048,25 +1048,25 @@ Notes for Editor:
 ```text
 Compile the Final Production Bible.
 
-PROJECT: {{#Start.scriptPackage#}}
-CONTENT TYPE: {{#Start.contentType#}}
-QUALITY TIER: {{#Start.qualityTier#}}
-BUDGET: {{#Start.budgetLevel#}}
-CREW: {{#Start.crewSize#}}
+PROJECT: {{#1786742809170.scriptPackage#}}
+CONTENT TYPE: {{#1786742809170.contentType#}}
+QUALITY TIER: {{#1786742809170.qualityTier#}}
+BUDGET: {{#1786742809170.budgetLevel#}}
+CREW: {{#1786742809170.crewSize#}}
 
 FINAL PRODUCTION BIBLE (post-critique — use this as the definitive version):
-{{#Bible_Quality_Loop.revised_bible#}}
+{{#1787011375107.revised_bible#}}
 
-CRITIQUE GRADE: {{#Bible_Quality_Loop.grade#}}
-CRITIQUE REPORT: {{#Bible_Quality_Loop.report#}}
+CRITIQUE GRADE: {{#1787011375107.grade#}}
+CRITIQUE REPORT: {{#1787011375107.report#}}
 
 ORIGINAL COMPONENTS (to supplement if revised_bible has gaps):
-Shot List: {{#Shot_List_Extractor.text#}}
-AI Prompts: {{#AI_Footage_Prompt_Writer.text#}}
-Equipment: {{#Equipment_Planner.text#}}
-Lighting: {{#Location_Lighting_Planner.text#}}
-Performance: {{#On_Camera_Performance_Director.text#}}
-Schedule: {{#Production_Schedule_Builder.text#}}
+Shot List: {{#1787011286741.text#}}
+AI Prompts: {{#1787011294924.text#}}
+Equipment: {{#1787011294924.text#}}
+Lighting: {{#1787011330358.text#}}
+Performance: {{#1787011344799.text#}}
+Schedule: {{#1787011356407.text#}}
 
 Compile the complete, organized production bible. Include the Quick Reference Card and Integration Data block.
 ```
@@ -1078,7 +1078,7 @@ Compile the complete, organized production bible. Include the Quick Reference Ca
 ### End Node
 * **Node Title**: `End`
 * **Node Type**: `end`
-* **Output**: `text` = `{{#Final_Production_Bible.text#}}`
+* **Output**: `text` = `{{#1787011529491.text#}}`
 
 ---
 
@@ -1086,7 +1086,7 @@ Compile the complete, organized production bible. Include the Quick Reference Ca
 
 | Source Node | Output | Target Node | Input |
 |---|---|---|---|
-| `Start` | form submission | `Shot_List_Extractor` | all `{{#Start.*#}}` |
+| `Start` | form submission | `Shot_List_Extractor` | all `{{#1786742809170.*#}}` |
 | `Shot_List_Extractor` | `text` | `AI_Footage_Prompt_Writer` | via prompt |
 | `AI_Footage_Prompt_Writer` | `text` | `Equipment_Planner` | via prompt |
 | `Equipment_Planner` | `text` | `Location_Lighting_Planner` | via prompt |

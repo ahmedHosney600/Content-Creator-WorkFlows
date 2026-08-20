@@ -1,0 +1,1249 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: W-07_SEO Publishing Optimizer
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.59@fc19490989d886a5f24d21df56be95fd972e474e35a4aac93c29805bfaf089f1
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1786742809170-source-1787050431914-target
+      selected: false
+      source: '1786742809170'
+      sourceHandle: source
+      target: '1787050431914'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787050431914--1787050463492-target
+      selected: false
+      source: '1787050431914'
+      sourceHandle: source
+      target: '1787050463492'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787050463492--1787050477876-target
+      selected: false
+      source: '1787050463492'
+      sourceHandle: source
+      target: '1787050477876'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787050477876--1787050494109-target
+      selected: false
+      source: '1787050477876'
+      sourceHandle: source
+      target: '1787050494109'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787050494109--1787050512051-target
+      selected: false
+      source: '1787050494109'
+      sourceHandle: source
+      target: '1787050512051'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787050512051--1787050535059-target
+      selected: false
+      source: '1787050512051'
+      sourceHandle: source
+      target: '1787050535059'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787050535059--1787050562284-target
+      selected: false
+      source: '1787050535059'
+      sourceHandle: source
+      target: '1787050562284'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1787050562284--1787050583517-target
+      selected: false
+      source: '1787050562284'
+      sourceHandle: source
+      target: '1787050583517'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: 'Paste the Final Execution/Viral Package directly — script, storyboard,
+            retention map, and execution notes all feed the nodes below. If running
+            standalone, describe the video: topic, key points, structure, notable
+            moments.'
+          label: Finished video package (paste W-05/W-06 output, or describe the video)
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: finishedContentPackage
+        - default: ''
+          hide: false
+          hint: ''
+          label: Primary publishing platform
+          options:
+          - YouTube
+          - TikTok
+          - Instagram Reels
+          - LinkedIn
+          - Facebook
+          - Podcast
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: primaryPlatform
+        - default: ''
+          hide: false
+          hint: e.g. "TikTok, Instagram Reels"
+          label: Secondary platforms (if cross-posting)
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: secondaryPlatforms
+        - default: ''
+          hide: false
+          hint: e.g. "8:42", "47 seconds"
+          label: Actual final video duration
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: actualDuration
+        - default: ''
+          hide: false
+          hint: ''
+          label: Monetization / promotional context
+          options:
+          - Non-monetized
+          - Ad-supported only
+          - Sponsored or paid promotion
+          - Affiliate links included
+          - Own product or service
+          - Mixed
+          placeholder: ''
+          required: true
+          type: select
+          variable: monetizationContext
+        - default: ''
+          hide: false
+          hint: Seed keywords, competitor videos ranking for the topic, or leave blank
+            to let Title Generator derive them from the content package
+          label: Target keywords (if you have specific SEO targets)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: targetKeywords
+        - default: ''
+          hide: false
+          hint: ''
+          label: Publish timing preference
+          options:
+          - Publish ASAP
+          - Specific date-time (describe below)
+          - Platform-optimal timing — recommend the best window
+          placeholder: ''
+          required: true
+          type: select
+          variable: publishTiming
+        - default: ''
+          hide: false
+          hint: What the channel is generally about, who typically watches it, any
+            recurring keywords/series naming conventions to stay consistent with
+          label: Channel context (niche, audience, existing SEO patterns)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: channelContext
+        - default: ''
+          hide: false
+          hint: Paste from your Creator Profile document — voice/tone and visual brand
+            govern the description's voice and the thumbnail brief
+          label: Creator Profile
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+      height: 317
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.85
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 98443f1d-9d3a-4144-b6a8-2e11c4092cc0
+          role: system
+          text: 'You are a senior YouTube/social SEO strategist who has written titles
+            for channels that consistently hit above-average CTR. Your job is to produce
+            genuinely different title *angles*, not ten reworded versions of the same
+            idea.
+
+
+
+            TITLE ANGLES — produce at least one from each category that''s plausible
+            for this content (skip a category only if it would be dishonest to the
+            content):
+
+            1. **Curiosity Gap** — poses a question or withholds the payoff ("The
+            Mistake Nobody Tells You About X")
+
+            2. **Direct Benefit** — states the outcome plainly ("How to X in Y Minutes")
+
+            3. **Number/List** — quantified promise ("7 Ways to X")
+
+            4. **Contrarian/Myth-bust** — challenges a common belief ("Why X Is Wrong")
+
+            5. **Urgency/Timeliness** — time-bound relevance, when genuinely true
+            ("Before You X, Watch This")
+
+            6. **Social Proof/Authority** — leans on scale or credibility, when genuinely
+            true ("I Tested X So You Don''t Have To")
+
+            7. **Emotional/Story Hook** — personal stakes ("I Almost X — Here''s What
+            Happened")
+
+
+
+            HARD RULES:
+
+            - Every title must be something the video actually delivers. A curiosity
+            gap that isn''t closed by the video is clickbait and gets penalized by
+            both platforms and viewers — don''t write it.
+
+            - Respect platform title-length limits: YouTube ~70 characters before
+            truncation in search, TikTok/Reels captions run much shorter and function
+            differently (see Cross-Platform node) — optimize primarily for the `primaryPlatform`.
+
+            - Front-load the keyword or hook — the first 40 characters carry the most
+            weight in search and in mobile truncation.
+
+            - No ALL CAPS spam, no excessive punctuation stacking ("?!?!"), no bracketed
+            clickbait words ("[SHOCKING]") unless the Creator Profile explicitly uses
+            that style.
+
+
+
+            SEO SCORE (1–10): keyword relevance + search-intent match + specificity.
+
+            CTR PREDICTION (1–10): curiosity/emotional pull + clarity of payoff, calibrated
+            against the angle categories above — a title scoring high on both is your
+            top recommendation.
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## TITLE OPTIONS
+
+
+
+            | # | Title | Angle | Character Count | SEO Score | CTR Prediction |
+
+            |---|---|---|---|---|---|
+
+            | 1 | [title] | [angle category] | [count] | [X/10] | [X/10] |
+
+            (10 rows total)
+
+
+
+            ### Recommended Primary Title
+
+            [title] — [1–2 sentence rationale]
+
+
+
+            ### A/B Test Pair
+
+            **A**: [title] — tests [what hypothesis, e.g. "curiosity vs. direct benefit"]
+
+            **B**: [title] — [same]
+
+            **What this A/B test will tell you**: [1 sentence]
+
+
+
+            ### Target Keywords Used
+
+            [List the specific keywords/phrases worked into the titles above, and
+            where they came from — provided targetKeywords, or derived from the content
+            package]'
+        - id: 2fccaf50-941a-4728-9b57-fe218d088b60
+          role: user
+          text: 'Generate title options for this video.
+
+
+
+            FINISHED CONTENT PACKAGE:
+
+            {{#1786742809170.finishedContentPackage#}}
+
+
+
+            PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+
+            TARGET KEYWORDS (if provided — otherwise derive from content): {{#1786742809170.targetKeywords#}}
+
+            CHANNEL CONTEXT: {{#1786742809170.channelContext#}}
+
+
+
+            CREATOR PROFILE:
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Produce 10 title options across distinct angles, scored, with a recommended
+            primary and an A/B test pair.'
+        selected: false
+        title: Title_Generator
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787050431914'
+      position:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.6
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 208cc7b6-4155-4f82-8b40-0e805e60c164
+          role: system
+          text: 'You are writing the video description and chapter markers. This copy
+            has two audiences at once: the platform''s search algorithm and a human
+            deciding whether to keep reading before clicking away.
+
+
+
+            STRUCTURE (in this order):
+
+            1. **Above-the-fold hook** (first ~150 characters, visible before "show
+            more") — must work as a standalone hook; include the primary keyword naturally,
+            not stuffed
+
+            2. **Expanded summary** (2–4 sentences) — what the video covers and who
+            it''s for
+
+            3. **Chapters/Timestamps** — extract from the content package''s structure
+            (acts, sections, retention-map beats); format `0:00 Title`
+
+            4. **Links/CTA section** — whatever''s relevant (mentioned resources,
+            socials, other videos) — leave placeholders where the creator needs to
+            fill in a URL
+
+            5. **Hashtags** (platform-appropriate count — see Cross-Platform node
+            for exact guidance; 3–5 is safe here)
+
+
+
+            KEYWORD USE: Work target keywords in naturally across the summary and
+            chapter titles — never keyword-stuff. If a keyword doesn''t fit a sentence
+            honestly, leave it out.
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## DESCRIPTION & CHAPTERS
+
+
+
+            ### Full Description
+
+            [complete description text, formatted exactly as it should be pasted]
+
+
+
+            ### Chapter Markers
+
+            ```
+
+            0:00 [Chapter title]
+
+            [X:XX] [Chapter title]
+
+            ...
+
+            ```
+
+
+
+            ### Hashtags
+
+            [3–5 hashtags]'
+        - id: 021529c4-247d-4726-8a46-4e20291892ee
+          role: user
+          text: 'Write the description and chapters for this video.
+
+
+
+            FINISHED CONTENT PACKAGE:
+
+            {{#1786742809170.finishedContentPackage#}}
+
+
+
+            ACTUAL DURATION: {{#1786742809170.actualDuration#}}
+
+            PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+
+            TARGET KEYWORDS: {{#1786742809170.targetKeywords#}}
+
+            CHANNEL CONTEXT: {{#1786742809170.channelContext#}}
+
+
+
+            TITLE GENERATOR OUTPUT (full — includes all 10 options, scores, and the
+            Recommended Primary Title; use the recommended title for consistency):
+
+            {{#1787050431914.text#}}
+
+
+
+            CREATOR PROFILE:
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Produce the complete description with chapter markers extracted from the
+            content package''s actual structure — do not invent chapters that don''t
+            correspond to real sections of the video.'
+        selected: false
+        title: Description_Chapter_Writer
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787050463492'
+      position:
+        x: 874.1276504954641
+        y: 219.0980002152236
+      positionAbsolute:
+        x: 874.1276504954641
+        y: 219.0980002152236
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.4
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: dc154269-8773-4876-ab3d-60e1b17d0d90
+          role: system
+          text: 'You are optimizing tags and category metadata. This is a mechanical,
+            rules-driven task — follow the mix below exactly rather than free-associating
+            keywords.
+
+
+
+            TAG MIX (aim for this distribution):
+
+            - 2–3 **broad** tags (the general category/niche)
+
+            - 4–6 **niche/specific** tags (exactly what the video is about)
+
+            - 3–5 **long-tail** tags (phrases a searcher would actually type, 3+ words)
+
+
+
+            Do not repeat the same word stem across multiple tags. Do not include
+            competitor channel names or unrelated trending tags just because they''re
+            popular — mismatched tags hurt discoverability signal.
+
+
+
+            CONSISTENCY CHECK: Cross-reference the chapter titles and description
+            below. Where a chapter title or description phrase already names a specific
+            concept well, reuse that exact wording in a long-tail tag rather than
+            inventing different phrasing for the same thing — this keeps the published
+            metadata internally consistent.
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## TAGS & METADATA
+
+
+
+            ### Tags (comma-separated, ready to paste)
+
+            [broad tags], [niche tags], [long-tail tags]
+
+
+
+            ### Suggested Category
+
+            [platform category, e.g. "Education", "Howto & Style", "Entertainment"]
+
+
+
+            ### Tag Breakdown (for reference)
+
+            | Tag | Type | Why |
+
+            |---|---|---|
+
+            | [tag] | Broad / Niche / Long-tail | [1 short reason] |'
+        - id: 4a3ab7ef-bc16-417d-875e-e4ba17b33ed2
+          role: user
+          text: 'Optimize tags for this video.
+
+
+
+            FINISHED CONTENT PACKAGE:
+
+            {{#1786742809170.finishedContentPackage#}}
+
+
+
+            PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+
+            TARGET KEYWORDS: {{#1786742809170.targetKeywords#}}
+
+            CHANNEL CONTEXT: {{#1786742809170.channelContext#}}
+
+
+
+            TITLE GENERATOR OUTPUT (full — includes all 10 options, scores, and the
+            Recommended Primary Title): {{#1787050431914.text#}}
+
+
+
+            DESCRIPTION & CHAPTERS (for terminology consistency): {{#1787050463492.text#}}
+
+
+
+            Produce the tag set following the broad/niche/long-tail mix exactly.'
+        selected: false
+        title: Tags_Metadata_Optimizer
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787050477876'
+      position:
+        x: 1189.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1189.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: e61dc8f9-b577-4111-b6a2-d43b95e4fb27
+          role: system
+          text: 'You are briefing a thumbnail — either for a human designer or an
+            AI image tool. You do not produce an image; you produce a brief specific
+            enough that two different designers would make nearly the same thumbnail
+            from it.
+
+
+
+            THUMBNAIL PRINCIPLES:
+
+            - **Visual hierarchy**: one clear focal point, not three competing elements
+
+            - **Text overlay**: 3–5 words maximum, large enough to read at mobile
+            thumbnail size (roughly 120×68px preview). If the recommended title already
+            communicates the hook, the thumbnail text should say something DIFFERENT
+            and complementary — not repeat the title.
+
+            - **Contrast & color**: specify a color direction that will stand out
+            in a feed of other thumbnails, not just "make it pop"
+
+            - **Face/emotion**: if a person is in the video, specify the exact expression
+            and framing (close crop reads better at small size than a wide shot)
+
+            - **Safe zones**: keep critical text/elements away from the edges — platform
+            UI (duration badge, progress bar, username overlays) covers thumbnail
+            corners on most platforms
+
+
+
+            ARABIC / RTL CONTENT: If the script/content language is Arabic, text overlay
+            must read right-to-left. State this explicitly in the brief, specify the
+            RTL-correct reading order for any multi-word overlay, and flag that the
+            visual focal point should sit on the LEFT side of frame (so it isn''t
+            crowded out by RTL text anchoring right) — do not just mirror an LTR layout.
+
+
+
+            Produce **2–3 distinct concepts**, not variations on one idea — a designer
+            or AI tool should be able to produce meaningfully different thumbnails
+            from each.
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## THUMBNAIL BRIEF
+
+
+
+            ### Concept 1: [short name]
+
+            - **Focal point**: [what''s the single dominant visual element]
+
+            - **Text overlay**: "[exact text, 3–5 words]" — [LTR / RTL reading order
+            if applicable]
+
+            - **Color direction**: [specific — e.g. "high-contrast orange/teal split,
+            not generic warm tones"]
+
+            - **Framing/composition**: [specific]
+
+            - **Emotion/expression** (if applicable): [specific]
+
+
+
+            ### Concept 2: [short name]
+
+            [same structure]
+
+
+
+            ### Concept 3: [short name]
+
+            [same structure]
+
+
+
+            ### Recommended Concept
+
+            [which one, and why — tie back to the recommended title''s angle]'
+        - id: 10f95e16-b8d6-47df-abc7-d35d67e87cb8
+          role: user
+          text: 'Brief the thumbnail for this video.
+
+
+
+            FINISHED CONTENT PACKAGE:
+
+            {{#1786742809170.finishedContentPackage#}}
+
+
+
+            TITLE GENERATOR OUTPUT (full — includes all 10 options, scores, and the
+            Recommended Primary Title): {{#1787050431914.text#}}
+
+            PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+
+
+
+            CREATOR PROFILE (visual brand — colors, fonts, logo rules):
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Produce 2–3 distinct thumbnail concepts. If the content package indicates
+            Arabic-language content, apply the RTL guidance explicitly.'
+        selected: false
+        title: Thumbnail_Brief_Generator
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787050494109'
+      position:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1491.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 0f8c301d-2409-49e3-9d68-60aa82b84170
+          role: system
+          text: "You are doing a pre-publish risk check — not legal advice, a first-pass\
+            \ flag system so nothing obvious slips through before a human reviews\
+            \ it. Most videos will have zero or one flag; do not manufacture risk\
+            \ to seem thorough.\n\n\nCHECK CATEGORIES:\n\n\n1. **Music licensing risk**:\
+            \ Does the content package mention specific commercial tracks, or a music\
+            \ source that isn't clearly royalty-free/licensed? Flag if uncertain —\
+            \ do not assume a track is cleared.\n\n\n2. **Disclosure requirements**:\
+            \ Based on `monetizationContext` —\n   - Sponsored or paid promotion →\
+            \ requires clear, conspicuous disclosure (platform-required tags like\
+            \ YouTube's \"Paid promotion\" label, plus a verbal/on-screen disclosure\
+            \ early in the video, not buried in the description only)\n   - Affiliate\
+            \ links → requires disclosure that links are affiliate/commission-based\n\
+            \   - Own product or service → lighter disclosure norms, but still flag\
+            \ if the video doesn't read as clearly self-promotional\n   - Non-monetized\
+            \ / Ad-supported only → typically no special disclosure required; note\
+            \ this plainly\n\n\n3. **Platform policy risk areas**: Scan the content\
+            \ package for topics that commonly trigger platform review — medical/health\
+            \ claims stated as fact, financial/investment advice, claims about specific\
+            \ individuals, content involving minors, before/after body-image claims,\
+            \ or anything the content package's `sensitiveHandling`/similar upstream\
+            \ fields already flagged.\n\n\nOUTPUT FORMAT:\n\n\n---\n\n\n## RIGHTS\
+            \ & COMPLIANCE CHECK\n\n\n### Flagged Items\n[If none: \"✅ No compliance\
+            \ issues identified — standard disclosure practices apply based on monetization\
+            \ context (see below).\"]\n[If any, one row per flag:]\n| # | Category\
+            \ | Issue | Severity | Recommended Action |\n|---|---|---|---|---|\n|\
+            \ 1 | [Music / Disclosure / Platform Policy] | [specific, what in the\
+            \ content triggered this] | [Low / Medium / High] | [specific fix] |\n\
+            \n\n### Required Disclosure (based on monetization context)\n[State plainly\
+            \ what disclosure this video needs, or \"None required.\"]\n\n\n### Note\n\
+            This is an automated first-pass check, not legal review. High-severity\
+            \ flags should be confirmed with a human before publishing."
+        - id: a61dab25-85b5-439c-962a-2a0ab9ac88eb
+          role: user
+          text: 'Run the rights & compliance check.
+
+
+
+            FINISHED CONTENT PACKAGE:
+
+            {{#1786742809170.finishedContentPackage#}}
+
+
+
+            MONETIZATION CONTEXT: {{#1786742809170.monetizationContext#}}
+
+            PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+
+
+
+            Flag only real risk. Most videos should come back clean.'
+        selected: false
+        title: Rights_Compliance_Check
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787050512051'
+      position:
+        x: 1793.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1793.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.4
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: a618c77b-1200-48a6-98f8-d9ab32feee18
+          role: system
+          text: 'You are planning how this single video gets adapted and scheduled
+            across the primary and secondary platforms specified. This is publishing
+            logistics, not creative repurposing (that''s W-08''s job) — focus on formatting,
+            captions, and timing, not new edits.
+
+
+
+            FOR EACH PLATFORM (primary + secondary):
+
+            - Format/aspect-ratio note if it differs from how the video was cut (flag,
+            don''t fix — that''s an editing task)
+
+            - Caption adaptation (platform character limits and caption culture differ
+            — a YouTube description doesn''t paste well into a TikTok caption)
+
+            - Hashtag count appropriate to that platform (YouTube: 3–5 in description;
+            TikTok: 3–5 relevant, avoid hashtag walls; Instagram: up to ~5 well-targeted;
+            LinkedIn: 3–5 professional-register tags)
+
+            - Posting window guidance: give general best-practice timing logic (e.g.
+            "align with when this audience is typically active for the content type/platform"),
+            not a fabricated precise time — if `publishTiming` specified a preference,
+            honor it.
+
+
+
+            OUTPUT FORMAT:
+
+
+
+            ---
+
+
+
+            ## CROSS-PLATFORM PUBLISHING PLAN
+
+
+
+            ### [Platform Name] (Primary)
+
+            - **Format note**: [any adaptation needed, or "No changes needed"]
+
+            - **Caption**: [adapted caption text]
+
+            - **Hashtags**: [platform-appropriate set]
+
+            - **Suggested timing**: [guidance]
+
+
+
+            ### [Platform Name] (Secondary — repeat per platform listed)
+
+            [same structure]
+
+
+
+            ### Publishing Sequence
+
+            [If multiple platforms: recommended order and stagger — e.g. primary first,
+            secondary N hours/days later — with a one-line rationale]'
+        - id: be5b2031-bb14-4bf4-a323-e3e3e7181080
+          role: user
+          text: 'Build the cross-platform publishing plan.
+
+
+
+            TITLE GENERATOR OUTPUT (full — includes all 10 options, scores, and the
+            Recommended Primary Title): {{#1787050431914.text#}}
+
+            DESCRIPTION: {{#1787050463492.text#}}
+
+
+
+            PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+
+            SECONDARY PLATFORMS: {{#1786742809170.secondaryPlatforms#}}
+
+            PUBLISH TIMING PREFERENCE: {{#1786742809170.publishTiming#}}
+
+            ACTUAL DURATION: {{#1786742809170.actualDuration#}}'
+        selected: true
+        title: Cross_Platform_Publishing_Plan
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787050535059'
+      position:
+        x: 2095.1526785754086
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 2095.1526785754086
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 898092e7-76b8-4f5e-825d-c5cf96034d44
+          role: system
+          text: 'You are compiling the complete, ready-to-publish package. Assemble
+            every upstream component — nothing summarized away.
+
+
+
+            FORMAT:
+
+
+
+            ---
+
+
+
+            ## FINAL PUBLISHING PACKAGE
+
+
+
+            ### Publishing Metadata
+
+            | Field | Value |
+
+            |---|---|
+
+            | Recommended Title | [title] |
+
+            | Primary Platform | [platform] |
+
+            | Duration | [duration] |
+
+            | Publish Timing | [timing] |
+
+
+
+            ### Titles (all 10, with recommendation)
+
+            [Full Title Generator output]
+
+
+
+            ### Description & Chapters
+
+            [Full Description & Chapter Writer output]
+
+
+
+            ### Tags & Metadata
+
+            [Full Tags & Metadata Optimizer output]
+
+
+
+            ### Thumbnail Brief
+
+            [Full Thumbnail Brief Generator output]
+
+
+
+            ### Rights & Compliance Check
+
+            [Full Rights & Compliance Check output — if any flags exist, repeat them
+            prominently here, not just buried in the full text]
+
+
+
+            ### Cross-Platform Publishing Plan
+
+            [Full Cross-Platform Publishing Plan output]
+
+
+
+            ### Pre-Publish Checklist
+
+            - [ ] Title selected (from options or A/B pair)
+
+            - [ ] Description pasted, links filled in
+
+            - [ ] Chapters added
+
+            - [ ] Tags pasted
+
+            - [ ] Thumbnail created from brief
+
+            - [ ] Compliance flags (if any) resolved or confirmed with a human
+
+            - [ ] Cross-platform captions adapted
+
+
+
+            ---
+
+
+
+            ### INTEGRATION DATA (paste into W-08 and/or W-09)
+
+            ```
+
+            PUBLISHING PACKAGE SUMMARY:
+
+
+
+            Video Title: [final title]
+
+            Platform(s): [primary + secondary]
+
+            Publish Date/Time: [if known]
+
+
+
+            For W-08 (Content Repurposing): the full content package above already
+            contains the structural/retention detail W-08 needs — paste this whole
+            document into W-08''s content intake field.
+
+
+
+            For W-09 (Performance Analyzer, after this video is live): note the video
+            title and platform above — W-09 will ask for these plus real analytics
+            once performance data is available.
+
+            ```'
+        - id: 785da970-dc6f-4cc3-aef0-ebee7dc336de
+          role: user
+          text: 'Compile the Final Publishing Package.
+
+
+
+            TITLES:
+
+            {{#1787050431914.text#}}
+
+
+
+            DESCRIPTION & CHAPTERS:
+
+            {{#1787050463492.text#}}
+
+
+
+            TAGS & METADATA:
+
+            {{#1787050477876.text#}}
+
+
+
+            THUMBNAIL BRIEF:
+
+            {{#1787050494109.text#}}
+
+
+
+            RIGHTS & COMPLIANCE CHECK:
+
+            {{#1787050512051.text#}}
+
+
+
+            CROSS-PLATFORM PUBLISHING PLAN:
+
+            {{#1787050535059.text#}}
+
+
+
+            ACTUAL DURATION: {{#1786742809170.actualDuration#}}
+
+            PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+
+            PUBLISH TIMING: {{#1786742809170.publishTiming#}}
+
+
+
+            Compile the complete package with the pre-publish checklist.'
+        selected: false
+        title: Final_Publishing_Package
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787050562284'
+      position:
+        x: 2397.1526785754086
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 2397.1526785754086
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1787050562284'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: Output
+        type: end
+      height: 88
+      id: '1787050583517'
+      position:
+        x: 2699.1526785754086
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 2699.1526785754086
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: -1361.8373870701416
+      y: 23.125109807815306
+      zoom: 0.8445279298044401
+  rag_pipeline_variables: []

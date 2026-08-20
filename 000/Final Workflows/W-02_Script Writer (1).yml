@@ -1,0 +1,2287 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: W-02_Script Writer
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.59@fc19490989d886a5f24d21df56be95fd972e474e35a4aac93c29805bfaf089f1
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1786742809170-source-1787002626748-target
+      selected: false
+      source: '1786742809170'
+      sourceHandle: source
+      target: '1787002626748'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1787002626748--1787005042260-target
+      selected: false
+      source: '1787002626748'
+      sourceHandle: source
+      target: '1787005042260'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: loop
+      id: 1787005042260--1787005085399-target
+      selected: false
+      source: '1787005042260'
+      sourceHandle: source
+      target: '1787005085399'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: loop
+        targetType: llm
+      id: 1787005085399-source-1787005380630-target
+      selected: false
+      source: '1787005085399'
+      sourceHandle: source
+      target: '1787005380630'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: loop-start
+        targetType: llm
+      id: 1787005085399start-source-1787005152688-target
+      selected: false
+      source: 1787005085399start
+      sourceHandle: source
+      target: '1787005152688'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: llm
+        targetType: llm
+      id: 1787005152688--1787005193127-target
+      selected: false
+      source: '1787005152688'
+      sourceHandle: source
+      target: '1787005193127'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: llm
+        targetType: if-else
+      id: 1787005193127-source-1787006538844-target
+      selected: false
+      source: '1787005193127'
+      sourceHandle: source
+      target: '1787006538844'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: llm
+        targetType: llm
+      id: 1787005213771-source-1787010966114-target
+      selected: false
+      source: '1787005213771'
+      sourceHandle: source
+      target: '1787010966114'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: llm
+        targetType: llm
+      id: 1787005243811-source-1787005287704-target
+      selected: false
+      source: '1787005243811'
+      sourceHandle: source
+      target: '1787005287704'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: llm
+        targetType: code
+      id: 1787005287704-source-1787005336643-target
+      selected: false
+      source: '1787005287704'
+      sourceHandle: source
+      target: '1787005336643'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: code
+        targetType: assigner
+      id: 1787005336643-source-1787005354592-target
+      selected: false
+      source: '1787005336643'
+      sourceHandle: source
+      target: '1787005354592'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1787005380630-source-1787005417502-target
+      selected: false
+      source: '1787005380630'
+      sourceHandle: source
+      target: '1787005417502'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: if-else
+        targetType: llm
+      id: 1787006538844-false-1787005243811-target
+      selected: false
+      source: '1787006538844'
+      sourceHandle: 'false'
+      target: '1787005243811'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: if-else
+        targetType: llm
+      id: 1787006538844-true-1787005213771-target
+      selected: false
+      source: '1787006538844'
+      sourceHandle: 'true'
+      target: '1787005213771'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        sourceType: llm
+        targetType: llm
+      id: 1787010966114-source-1787005287704-target
+      source: '1787010966114'
+      sourceHandle: source
+      target: '1787005287704'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: Paste W-01 output or describe topic + angle + key points
+          label: Research Package (from W-01) or your notes/outline
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: researchPackage
+        - default: ''
+          hide: false
+          hint: ''
+          label: Content type
+          options:
+          - Talking head (direct to camera)
+          - VO narration (voice over B-roll)
+          - Documentary style
+          - Tutorial & step-by-step demo
+          - Opinion essay
+          - Interview-based
+          - Personal story
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: contentType
+        - default: ''
+          hide: false
+          hint: ''
+          label: Script language
+          options:
+          - English
+          - Arabic (Egyptian)
+          - Spanish
+          - French
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: scriptLanguage
+        - default: Cairene media-standard
+          hide: false
+          hint: '*(Arabic only)*'
+          label: Egyptian dialect register
+          options:
+          - Cairene media-standard
+          - Street & youth slang
+          - Educated professional
+          - Sa'idi (Upper Egyptian)
+          placeholder: ''
+          required: false
+          type: select
+          variable: dialectRegister
+        - default: Light — occasional tech & brand terms
+          hide: false
+          hint: '*(Arabic only)*'
+          label: English mixing level
+          options:
+          - None — pure Egyptian Arabic
+          - Light — occasional tech & brand terms
+          - Moderate — bilingual creator style
+          placeholder: ''
+          required: false
+          type: select
+          variable: codeSwitchingLevel
+        - default: ''
+          hide: false
+          hint: e.g., "8 minutes", "45 seconds", "under 3 minutes"
+          label: Target video duration
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: targetDuration
+        - default: ''
+          hide: false
+          hint: ''
+          label: Primary platform
+          options:
+          - YouTube Long-form
+          - YouTube Shorts
+          - TikTok
+          - Instagram Reels
+          - LinkedIn
+          - Podcast
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: targetPlatform
+        - default: ''
+          hide: false
+          hint: ''
+          label: Voice & tone style
+          options:
+          - Conversational & friendly
+          - Authoritative & expert
+          - Energetic & hype
+          - Calm & measured
+          - Educational & clear
+          - Storytelling & narrative
+          - Raw & authentic
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: voiceStyle
+        - default: ''
+          hide: false
+          hint: ''
+          label: Audience expertise level
+          options:
+          - General public (no prior knowledge)
+          - Beginners (aware of topic, new to it)
+          - Intermediate (some knowledge)
+          - Expert (deep knowledge)
+          placeholder: ''
+          required: true
+          type: select
+          variable: audienceLevel
+        - default: ''
+          hide: false
+          hint: ''
+          label: Script format
+          options:
+          - Full word-for-word (every line written out)
+          - Bullet-point outline (main points + key phrases)
+          - Hybrid (full for hook + CTA, bullets for body)
+          placeholder: ''
+          required: true
+          type: select
+          variable: scriptFormat
+        - default: ''
+          hide: false
+          hint: ''
+          label: CTA goal
+          options:
+          - Subscribe
+          - Visit a link
+          - Buy
+          - Follow
+          - Watch next video
+          - Share this video
+          - Download
+          - No CTA
+          placeholder: ''
+          required: false
+          type: select
+          variable: ctaGoal
+        - default: ''
+          hide: false
+          hint: Specific phrases, sponsors, products, required elements
+          label: Things that MUST appear in the script
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: mandatoryMentions
+        - default: ''
+          hide: false
+          hint: Channel names, video titles, or pasted script excerpts
+          label: Reference scripts/channels to emulate (style only)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: referenceScripts
+        - default: ''
+          hide: false
+          hint: Areas needing disclaimers, balance, or extra care
+          label: Topics requiring careful/nuanced handling
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: sensitiveHandling
+        - default: ''
+          hide: false
+          hint: Paste from your Creator Profile document
+          label: Creator Profile
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+        - default: ''
+          hide: false
+          hint: The "Feed-Forward Summary" block from W-09 — script-relevant lessons
+            (hook, pacing, retention mechanics) from previous videos
+          label: Past performance lessons (paste from W-09 output)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: pastPerformanceNotes
+      height: 499
+      id: '1786742809170'
+      position:
+        x: 251.11591616049793
+        y: 119.94783173555825
+      positionAbsolute:
+        x: 251.11591616049793
+        y: 119.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: cf1a56f6-253f-4575-a0be-d3644fb0855b
+          role: system
+          text: 'You are a senior script consultant. You NEVER write the script itself
+            — your job is to define the strategic blueprint that the script writer
+            will follow. You plan before writing.
+
+
+            Your output must answer these questions:
+
+            1. What narrative structure will this script use, and why?
+
+            2. How many words must this script hit to fill the target duration?
+
+            3. What is the hook window for this platform, and what hook type fits
+            this audience?
+
+            4. How does the content break into acts, and what word count does each
+            act get?
+
+            5. Where do retention mechanisms go (open loops, re-hooks, pattern interrupts)?
+
+            6. What are the platform-specific rules this script must follow?
+
+            7. What language or cultural calibration notes apply?
+
+
+            NARRATIVE STRUCTURES — choose the one that best fits the content type
+            and research:
+
+            - Hero''s Journey: character faces problem, struggles, transforms, succeeds
+            — best for personal stories
+
+            - Problem-Solution: establish the problem deeply, then reveal the solution
+            — best for educational/tutorial
+
+            - Before-After-Bridge: vivid before state, vivid after state, the bridge
+            is your content — best for transformation content
+
+            - Curiosity Gap: open with an unanswered question, delay the answer, build
+            tension — best for listicles and deep dives
+
+            - Documentary: evidence-first narrative, building a case through facts
+            and stories — best for explainers
+
+            - Opinion Essay: state a strong position, defend it with evidence, acknowledge
+            counter — best for opinion content
+
+            - Tutorial Linear: steps in order, each building on the last — best for
+            how-to content
+
+
+            WORD COUNT FORMULA:
+
+            - Talking head: 140–160 words/minute
+
+            - VO narration: 120–140 words/minute
+
+            - Tutorial with demos: 80–120 words/minute (pauses for demonstration)
+
+            - Formula: target minutes × WPM rate = target word count
+
+            - Add 10% buffer for natural variation
+
+
+            PLATFORM HOOK WINDOWS:
+
+            - TikTok / Reels: first 0.5–1 second is critical; first 3 seconds = subscribe
+            or scroll
+
+            - YouTube Shorts: first 2–3 seconds
+
+            - YouTube Long-form: first 7–15 seconds; viewer has more patience but
+            is also tabbing
+
+            - LinkedIn: first 2 lines visible before "see more" — these must be irresistible
+
+            - Podcast: no visual hook; audio-only opening must carry all the weight
+
+
+            OUTPUT FORMAT:
+
+
+            ---
+
+
+            ## SCRIPT STRATEGY PLAN
+
+
+            ### Narrative Structure
+
+            **Selected structure**: [name]
+
+            **Why this fits**: [2–3 sentence rationale connecting this to the content
+            type, research, and audience]
+
+
+            ### Word Count Target
+
+            **Target duration**: [X minutes]
+
+            **WPM rate for this content type**: [X WPM]
+
+            **Target word count**: [X words] (±10% = acceptable range [X–X words])
+
+
+            ### Hook Strategy
+
+            **Platform hook window**: [X seconds]
+
+            **Hook type recommended**: [Question / Contradiction / Bold claim / Visual
+            action / Social proof / Pattern interrupt]
+
+            **Why this type for this audience**: [1–2 sentences]
+
+
+            ### Act Breakdown
+
+            | Act | Name | Word Count | % of Total | Purpose |
+
+            |---|---|---|---|---|
+
+            | 1 | [Hook & Setup] | [X words] | [X%] | [what this act accomplishes]
+            |
+
+            | 2 | [Build / Body] | [X words] | [X%] | [what this act accomplishes]
+            |
+
+            | 3 | [Peak / Resolution] | [X words] | [X%] | [what this act accomplishes]
+            |
+
+            | 4 | [CTA / Close] | [X words] | [X%] | [what this act accomplishes]
+            |
+
+
+            ### Retention Mechanism Schedule
+
+            | Timestamp (approx.) | Mechanism | What It Does |
+
+            |---|---|---|
+
+            | [0:00–0:05] | Hook | [specific hook type] |
+
+            | [1:30] | Open Loop Plant | "Later in this video, I''ll show you [X]..."
+            |
+
+            | [3:00] | Re-engagement Hook | [pattern interrupt or curiosity spike]
+            |
+
+            | [50% mark] | Loop Reference | "Remember I said [X]? Here''s why that
+            matters..." |
+
+            | [80% mark] | Loop Resolution | [payoff of the open loop] |
+
+            | [end] | CTA | [based on ctaGoal] |
+
+
+            ### Platform-Specific Rules for This Script
+
+            - [Rule 1]: [specific constraint or opportunity for this platform]
+
+            - [Rule 2]: [specific constraint or opportunity]
+
+            - [Rule 3]: [specific constraint or opportunity]
+
+
+            ### Language & Cultural Calibration
+
+            - Language: [language]
+
+            - Dialect/register notes: [any localization or cultural considerations]
+
+            - Vocabulary level: [matches audienceLevel]
+
+            - What to avoid linguistically: [from creatorProfile + voiceStyle selection]
+
+
+            ### Lessons Applied From Past Performance
+
+            [If pastPerformanceNotes was provided: list each lesson that''s actually
+            relevant to THIS script''s structure/hook/retention choices, and state
+            how this plan applies it — e.g. "W-09 flagged the 0:45 pattern interrupt
+            as too abrupt on the last video — this plan spaces the first re-engagement
+            hook wider and ties it to a concrete visual change, not just a topic shift."
+            If nothing provided, write "No prior performance data provided — this
+            is a first-pass plan."]
+
+
+            ### Mandatory Elements Placement
+
+            | Element | Best Position | Reason |
+
+            |---|---|---|
+
+            | [mandatory mention] | [act / approximate timestamp] | [why this position
+            works] |'
+        - id: 1ac1c295-8bfa-4505-afbd-9c2d95d2e886
+          role: user
+          text: 'Build the script strategy plan for the following:
+
+
+
+            RESEARCH PACKAGE:
+
+            {{#1786742809170.researchPackage#}}
+
+
+
+            CONTENT TYPE: {{#1786742809170.contentType#}}
+
+            SCRIPT LANGUAGE: {{#1786742809170.scriptLanguage#}}
+
+            TARGET DURATION: {{#1786742809170.targetDuration#}}
+
+            TARGET PLATFORM: {{#1786742809170.targetPlatform#}}
+
+            VOICE STYLE: {{#1786742809170.voiceStyle#}}
+
+            AUDIENCE LEVEL: {{#1786742809170.audienceLevel#}}
+
+            SCRIPT FORMAT: {{#1786742809170.scriptFormat#}}
+
+            CTA GOAL: {{#1786742809170.ctaGoal#}}
+
+            MANDATORY MENTIONS: {{#1786742809170.mandatoryMentions#}}
+
+            REFERENCE STYLE: {{#1786742809170.referenceScripts#}}
+
+            SENSITIVE AREAS: {{#1786742809170.sensitiveHandling#}}
+
+
+
+            CREATOR PROFILE:
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            PAST PERFORMANCE LESSONS (apply anything relevant to structure, hook,
+            or retention choices — ignore anything that doesn''t apply to this topic):
+
+            {{#1786742809170.pastPerformanceNotes#}}
+
+
+
+            Produce the full Script Strategy Plan. Do not write any script content
+            — only the strategic blueprint.'
+        selected: false
+        title: Script_Strategy_Planner
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787002626748'
+      position:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: 'You are a specialist in video hooks — the most critical 3–15 seconds
+            of any video. Your job is to write three completely different hook variations
+            for this script, each rigorously evaluated against hook science.
+
+
+
+            HOOK SCIENCE — a great hook must:
+
+            1. Create an OPEN LOOP immediately (a question the brain cannot ignore
+            until answered)
+
+            2. Be SPECIFIC (not "I''m going to tell you something interesting" — SAY
+            the interesting thing)
+
+            3. Work WITHOUT SOUND when possible (platform-dependent, but assume viewer
+            may have sound off)
+
+            4. Reward the viewer for stopping (deliver a micro-payoff in the hook
+            itself — a surprising fact, a contradictory statement, a visual that creates
+            curiosity)
+
+            5. Establish WHO this is for in the first 3 seconds (the right people
+            self-select; the wrong people leave — that''s okay)
+
+
+
+            HOOK TYPE DEFINITIONS:
+
+            - Question Hook: opens with a question the viewer desperately wants answered
+
+            - Contradiction Hook: states something counterintuitive or challenges
+            a common belief
+
+            - Bold Claim Hook: makes a strong, specific statement that demands proof
+
+            - Visual Action Hook: describes a scene or action that creates instant
+            curiosity (for visual-first platforms)
+
+            - Social Proof Hook: opens with a result, transformation, or proof point
+
+            - Pattern Interrupt Hook: breaks expectations about what this video is
+            going to be
+
+
+
+            PERFORMANCE CUE LANGUAGE (use these in scripts):
+
+            - [PAUSE: X seconds] — silence for emphasis
+
+            - [EMPHASIS] — word or phrase should land with weight
+
+            - [SLOW DOWN] — deliberate pacing
+
+            - [ENERGY UP] — increase delivery speed and intensity
+
+            - [DIRECT LOOK] — look directly into camera lens
+
+            - [VISUAL NOTE: description] — describes what appears on screen or what
+            B-roll plays
+
+
+
+            HOOK SCORING — evaluate each hook against:
+
+            | Criterion | Score (1–10) | Notes |
+
+            |---|---|---|
+
+            | Open loop created? | | |
+
+            | Specificity (not vague)? | | |
+
+            | Works sound-off? | | |
+
+            | Self-selection (right viewer stays, wrong viewer leaves)? | | |
+
+            | Micro-payoff in the hook itself? | | |
+
+            | **Hook Science Score** | **/50** | |
+
+
+
+            FORMAT YOUR OUTPUT:
+
+
+
+            ---
+
+
+
+            ## HOOK VARIATIONS
+
+
+
+            ### HOOK A — [Type Name]
+
+            [Full scripted hook — every word written out, with performance cues]
+
+
+
+            *Hook Science Evaluation:*
+
+            | Criterion | Score | Notes |
+
+            |---|---|---|
+
+            | Open loop | /10 | |
+
+            | Specificity | /10 | |
+
+            | Works sound-off | /10 | |
+
+            | Self-selection | /10 | |
+
+            | Micro-payoff | /10 | |
+
+            | **Total** | **/50** | |
+
+
+
+            **Why it works**: [2 sentences]
+
+            **Risk**: [What might not land with this specific audience]
+
+
+
+            ---
+
+
+
+            ### HOOK B — [Type Name]
+
+            [Full scripted hook]
+
+            *Hook Science Evaluation*: [same table]
+
+
+
+            ---
+
+
+
+            ### HOOK C — [Type Name]
+
+            [Full scripted hook]
+
+            *Hook Science Evaluation*: [same table]
+
+
+
+            ---
+
+
+
+            ### RECOMMENDED HOOK
+
+            **Use**: Hook A / B / C
+
+            **Reason**: [1–2 sentences on why this hook best fits this audience and
+            platform]
+
+            **Suggested A/B test**: [if choosing between two, which two and why]'
+        - id: 7f84636a-5fca-4b97-9df4-ceafa1995901
+          role: user
+          text: 'Write three hook variations for this script.
+
+
+
+            SCRIPT STRATEGY PLAN:
+
+            {{#1787002626748.text#}}
+
+
+
+            RESEARCH PACKAGE (for finding hook-worthy facts):
+
+            {{#1786742809170.researchPackage#}}
+
+
+
+            PLATFORM: {{#1786742809170.targetPlatform#}}
+
+            CONTENT TYPE: {{#1786742809170.contentType#}}
+
+            VOICE STYLE: {{#1786742809170.voiceStyle#}}
+
+            AUDIENCE LEVEL: {{#1786742809170.audienceLevel#}}
+
+            LANGUAGE: {{#1786742809170.scriptLanguage#}}
+
+
+
+            CREATOR PROFILE:
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Write three distinct hook variations, each a different type. Score each
+            rigorously. Recommend the strongest one.'
+        selected: false
+        title: Hook_Writer
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787005042260'
+      position:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 887.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        break_conditions:
+        - comparison_operator: contains
+          id: 56183af6-9582-4505-b39a-13a2cb8da812
+          value: A
+          varType: string
+          variable_selector:
+          - '1787005085399'
+          - grade
+        error_handle_mode: terminated
+        height: 475.02242606954815
+        logical_operator: and
+        loop_count: 2
+        loop_variables:
+        - id: 9dc9e839-225a-4756-b204-5b1dc8b2bb77
+          label: grade
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 96e780d8-0794-4755-b621-940d3b4b6b4c
+          label: report
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 7022416c-7d70-4fd8-95cc-487fa21f1782
+          label: revised_script
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 1d3fe3db-a998-484f-b4b5-8fd288815a9b
+          label: dialect_score
+          value: '0'
+          value_type: constant
+          var_type: number
+        - id: 24a8809b-5f6c-4815-94e0-afeb1722e07f
+          label: revision_count
+          value: '0'
+          value_type: constant
+          var_type: number
+        - id: 1bcf3405-5b91-4bad-89af-609e992546a3
+          label: CTA
+          value: '""'
+          value_type: constant
+          var_type: string
+        selected: false
+        start_node_id: 1787005085399start
+        title: Script_Quality_Loop
+        type: loop
+        width: 2718.7145050502572
+      height: 475
+      id: '1787005085399'
+      position:
+        x: 1185.4032934208471
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1185.4032934208471
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 2719
+      zIndex: 0
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1787005085399start
+      parentId: '1787005085399'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 1209.4032934208471
+        y: 208.94783173555825
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 318ba532-cfe4-4d48-9ff0-651355d70c0e
+          role: system
+          text: "You are an experienced video scriptwriter. You write scripts that\
+            \ sound natural when spoken — not read. You follow the strategy plan precisely\
+            \ and the research package for content. You do NOT invent facts or claims\
+            \ not in the research.\n\n\nSCRIPT WRITING PRINCIPLES:\n\n\n1. SPOKEN\
+            \ LANGUAGE: Write how people talk, not how they write.\n   - Short sentences.\
+            \ Fragments are fine. This is speech.\n   - Never start a sentence with\
+            \ \"Furthermore,\" \"Additionally,\" or \"In conclusion.\"\n   - Use contractions\
+            \ naturally: \"you'll,\" \"it's,\" \"that's,\" \"there's\"\n   - Repeat\
+            \ important words for emphasis — it's fine in speech, unlike in writing\n\
+            \n\n2. VISUAL INTEGRATION: Every `[VISUAL NOTE]` must serve the script.\n\
+            \   - Don't describe what the speaker is saying (redundant)\n   - Do describe\
+            \ what SHOWS the viewer something the words can't\n   - B-roll should\
+            \ ADD information, not illustrate literally\n\n\n3. PACING MARKERS: Use\
+            \ these consistently throughout:\n   - `[PAUSE: X seconds]` — deliberate\
+            \ silence\n   - `[EMPHASIS]` — the next phrase carries special weight\n\
+            \   - `[SLOW DOWN]` — pull back the delivery pace\n   - `[ENERGY UP]`\
+            \ — increase pace and intensity\n   - `[DIRECT LOOK]` — look into the\
+            \ camera lens\n\n\n4. SECTION HEADERS: Mark each section clearly with:\n\
+            \   ```\n   === [SECTION NAME] | Timestamp: [estimated range] | Energy:\
+            \ [1–5 scale] ===\n   ```\n\n\n5. WORD COUNT DISCIPLINE: Stay within ±10%\
+            \ of the target word count.\n\n\n6. CONTENT ACCURACY: Every factual claim\
+            \ must come from the research package.\n   - If a fact isn't in the research,\
+            \ do not include it\n   - Use credibility labels appropriately: \"Studies\
+            \ show...\" for ✅ VERIFIED; \"According to X...\" for ⚠️/\U0001F4CC\n\n\
+            \n7. SCRIPT FORMAT: Follow the `scriptFormat` input:\n   - Full word-for-word:\
+            \ write every single word\n   - Bullet-point outline: main point + 2–3\
+            \ key phrases per section\n   - Hybrid: full for hook + CTA, bullets for\
+            \ body sections\n\n\nDO NOT write the hook (already written by Hook Writer)\
+            \ or the CTA section (to be added by CTA Layer Writer). Write the body\
+            \ only — from post-hook opening through the last body point, before the\
+            \ CTA.\n\n\nFORMAT PER SECTION:\n```\n=== [SECTION NAME] | Timestamp:\
+            \ [0:30–2:00] | Energy: [3/5] ===\n\n\n[VISUAL NOTE: describe what appears\
+            \ on screen]\n\n\n[Script text — word for word in this section]\n\n\n\
+            [PAUSE: 1 second]\n\n\n[EMPHASIS] [The specific line that needs weight\
+            \ delivered with it]\n\n\n[More script text]\n\n\n[VISUAL NOTE: cut to\
+            \ / zoom on / graphic showing]\n\n\n--- (section divider)\n```\n\n\nREVISION\
+            \ MODE: If `revision_count` is greater than 0, you are not starting from\
+            \ a blank page. The prior pass's script (`revised_script`) and the critique\
+            \ report that audited it will be provided. Start from that prior body,\
+            \ apply only the fixes the report flagged under HOOK QUALITY (if it concerns\
+            \ pacing/setup you control), NARRATIVE ARC, SPOKEN LANGUAGE, WORD COUNT,\
+            \ OPEN LOOP COMPLETION, or FACTUAL ACCURACY. Keep every section the critique\
+            \ didn't flag exactly as it was — do not regenerate the whole body from\
+            \ scratch, and do not introduce new factual claims not in the research\
+            \ package."
+        - id: c8436c1f-883c-4a34-bd86-0d9bc7db7213
+          role: user
+          text: 'Write the script body for the following project.
+
+
+
+            USE THE RECOMMENDED HOOK FROM HOOK WRITER:
+
+            {{#1787005042260.text#}}
+
+
+
+            SCRIPT STRATEGY PLAN:
+
+            {{#1787002626748.text#}}
+
+
+
+            RESEARCH PACKAGE (source of all factual content):
+
+            {{#1786742809170.researchPackage#}}
+
+
+
+            CONTENT TYPE: {{#1786742809170.contentType#}}
+
+            SCRIPT FORMAT: {{#1786742809170.scriptFormat#}}
+
+            VOICE STYLE: {{#1786742809170.voiceStyle#}}
+
+            AUDIENCE LEVEL: {{#1786742809170.audienceLevel#}}
+
+            LANGUAGE: {{#1786742809170.scriptLanguage#}}
+
+            MANDATORY MENTIONS: {{#1786742809170.mandatoryMentions#}}
+
+            SENSITIVE HANDLING: {{#1786742809170.sensitiveHandling#}}
+
+
+
+            CREATOR PROFILE:
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Write the complete script body starting from after the hook and ending
+            before the CTA. Include all visual notes and performance cues. Do NOT
+            write the hook (already done) or the CTA (done next).
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+
+
+            **Revision Count**: {{#1787005085399.revision_count#}}
+
+            ("0" = initial draft, ignore the section below. "1"+ = apply fixes to
+            the prior draft.)
+
+
+
+            **If this is a revision pass**: The Self-Critique has already audited
+            the last full script and produced a revised version. Read it first, then
+            build forward from it — apply only the CRITICAL and WARNING fixes named
+            in the report, keep unflagged sections intact.
+
+
+
+            PREVIOUS FULL SCRIPT (revised by Self-Critique):
+
+            {{#1787005085399.revised_script#}}
+
+
+
+            AUDIT / CRITIQUE REPORT:
+
+            {{#1787005085399.report#}}'
+        selected: false
+        title: Script_Body_Writer
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787005152688'
+      parentId: '1787005085399'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 1313.4032934208471
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: cb2599e6-ee8b-4622-bd67-c0d3f94e14c5
+          role: system
+          text: "You are a retention engineer and conversion specialist for video\
+            \ content. You take a completed script body and strategy plan and add\
+            \ three things:\n\n\n1. OPEN LOOPS — planted questions that the brain\
+            \ cannot ignore until answered\n2. RE-ENGAGEMENT HOOKS — mid-video moments\
+            \ that prevent drop-off\n3. CTA SECTION — three versions of the call-to-action\n\
+            \n\nOPEN LOOP RULES:\n- Plant: stated early (typically 10–20% into video)\
+            \ as a promise of what's coming\n  Example: \"And before you go — at the\
+            \ end of this video I'll show you the exact template I use for this. Stay\
+            \ with me.\"\n- Reference: mentioned again at ~50% to remind viewers the\
+            \ payoff is still coming\n  Example: \"We're about halfway through — remember\
+            \ I mentioned that template? You'll want to see this context first.\"\n\
+            - Resolve: delivered at ~80% as a concrete payoff (NOT the very end —\
+            \ the CTA comes after)\n  Example: [full delivery of what was promised]\n\
+            \n\nRE-ENGAGEMENT HOOK RULES:\n- Place one every 90–120 seconds (platform-dependent)\n\
+            - Types: mini-cliffhanger, surprising fact drop, \"but here's the twist...\"\
+            , direct audience challenge, perspective shift\n- Each one should create\
+            \ a NEW micro-open-loop\n\n\nCTA RULES:\n- Always comes AFTER the loop\
+            \ resolution (never before)\n- Three versions: Soft (feels natural, low-pressure),\
+            \ Medium (clear ask with value framing), Strong (urgency/consequence)\n\
+            - Match CTA to the content's emotional peak — don't drop energy for the\
+            \ CTA\n- Platform-specific: YouTube = subscribe + comment prompt; TikTok/Reels\
+            \ = follow + sound; LinkedIn = connection + comment\n\n\nOUTRO RULES:\n\
+            - After CTA, close with something memorable — not \"see you in the next\
+            \ one\"\n- Pattern: a short callback to the hook (close the loop with\
+            \ the beginning), then sign-off\n\n\nFORMAT YOUR OUTPUT:\n\n\n---\n\n\n\
+            ## RETENTION & CTA LAYER\n\n\n### Open Loop Architecture\n| Loop | Plant\
+            \ (with timestamp) | Reference (with timestamp) | Resolution (with timestamp)\
+            \ |\n|---|---|---|---|\n| Loop 1 | [exact scripted line + timestamp] |\
+            \ [exact scripted line + timestamp] | [exact scripted line + timestamp]\
+            \ |\n| Loop 2 (if applicable) | ... | ... | ... |\n\n\n### Full Scripted\
+            \ Open Loop Lines\n**LOOP 1 PLANT** (insert at [timestamp] in script body):\n\
+            [exact words to say — with performance cues]\n\n\n**LOOP 1 REFERENCE**\
+            \ (insert at [timestamp]):\n[exact words]\n\n\n**LOOP 1 RESOLUTION** (insert\
+            \ at [timestamp]):\n[exact words — this is the payoff; make it worth the\
+            \ wait]\n\n\n### Re-Engagement Hooks\n| Timestamp | Hook Type | Scripted\
+            \ Line |\n|---|---|---|\n| [time] | [type] | [exact scripted line] |\n\
+            \n\n### CTA Section (insert after Loop Resolution)\n```\n=== CTA | Timestamp:\
+            \ [time] | Energy: [3/5] ===\n\n\n**SOFT VERSION:**\n[scripted CTA — natural,\
+            \ conversational, low pressure]\n\n\n**MEDIUM VERSION:**\n[scripted CTA\
+            \ — clear ask, specific value framing]\n\n\n**STRONG VERSION:**\n[scripted\
+            \ CTA — urgency or consequence framing]\n\n\nUse: SOFT / MEDIUM / STRONG\
+            \ — [recommendation + reason]\n```\n\n\n### Outro\n```\n=== OUTRO | Timestamp:\
+            \ [time] | Energy: [2/5] ===\n[scripted outro — callback to hook, then\
+            \ sign-off]\n```"
+        - id: 128c9ca1-1386-48bc-9dc8-7fddf7b07474
+          role: user
+          text: 'Add the open loops, re-engagement hooks, CTA, and outro to this script.
+
+
+
+            SCRIPT STRATEGY PLAN:
+
+            {{#1787002626748.text#}}
+
+
+
+            HOOK (for loop and outro callback reference):
+
+            {{#1787005042260.text#}}
+
+
+
+            SCRIPT BODY (full):
+
+            {{#1787005152688.text#}}
+
+
+
+            CTA GOAL: {{#1786742809170.ctaGoal#}}
+
+            PLATFORM: {{#1786742809170.targetPlatform#}}
+
+            TARGET DURATION: {{#1786742809170.targetDuration#}}
+
+            VOICE STYLE: {{#1786742809170.voiceStyle#}}
+
+
+
+            CREATOR PROFILE:
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Write all open loop lines (plant, reference, resolution), re-engagement
+            hooks, and 3 CTA versions. Include exact timestamps for where each element
+            should be inserted in the script body.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+
+
+            **Revision Count**: {{#1787005085399.revision_count#}}
+
+            ("0" = initial pass. "1"+ = the critique below flagged specific issues
+            — the script body above already reflects any body-level fixes; your job
+            is to fix loop/CTA-specific issues.)
+
+
+
+            **If this is a revision pass**: Check the AUDIT / CRITIQUE REPORT below
+            for anything filed under OPEN LOOP COMPLETION or CTA QUALITY. Rewrite
+            only the flagged loops/hooks/CTA versions; leave the rest as they were.
+
+
+
+            AUDIT / CRITIQUE REPORT:
+
+            {{#1787005085399.report#}}'
+        selected: false
+        title: CTA_Retention_Layer_Writer
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787005193127'
+      parentId: '1787005085399'
+      position:
+        x: 430
+        y: 68
+      positionAbsolute:
+        x: 1615.4032934208471
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 33dc5598-6df5-4af2-b31d-bcaf7c17da86
+          role: system
+          text: "You are a native Egyptian Arabic script editor. You review and rewrite\
+            \ scripts to make them sound genuinely Egyptian — not translated from\
+            \ English, not Modern Standard Arabic (فصحى), and not textbook Arabic.\n\
+            \n\nYOUR TASK: Take the script as written and rewrite every line in authentic\
+            \ Egyptian colloquial Arabic (عامية مصرية) per the register specified.\n\
+            \n\nDIALECT REGISTERS:\n- **Cairene media-standard** (default): The Arabic\
+            \ spoken in Egyptian film, TV, and most successful YouTube content. Clean,\
+            \ natural, understood across the Arabic-speaking world. Avoids heavy slang\
+            \ but still unmistakably Egyptian.\n- **Street & youth slang**: Full entertainment/comedy\
+            \ register. Heavy idioms, youth vocabulary, fast rhythm. Only for entertainment\
+            \ or comedy content.\n- **Educated professional**: Egyptian grammar throughout;\
+            \ slightly more formal vocabulary; the language an Egyptian doctor or\
+            \ engineer would use explaining something to a peer. Still colloquial\
+            \ — NOT MSA.\n- **Sa'idi**: Upper Egyptian dialect — only use if explicitly\
+            \ specified.\n\n\nCORE RULES — NON-NEGOTIABLE:\n\n\n1. NO فصحى conjugation\
+            \ or vocabulary. Ever. The following are always wrong in Egyptian colloquial:\n\
+            \   - يفعل → must be بيعمل\n   - سأذهب → must be هروح\n   - أريد → must\
+            \ be عايز / محتاج\n   - الآن → must be دلوقتي\n   - لكن → must be بس\n\
+            \   - كيف → must be إزاي\n   - هذا/ذلك → must be ده/دا\n   - نعم → must\
+            \ be أيوه\n   - لا أعرف → must be مش عارف\n\n\n2. SENTENCE RHYTHM: Egyptian\
+            \ spoken Arabic uses:\n   - Shorter clauses\n   - More discourse markers:\
+            \ يعني / طب / خلاص / على فكرة / بجد / يا جماعة / بصراحة / أصل\n   - A\
+            \ conversational stitching style that English scripts don't use\n   -\
+            \ Interrogative tone dropped into explanations (\"يعني إيه ده؟ ده معناه\
+            \ إن...\")\n\n\n3. CODE-SWITCHING per level specified:\n   - **None**:\
+            \ Find Egyptian Arabic equivalent for every term, even technical ones\n\
+            \   - **Light**: English nouns for tech, brand, and global-culture terms\
+            \ only (الـ engagement, الـ algorithm, subscribe). Never English verbs.\n\
+            \   - **Moderate**: Bilingual creator style — English phrases for technical\
+            \ sections, Arabic for emotional and narrative sections\n\n\n4. A TRANSLATED\
+            \ SCRIPT IS A FAILED SCRIPT: If the rewritten script reads like someone\
+            \ translated English into grammatically correct Arabic, it has failed\
+            \ — even if every word is technically correct. Egyptian Arabic has its\
+            \ own cadence, its own filler words, its own rhythm. Capture that rhythm.\n\
+            \n\nCONTRASTIVE REFERENCE TABLE — ALWAYS APPLY:\n| MSA / Translated Version\
+            \ (AVOID) | Native Egyptian Version (USE) | Context |\n|---|---|---|\n\
+            | كيف حالك؟ | إزيك؟ / عامل إيه؟ | Greeting |\n| أريد أن أتحدث عن... |\
+            \ عايز أتكلم عن... | Intro |\n| هذا الأمر مهم جداً | الموضوع ده مهم جداً\
+            \ | Emphasis |\n| سأشرح لكم كيف... | هوريكم إزاي... | Explainer opener\
+            \ |\n| في الحقيقة | بجد / بصراحة | Sincerity marker |\n| والآن، دعونا\
+            \ ننتقل إلى | طب تعالوا بقى نشوف | Transition |\n| يجب عليكم أن تفعلوا\
+            \ | لازم تعملوا | Obligation |\n| لقد أجرينا تجربة | عملنا تجربة | Past\
+            \ action |\n| وبالتالي | وبكده / فبكده | Consequence |\n| كما ذكرنا سابقاً\
+            \ | زي ما قلنا | Callback |\n| على سبيل المثال | مثلاً / زي مثلاً | Example\
+            \ marker |\n| بشكل عام | بشكل عام (acceptable) / عموماً / في الغالب |\
+            \ Generalization |\n\n\nDIALECT AUTHENTICITY SCORING:\nAfter rewriting,\
+            \ score the script on this dimension:\n**Dialect Authenticity Score (1–10)**:\
+            \ Would a native Cairene viewer read this and assume a human Egyptian\
+            \ creator wrote it, or would they detect AI/translation/MSA?\n- 10: Completely\
+            \ native — indistinguishable from a human Egyptian creator\n- 8–9: Very\
+            \ natural — minor detectable patterns, but sounds like a real person\n\
+            - 6–7: Mostly natural — a few translated rhythms, some MSA vocabulary\
+            \ remaining\n- Below 6: Fails — sounds translated; needs another revision\
+            \ pass\n\n\nHARD GATE: The script CANNOT receive a passing grade if Dialect\
+            \ Authenticity Score < 8.\n\n\nOUTPUT FORMAT:\n\n\n---\n\n\n## EGYPTIAN\
+            \ ARABIC REWRITE\n\n\n### Dialect Register Applied: [register name]\n\
+            ### Code-Switching Level: [level]\n\n\n### Rewritten Script\n[Full script\
+            \ rewritten in Egyptian Arabic — same structure, same section headers,\
+            \ same visual notes and performance cues — but every line of spoken text\
+            \ is now authentic Egyptian colloquial]\n\n\n### Dialect Authenticity\
+            \ Assessment\n**Dialect Authenticity Score: [X]/10**\n\n\n**What's Working**:\n\
+            - [Specific line or pattern that sounds genuinely native]\n- [Another\
+            \ example]\n\n\n**Authenticity Flags** (lines a native speaker might still\
+            \ flag):\n- Line [reference]: \"[original rewritten line]\" → Suggested\
+            \ native alternative: \"[suggestion]\"\n- [Any other flags]\n\n\n**Native\
+            \ Speaker Review Priority**:\nLines to check first in a native speaker\
+            \ review (in order of priority):\n1. [line reference] — [why this one\
+            \ needs human review]\n2. [line reference]"
+        - id: 064dd722-5abd-44aa-b656-9df2f4afd784
+          role: user
+          text: 'Rewrite the following script in authentic Egyptian Arabic.
+
+
+
+            DIALECT REGISTER: {{#1786742809170.dialectRegister#}}
+
+            CODE-SWITCHING LEVEL: {{#1786742809170.codeSwitchingLevel#}}
+
+
+
+            HOOK (rewrite in Egyptian Arabic):
+
+            {{#1787005042260.text#}}
+
+
+
+            SCRIPT BODY (rewrite in Egyptian Arabic):
+
+            {{#1787005152688.text#}}
+
+
+
+            CTA & RETENTION LAYER (rewrite all scripted lines in Egyptian Arabic):
+
+            {{#1787005193127.text#}}
+
+
+
+            CREATOR PROFILE (voice reference):
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Rewrite every spoken line in authentic Egyptian colloquial Arabic per
+            the register and code-switching level. Keep all performance cues, visual
+            notes, section headers, and timestamps in their original format. Only
+            the spoken text changes.
+
+
+
+            Score the dialect authenticity of your rewrite. Flag any lines a native
+            speaker should review.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+
+
+            **Revision Count**: {{#1787005085399.revision_count#}}
+
+            ("0" = first Egyptian pass over the fresh English draft above. "1"+ =
+            the critique below already assessed a prior Egyptian rewrite — pay special
+            attention to whatever it flagged under DIALECT AUTHENTICITY.)
+
+
+
+            **If this is a revision pass**: Re-translate the (now-revised) English
+            content above as usual, but treat every line the critique flagged as MSA-leaning,
+            translated-sounding, or below the authenticity bar as a must-fix — don''t
+            let the same calque or the same فصحى construction survive into this pass.
+
+
+
+            AUDIT / CRITIQUE REPORT:
+
+            {{#1787005085399.report#}}'
+        selected: false
+        title: Egyptian_Dialect_Authenticity_Layer
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787005213771'
+      parentId: '1787005085399'
+      position:
+        x: 1022.5889463475746
+        y: 69.10911811583046
+      positionAbsolute:
+        x: 2207.9922397684218
+        y: 210.0569498513887
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 13446209-bb65-4e98-9707-05be4b28f881
+          role: system
+          text: "You are a script editor performing a final polish pass. You read\
+            \ the complete assembled script — hook + body + CTA & retention layer\
+            \ — and fix:\n\n\n1. FLOW: Does the script read naturally from section\
+            \ to section? Are transitions smooth?\n2. SPOKEN LANGUAGE CHECK: Flag\
+            \ any sentence that sounds \"written\" rather than \"spoken\":\n   - Long\
+            \ complex sentences that nobody would say out loud\n   - Academic vocabulary\
+            \ that doesn't match the voiceStyle\n   - Passive voice where active voice\
+            \ is more natural\n   - Conjunctions and transitions that work in essays\
+            \ but not in speech\n3. PACING: Is there variety in sentence length? No\
+            \ section should have 5 consecutive long sentences or 5 consecutive one-liners.\n\
+            4. WORD COUNT: Count total words. Is it within ±10% of the target from\
+            \ the Strategy Plan?\n5. CONSISTENCY: Same voice throughout? No sudden\
+            \ formality changes? No personality shifts?\n6. MANDATORY MENTIONS: Are\
+            \ all required elements from mandatoryMentions present?\n7. RETENTION\
+            \ MECHANIC CHECK: Are all open loops properly planted, referenced, and\
+            \ resolved?\n8. VISUAL NOTE CHECK: Do visual notes describe what the viewer\
+            \ sees, not just what the speaker says?\n\n\nOUTPUT:\nProduce the COMPLETE\
+            \ assembled and polished script — hook + body + CTA + outro — as one continuous\
+            \ document. Then below it, provide a brief polish summary.\n\n\nASSEMBLED\
+            \ SCRIPT FORMAT:\n```\nSCRIPT: [Video Title]\nDuration Target: [X min]\n\
+            Word Count: [actual count] / [target count] ([X% of target])\nPlatform:\
+            \ [platform]\nLanguage: [language]\n[If Arabic: Dialect Authenticity Score:\
+            \ X/10]\n\n\n---\n\n\n[HOOK]\n[Recommended hook from Hook Writer — with\
+            \ retention layer inserts placed at correct positions]\n\n\n[BODY SECTIONS\
+            \ — with open loop plants, references, and re-engagement hooks inserted\
+            \ at correct positions]\n\n\n[CTA SECTION]\n[Chosen CTA version + outro]\n\
+            \n\n---\n```\n\n\nPOLISH SUMMARY:\n- Word count: [X words] — [on target\
+            \ / X% over / X% under]\n- Changes made: [list of specific fixes]\n- Remaining\
+            \ flags: [anything that might need one more look]"
+        - id: e20e9529-5eda-40f9-9cbf-b66c19aa79ea
+          role: user
+          text: 'Assemble and polish the complete script.
+
+
+
+            RECOMMENDED HOOK:
+
+            {{#1787005042260.text#}}
+
+
+
+            SCRIPT BODY:
+
+            {{#1787005152688.text#}}
+
+
+
+            CTA & RETENTION LAYER (including loop insert instructions and timestamps):
+
+            {{#1787005193127.text#}}
+
+
+
+
+            SCRIPT STRATEGY PLAN (for word count target and retention schedule reference):
+
+            {{#1787002626748.text#}}
+
+
+
+            LANGUAGE: {{#1786742809170.scriptLanguage#}}
+
+            VOICE STYLE: {{#1786742809170.voiceStyle#}}
+
+            MANDATORY MENTIONS: {{#1786742809170.mandatoryMentions#}}
+
+
+
+            Assemble all sections into one complete, continuous script. Insert the
+            retention mechanics (open loops, re-engagement hooks) at the timestamps
+            specified by the CTA layer. Polish for spoken language, pacing, and flow.
+            Produce the assembled script followed by the polish summary.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+
+
+            **Revision Count**: {{#1787005085399.revision_count#}}
+
+            ("0" = first assembly. "1"+ = the upstream nodes have already applied
+            targeted fixes from the critique below — your job is to re-assemble and
+            polish, not to introduce new rewrites of sections nobody flagged.)
+
+
+
+            AUDIT / CRITIQUE REPORT (for context — do not re-litigate issues the upstream
+            nodes already fixed):
+
+            {{#1787005085399.report#}}'
+        selected: false
+        title: Script_Refinement
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787005243811'
+      parentId: '1787005085399'
+      position:
+        x: 1460.8283376605007
+        y: 278.45953939471747
+      positionAbsolute:
+        x: 2646.2316310813476
+        y: 419.4073711302757
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: "You are a senior script quality auditor. You evaluate the assembled\
+            \ script against professional standards and produce a critique report\
+            \ AND a fully revised, improved script.\n\n\nAUDIT CRITERIA — score each\
+            \ (1–10), flag issues as CRITICAL / WARNING / MINOR:\n\n\n1. HOOK QUALITY\
+            \ (Critical)\n   - Grabs attention in the first 3 seconds on this platform\n\
+            \   - Creates an immediate open loop\n   - Works with sound off\n   -\
+            \ Specific — not vague\n\n\n2. NARRATIVE ARC (Critical)\n   - Clear setup\
+            \ → build → peak → resolution\n   - Every section serves a purpose; no\
+            \ filler\n   - Pacing matches the energy curve from the strategy plan\n\
+            \n\n3. SPOKEN LANGUAGE (Critical)\n   - Sounds natural when read aloud\n\
+            \   - No \"written\" language patterns in spoken sections\n   - Contractions,\
+            \ natural flow, appropriate vocabulary for audienceLevel\n\n\n4. WORD\
+            \ COUNT COMPLIANCE (Warning)\n   - Within ±10% of target word count\n\
+            \   - If over: what to cut? If under: what's missing?\n\n\n5. PLATFORM\
+            \ COMPLIANCE (Warning)\n   - Hook window appropriate for platform\n  \
+            \ - Duration within platform best practices\n   - Format appropriate (short-form\
+            \ vs. long-form)\n\n\n6. OPEN LOOP COMPLETION (Critical)\n   - Loops planted,\
+            \ referenced, AND resolved\n   - Payoffs are worth the wait\n   - No loop\
+            \ planted without resolution\n\n\n7. CTA QUALITY (Warning)\n   - CTA is\
+            \ natural, not jarring\n   - Placed after loop resolution\n   - Matches\
+            \ ctaGoal\n\n\n8. FACTUAL ACCURACY (Critical)\n   - All factual claims\
+            \ traceable to research\n   - No invented statistics or expert quotes\n\
+            \   - Credibility labels applied correctly\n\n\n9. DIALECT AUTHENTICITY\
+            \ (Arabic mode only — Critical)\n   - Assess: would a native Cairene viewer\
+            \ assume a human Egyptian creator wrote this?\n   - Score 1–10\n   - Flag\
+            \ every MSA-leaning line, every translated rhythm, every calque\n   -\
+            \ HARD GATE: if dialect_score < 8, grade cannot be A regardless of other\
+            \ scores\n\n\nREVISION MODE:\nIf revision_count > 0, the script above\
+            \ already reflects the fixes the writer nodes applied from your previous\
+            \ critique_report — verify those specific issues are actually resolved,\
+            \ not just superficially touched. Do not re-approve an issue that was\
+            \ renamed rather than fixed.\n\n\nOUTPUT — ONLY valid JSON:\n```json\n\
+            {\n  \"critique_grade\": \"A\" | \"B\" | \"C\" | \"D\" | \"F\",\n  \"\
+            critique_report\": \"Full audit in markdown — per-criterion table + issue\
+            \ list with CRITICAL/WARNING/MINOR labels\",\n  \"revised_script\": \"\
+            The complete, improved script — hook + body + CTA + outro, in the same\
+            \ ASSEMBLED SCRIPT FORMAT Script Refinement uses. Full document, not a\
+            \ diff. This is the safety-net version used if the loop exits before reaching\
+            \ grade A, so it must be publish-ready on its own.\",\n  \"dialect_authenticity_score\"\
+            : 0\n}\n```\n\n\nNote: `dialect_authenticity_score` is 0 for non-Arabic\
+            \ scripts. For Arabic scripts, set to the actual assessed score (1–10).\
+            \ The grade can only be \"A\" if dialect_authenticity_score >= 8 (Arabic\
+            \ mode) or 0 (non-Arabic mode, not a gate)."
+        - id: 320c7db3-7d2f-41e1-9c0e-46863e908c59
+          role: user
+          text: 'Audit the following assembled script.
+
+
+
+            REVISION COUNT: {{#1787005085399.revision_count#}}
+
+
+
+            CURRENT SCRIPT STATE:
+
+            {{#1787005243811.text#}}
+
+
+
+            SCRIPT STRATEGY PLAN:
+
+            {{#1787002626748.text#}}
+
+
+
+            RESEARCH PACKAGE (for factual accuracy check):
+
+            {{#1786742809170.researchPackage#}}
+
+
+
+            LANGUAGE: {{#1786742809170.scriptLanguage#}}
+
+            PLATFORM: {{#1786742809170.targetPlatform#}}
+
+            CONTENT TYPE: {{#1786742809170.contentType#}}
+
+            VOICE STYLE: {{#1786742809170.voiceStyle#}}
+
+            AUDIENCE LEVEL: {{#1786742809170.audienceLevel#}}
+
+            CTA GOAL: {{#1786742809170.ctaGoal#}}
+
+
+
+            Output ONLY the JSON object. Include the full revised script.'
+        - id: c257f436-9f60-4996-96af-773d0a0a3b5f
+          role: assistant
+          text: 'Audit the following assembled script.
+
+
+
+            REVISION COUNT: {{#1787005085399.revision_count#}}
+
+
+
+            CURRENT SCRIPT STATE:
+
+            {{#1787005243811.text#}}
+
+
+
+            SCRIPT STRATEGY PLAN:
+
+            {{#1787002626748.text#}}
+
+
+
+            RESEARCH PACKAGE (for factual accuracy check):
+
+            {{#1786742809170.researchPackage#}}
+
+
+
+            LANGUAGE: {{#1786742809170.scriptLanguage#}}
+
+            PLATFORM: {{#1786742809170.targetPlatform#}}
+
+            CONTENT TYPE: {{#1786742809170.contentType#}}
+
+            VOICE STYLE: {{#1786742809170.voiceStyle#}}
+
+            AUDIENCE LEVEL: {{#1786742809170.audienceLevel#}}
+
+            CTA GOAL: {{#1786742809170.ctaGoal#}}
+
+
+
+            Output ONLY the JSON object. Include the full revised script.'
+        selected: false
+        title: Self_Critique
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787005287704'
+      parentId: '1787005085399'
+      position:
+        x: 1897.7518753359832
+        y: 245.45889853286994
+      positionAbsolute:
+        x: 3083.1551687568303
+        y: 386.4067302684282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        code: "import json\n\ndef main(llm_output: str, language: str = \"\") -> dict:\n\
+          \    text = llm_output.strip()\n    try:\n        if text.startswith(\"\
+          ```\"):\n            text = text.split(\"```\")[1]\n            if text.startswith(\"\
+          json\"):\n                text = text[4:]\n        data = json.loads(text.strip())\n\
+          \        grade = str(data.get(\"critique_grade\", \"\")).strip().upper()\n\
+          \        if grade not in [\"A+\", \"A\", \"B\", \"C\", \"D\", \"F\"]:\n\
+          \            grade = \"F\"\n\n        dialect_score = int(data.get(\"dialect_authenticity_score\"\
+          , 0))\n\n        # Arabic hard gate: if dialect_score < 8, grade cannot\
+          \ be A\n        is_arabic = \"arabic\" in language.lower() or \"عربي\" in\
+          \ language.lower()\n        if is_arabic and grade in [\"A+\", \"A\"] and\
+          \ dialect_score < 8:\n            grade = \"B\"  # Downgrade — dialect authenticity\
+          \ not met\n\n        return {\n            \"current_grade\": grade,\n \
+          \           \"current_report\": data.get(\"critique_report\", \"\") or text,\n\
+          \            \"current_revised_script\": data.get(\"revised_script\", \"\
+          \"),\n            \"current_dialect_score\": dialect_score\n        }\n\
+          \    except Exception:\n        return {\n            \"current_grade\"\
+          : \"F\",\n            \"current_report\": llm_output,\n            \"current_revised_script\"\
+          : \"\",\n            \"current_dialect_score\": 0\n        }"
+        code_language: python3
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        outputs:
+          current_dialect_score:
+            children: null
+            type: number
+          current_grade:
+            children: null
+            type: string
+          current_report:
+            children: null
+            type: string
+          current_revised_script:
+            children: null
+            type: string
+        selected: false
+        title: Critique_Parser
+        type: code
+        variables:
+        - value_selector:
+          - '1787005287704'
+          - text
+          value_type: string
+          variable: llm_output
+        - value_selector:
+          - '1786742809170'
+          - scriptLanguage
+          value_type: string
+          variable: language
+      height: 52
+      id: '1787005336643'
+      parentId: '1787005085399'
+      position:
+        x: 2162.0418593977483
+        y: 243.24066230120906
+      positionAbsolute:
+        x: 3347.4451528185955
+        y: 384.18849403676734
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787005336643'
+          - current_grade
+          variable_selector:
+          - '1787005085399'
+          - grade
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787005336643'
+          - current_report
+          variable_selector:
+          - '1787005085399'
+          - report
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787005336643'
+          - current_revised_script
+          variable_selector:
+          - '1787005085399'
+          - revised_script
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787005336643'
+          - current_dialect_score
+          variable_selector:
+          - '1787005085399'
+          - dialect_score
+        - input_type: constant
+          operation: +=
+          value: 1
+          variable_selector:
+          - '1787005085399'
+          - revision_count
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787005193127'
+          - text
+          variable_selector:
+          - '1787005085399'
+          - CTA
+        loop_id: '1787005085399'
+        selected: false
+        title: Critique_Variable_Assigner
+        type: assigner
+        version: '2'
+      height: 214
+      id: '1787005354592'
+      parentId: '1787005085399'
+      position:
+        x: 2460.7145050502572
+        y: 241.02242606954817
+      positionAbsolute:
+        x: 3646.1177984711044
+        y: 381.9702578051064
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: fd613265-ad87-432f-9122-2f0d7696e01e
+          role: system
+          text: "You are a production coordinator compiling the final script deliverable.\
+            \ Assemble all components into a complete, organized Script Package that\
+            \ both the creator (for performing) and the video editor (for following)\
+            \ can use immediately.\n\n\nFORMAT:\n\n\n---\n\n\n## SCRIPT PACKAGE\n\n\
+            \n### Script Metadata\n| Field | Value |\n|---|---|\n| Video Title | [working\
+            \ title from the hook or research] |\n| Content Type | [type] |\n| Target\
+            \ Duration | [X minutes] |\n| Word Count | [X words] (~X minutes at Xwpm)\
+            \ |\n| Platform | [platform] |\n| Language | [language] |\n| Narrative\
+            \ Structure | [structure name] |\n| Hook Type | [recommended hook type]\
+            \ |\n| Dialect Authenticity Score | [X/10 — Arabic only, else \"N/A\"\
+            ] |\n| Script Quality Grade | [final grade] |\n\n\n---\n\n\n### PRODUCTION\
+            \ SCRIPT\n[Full assembled script — the definitive final version after\
+            \ all critique passes]\n[If final grade is F: ⚠️ Auditor could not assess\
+            \ this pass — review manually before filming]\n\n\n---\n\n\n### RETENTION\
+            \ ARCHITECTURE\n| Element | Timestamp | Scripted Line |\n|---|---|---|\n\
+            | Hook | 0:00 | [first line] |\n| Open Loop Plant | [time] | [exact line]\
+            \ |\n| Re-engagement Hook 1 | [time] | [exact line] |\n| Loop Reference\
+            \ | [time] | [exact line] |\n| Re-engagement Hook 2 | [time] | [exact\
+            \ line] |\n| Loop Resolution | [time] | [exact line] |\n| CTA | [time]\
+            \ | [version used] |\n| Outro | [time] | [closing line] |\n\n\n---\n\n\
+            \n### CTA VERSIONS (all three — for future A/B testing)\n**Soft**: [full\
+            \ scripted CTA]\n**Medium**: [full scripted CTA]\n**Strong**: [full scripted\
+            \ CTA]\n\n\n---\n\n\n### B-ROLL SHOT LIST\nAuto-extracted from all [VISUAL\
+            \ NOTE] markers in the script:\n\n\n| # | Timestamp | Description | Shot\
+            \ Type | Priority |\n|---|---|---|---|---|\n| 1 | [time] | [visual note\
+            \ description] | [B-roll / graphic / text overlay] | [Must-have / Nice-to-have]\
+            \ |\n\n\n---\n\n\n### QA RESULTS\n| Criterion | Score | Status |\n|---|---|---|\n\
+            | Hook quality | [X/10] | [Pass / Warn / Fail] |\n| Narrative arc | [X/10]\
+            \ | [Pass / Warn / Fail] |\n| Spoken language | [X/10] | [Pass / Warn\
+            \ / Fail] |\n| Word count | [X words / target] | [Pass / Warn / Fail]\
+            \ |\n| Platform compliance | [X/10] | [Pass / Warn / Fail] |\n| Open loops\
+            \ | [X/10] | [Pass / Warn / Fail] |\n| CTA quality | [X/10] | [Pass /\
+            \ Warn / Fail] |\n| Dialect authenticity | [X/10 or N/A] | [Pass / Warn\
+            \ / Fail] |\n\n\n---\n\n\n### INTEGRATION DATA (paste into W-03 and/or\
+            \ W-04)\n```\nSCRIPT PACKAGE SUMMARY FOR PRODUCTION PLANNING:\n\n\nWorking\
+            \ Title: [title]\nScript Duration Estimate: [X minutes X seconds]\nShot\
+            \ List Extracted: Yes — [X] shots listed above\nVisual Complexity: [Low\
+            \ / Medium / High — based on B-roll requirements]\n\n\nFilming Requirements\
+            \ Summary:\n[3–5 bullet points describing what needs to be filmed:\n -\
+            \ Talking head: Yes/No — [duration / percentage of video]\n - B-roll needed:\
+            \ [X shots — type descriptions]\n - Special requirements: [graphics, product\
+            \ shots, demonstrations, etc.]]\n\n\nKey Visual Notes for Editor:\n[3–5\
+            \ most important visual direction points the editor should know before\
+            \ cutting]\n```"
+        - id: b3fe61e1-ba0c-4c9c-a0ab-c320ecdf7aa5
+          role: user
+          text: 'Compile the Final Script Package.
+
+
+
+            FINAL SCRIPT (post-critique — use this as the definitive version):
+
+            {{#1787005085399.revised_script#}}
+
+
+
+            SCRIPT STRATEGY PLAN (for metadata):
+
+            {{#1787002626748.text#}}
+
+
+
+            HOOK VARIATIONS (include all three in the package for reference):
+
+            {{#1787005042260.text#}}
+
+
+
+            CTA VERSIONS:
+
+            {{#1787005085399.CTA#}}
+
+
+
+            CRITIQUE GRADE: {{#1787005085399.grade#}}
+
+            CRITIQUE REPORT: {{#1787005085399.report#}}
+
+            DIALECT SCORE: {{#1787005085399.dialect_score#}}
+
+
+
+            LANGUAGE: {{#1786742809170.scriptLanguage#}}
+
+            PLATFORM: {{#1786742809170.targetPlatform#}}
+
+
+
+            Compile the complete package. Extract every [VISUAL NOTE] marker from
+            the script to build the B-Roll Shot List.'
+        selected: false
+        title: Final_Script_Package
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787005380630'
+      position:
+        x: 4008.170647452522
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 4008.170647452522
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1787005380630'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: Output
+        type: end
+      height: 88
+      id: '1787005417502'
+      position:
+        x: 4301.485672879701
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 4301.485672879701
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: ccfcb29a-757f-4e97-8758-3f56a6417840
+            value: Arabic
+            varType: string
+            variable_selector:
+            - '1786742809170'
+            - scriptLanguage
+          id: 'true'
+          logical_operator: and
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 148
+      id: '1787006538844'
+      parentId: '1787005085399'
+      position:
+        x: 733.1091181158306
+        y: 65
+      positionAbsolute:
+        x: 1918.5124115366777
+        y: 205.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787005085399'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: f703cb8f-9262-4dc7-af70-f383c6a65c07
+          role: system
+          text: "You are a script editor performing a final polish pass. You read\
+            \ the complete assembled script — hook + body + CTA & retention layer\
+            \ — and fix:\n\n\n1. FLOW: Does the script read naturally from section\
+            \ to section? Are transitions smooth?\n2. SPOKEN LANGUAGE CHECK: Flag\
+            \ any sentence that sounds \"written\" rather than \"spoken\":\n   - Long\
+            \ complex sentences that nobody would say out loud\n   - Academic vocabulary\
+            \ that doesn't match the voiceStyle\n   - Passive voice where active voice\
+            \ is more natural\n   - Conjunctions and transitions that work in essays\
+            \ but not in speech\n3. PACING: Is there variety in sentence length? No\
+            \ section should have 5 consecutive long sentences or 5 consecutive one-liners.\n\
+            4. WORD COUNT: Count total words. Is it within ±10% of the target from\
+            \ the Strategy Plan?\n5. CONSISTENCY: Same voice throughout? No sudden\
+            \ formality changes? No personality shifts?\n6. MANDATORY MENTIONS: Are\
+            \ all required elements from mandatoryMentions present?\n7. RETENTION\
+            \ MECHANIC CHECK: Are all open loops properly planted, referenced, and\
+            \ resolved?\n8. VISUAL NOTE CHECK: Do visual notes describe what the viewer\
+            \ sees, not just what the speaker says?\n\n\nOUTPUT:\nProduce the COMPLETE\
+            \ assembled and polished script — hook + body + CTA + outro — as one continuous\
+            \ document. Then below it, provide a brief polish summary.\n\n\nASSEMBLED\
+            \ SCRIPT FORMAT:\n```\nSCRIPT: [Video Title]\nDuration Target: [X min]\n\
+            Word Count: [actual count] / [target count] ([X% of target])\nPlatform:\
+            \ [platform]\nLanguage: [language]\n[If Arabic: Dialect Authenticity Score:\
+            \ X/10]\n\n\n---\n\n\n[HOOK]\n[Recommended hook from Hook Writer — with\
+            \ retention layer inserts placed at correct positions]\n\n\n[BODY SECTIONS\
+            \ — with open loop plants, references, and re-engagement hooks inserted\
+            \ at correct positions]\n\n\n[CTA SECTION]\n[Chosen CTA version + outro]\n\
+            \n\n---\n```\n\n\nPOLISH SUMMARY:\n- Word count: [X words] — [on target\
+            \ / X% over / X% under]\n- Changes made: [list of specific fixes]\n- Remaining\
+            \ flags: [anything that might need one more look]"
+        - id: af2b090d-754d-4cf7-856c-dc455d22dc40
+          role: user
+          text: 'Assemble and polish the complete script.
+
+
+
+            RECOMMENDED HOOK:
+
+            {{#1787005042260.text#}}
+
+
+
+            SCRIPT BODY:
+
+            {{#1787005152688.text#}}
+
+
+
+            CTA & RETENTION LAYER (including loop insert instructions and timestamps):
+
+            {{#1787005193127.text#}}
+
+
+
+            ARABIC DIALECT REWRITE (use this instead of the above if language is Arabic):
+
+            {{#1787005213771.text#}}
+
+
+
+            SCRIPT STRATEGY PLAN (for word count target and retention schedule reference):
+
+            {{#1787002626748.text#}}
+
+
+
+            LANGUAGE: {{#1786742809170.scriptLanguage#}}
+
+            VOICE STYLE: {{#1786742809170.voiceStyle#}}
+
+            MANDATORY MENTIONS: {{#1786742809170.mandatoryMentions#}}
+
+
+
+            Assemble all sections into one complete, continuous script. Insert the
+            retention mechanics (open loops, re-engagement hooks) at the timestamps
+            specified by the CTA layer. Polish for spoken language, pacing, and flow.
+            Produce the assembled script followed by the polish summary.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+
+
+            **Revision Count**: {{#1787005085399.revision_count#}}
+
+            ("0" = first assembly. "1"+ = the upstream nodes have already applied
+            targeted fixes from the critique below — your job is to re-assemble and
+            polish, not to introduce new rewrites of sections nobody flagged.)
+
+
+
+            AUDIT / CRITIQUE REPORT (for context — do not re-litigate issues the upstream
+            nodes already fixed):
+
+            {{#1787005085399.report#}}'
+        selected: false
+        title: Script_Refinement
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787010966114'
+      parentId: '1787005085399'
+      position:
+        x: 1465.760213405488
+        y: 78.11782392941154
+      positionAbsolute:
+        x: 2651.163506826335
+        y: 219.0656556649698
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    viewport:
+      x: -62.128509695973094
+      y: 487.54939953287897
+      zoom: 0.25
+  rag_pipeline_variables: []

@@ -1,0 +1,532 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: W-02_Script Writer
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.59@fc19490989d886a5f24d21df56be95fd972e474e35a4aac93c29805bfaf089f1
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1786742809170-source-1787002626748-target
+      source: '1786742809170'
+      sourceHandle: source
+      target: '1787002626748'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: Paste W-01 output or describe topic + angle + key points
+          label: Research Package (from W-01) or your notes/outline
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: researchPackage
+        - default: ''
+          hide: false
+          hint: ''
+          label: Content type
+          options:
+          - Talking head (direct to camera)
+          - VO narration (voice over B-roll)
+          - Documentary style
+          - Tutorial & step-by-step demo
+          - Opinion essay
+          - Interview-based
+          - Personal story
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: contentType
+        - default: ''
+          hide: false
+          hint: ''
+          label: Script language
+          options:
+          - English
+          - Arabic (Egyptian)
+          - Spanish
+          - French
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: scriptLanguage
+        - default: ''
+          hide: false
+          hint: '*(Arabic only)*'
+          label: Egyptian dialect register
+          options:
+          - Cairene media-standard
+          - Street & youth slang
+          - Educated professional
+          - Sa'idi (Upper Egyptian)
+          placeholder: ''
+          required: false
+          type: select
+          variable: dialectRegister
+        - default: ''
+          hide: false
+          hint: '*(Arabic only)*'
+          label: English mixing level
+          options:
+          - None — pure Egyptian Arabic
+          - Light — occasional tech & brand terms
+          - Moderate — bilingual creator style
+          placeholder: ''
+          required: false
+          type: select
+          variable: codeSwitchingLevel
+        - default: ''
+          hide: false
+          hint: e.g., "8 minutes", "45 seconds", "under 3 minutes"
+          label: Target video duration
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: targetDuration
+        - default: ''
+          hide: false
+          hint: ''
+          label: Primary platform
+          options:
+          - YouTube Long-form
+          - YouTube Shorts
+          - TikTok
+          - Instagram Reels
+          - LinkedIn
+          - Podcast
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: targetPlatform
+        - default: ''
+          hide: false
+          hint: ''
+          label: Voice & tone style
+          options:
+          - Conversational & friendly
+          - Authoritative & expert
+          - Energetic & hype
+          - Calm & measured
+          - Educational & clear
+          - Storytelling & narrative
+          - Raw & authentic
+          - Other
+          placeholder: ''
+          required: true
+          type: select
+          variable: voiceStyle
+        - default: ''
+          hide: false
+          hint: ''
+          label: Audience expertise level
+          options:
+          - General public (no prior knowledge)
+          - Beginners (aware of topic, new to it)
+          - Intermediate (some knowledge)
+          - Expert (deep knowledge)
+          placeholder: ''
+          required: true
+          type: select
+          variable: audienceLevel
+        - default: ''
+          hide: false
+          hint: ''
+          label: Script format
+          options:
+          - Full word-for-word (every line written out)
+          - Bullet-point outline (main points + key phrases)
+          - Hybrid (full for hook + CTA, bullets for body)
+          placeholder: ''
+          required: true
+          type: select
+          variable: scriptFormat
+        - default: ''
+          hide: false
+          hint: ''
+          label: CTA goal
+          options:
+          - Subscribe
+          - Visit a link
+          - Buy
+          - Follow
+          - Watch next video
+          - Share this video
+          - Download
+          - No CTA
+          placeholder: ''
+          required: false
+          type: select
+          variable: ctaGoal
+        - default: ''
+          hide: false
+          hint: Specific phrases, sponsors, products, required elements
+          label: Things that MUST appear in the script
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: mandatoryMentions
+        - default: ''
+          hide: false
+          hint: Channel names, video titles, or pasted script excerpts
+          label: Reference scripts/channels to emulate (style only)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: referenceScripts
+        - default: ''
+          hide: false
+          hint: Areas needing disclaimers, balance, or extra care
+          label: Topics requiring careful/nuanced handling
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: sensitiveHandling
+        - default: ''
+          hide: false
+          hint: Paste from your Creator Profile document
+          label: Creator Profile
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+        - default: ''
+          hide: false
+          hint: The "Feed-Forward Summary" block from W-09 — script-relevant lessons
+            (hook, pacing, retention mechanics) from previous videos
+          label: Past performance lessons (paste from W-09 output)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: pastPerformanceNotes
+      height: 499
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - role: system
+          text: 'You are a senior script consultant. You NEVER write the script itself
+            — your job is to define the strategic blueprint that the script writer
+            will follow. You plan before writing.
+
+
+            Your output must answer these questions:
+
+            1. What narrative structure will this script use, and why?
+
+            2. How many words must this script hit to fill the target duration?
+
+            3. What is the hook window for this platform, and what hook type fits
+            this audience?
+
+            4. How does the content break into acts, and what word count does each
+            act get?
+
+            5. Where do retention mechanisms go (open loops, re-hooks, pattern interrupts)?
+
+            6. What are the platform-specific rules this script must follow?
+
+            7. What language or cultural calibration notes apply?
+
+
+            NARRATIVE STRUCTURES — choose the one that best fits the content type
+            and research:
+
+            - Hero''s Journey: character faces problem, struggles, transforms, succeeds
+            — best for personal stories
+
+            - Problem-Solution: establish the problem deeply, then reveal the solution
+            — best for educational/tutorial
+
+            - Before-After-Bridge: vivid before state, vivid after state, the bridge
+            is your content — best for transformation content
+
+            - Curiosity Gap: open with an unanswered question, delay the answer, build
+            tension — best for listicles and deep dives
+
+            - Documentary: evidence-first narrative, building a case through facts
+            and stories — best for explainers
+
+            - Opinion Essay: state a strong position, defend it with evidence, acknowledge
+            counter — best for opinion content
+
+            - Tutorial Linear: steps in order, each building on the last — best for
+            how-to content
+
+
+            WORD COUNT FORMULA:
+
+            - Talking head: 140–160 words/minute
+
+            - VO narration: 120–140 words/minute
+
+            - Tutorial with demos: 80–120 words/minute (pauses for demonstration)
+
+            - Formula: target minutes × WPM rate = target word count
+
+            - Add 10% buffer for natural variation
+
+
+            PLATFORM HOOK WINDOWS:
+
+            - TikTok / Reels: first 0.5–1 second is critical; first 3 seconds = subscribe
+            or scroll
+
+            - YouTube Shorts: first 2–3 seconds
+
+            - YouTube Long-form: first 7–15 seconds; viewer has more patience but
+            is also tabbing
+
+            - LinkedIn: first 2 lines visible before "see more" — these must be irresistible
+
+            - Podcast: no visual hook; audio-only opening must carry all the weight
+
+
+            OUTPUT FORMAT:
+
+
+            ---
+
+
+            ## SCRIPT STRATEGY PLAN
+
+
+            ### Narrative Structure
+
+            **Selected structure**: [name]
+
+            **Why this fits**: [2–3 sentence rationale connecting this to the content
+            type, research, and audience]
+
+
+            ### Word Count Target
+
+            **Target duration**: [X minutes]
+
+            **WPM rate for this content type**: [X WPM]
+
+            **Target word count**: [X words] (±10% = acceptable range [X–X words])
+
+
+            ### Hook Strategy
+
+            **Platform hook window**: [X seconds]
+
+            **Hook type recommended**: [Question / Contradiction / Bold claim / Visual
+            action / Social proof / Pattern interrupt]
+
+            **Why this type for this audience**: [1–2 sentences]
+
+
+            ### Act Breakdown
+
+            | Act | Name | Word Count | % of Total | Purpose |
+
+            |---|---|---|---|---|
+
+            | 1 | [Hook & Setup] | [X words] | [X%] | [what this act accomplishes]
+            |
+
+            | 2 | [Build / Body] | [X words] | [X%] | [what this act accomplishes]
+            |
+
+            | 3 | [Peak / Resolution] | [X words] | [X%] | [what this act accomplishes]
+            |
+
+            | 4 | [CTA / Close] | [X words] | [X%] | [what this act accomplishes]
+            |
+
+
+            ### Retention Mechanism Schedule
+
+            | Timestamp (approx.) | Mechanism | What It Does |
+
+            |---|---|---|
+
+            | [0:00–0:05] | Hook | [specific hook type] |
+
+            | [1:30] | Open Loop Plant | "Later in this video, I''ll show you [X]..."
+            |
+
+            | [3:00] | Re-engagement Hook | [pattern interrupt or curiosity spike]
+            |
+
+            | [50% mark] | Loop Reference | "Remember I said [X]? Here''s why that
+            matters..." |
+
+            | [80% mark] | Loop Resolution | [payoff of the open loop] |
+
+            | [end] | CTA | [based on ctaGoal] |
+
+
+            ### Platform-Specific Rules for This Script
+
+            - [Rule 1]: [specific constraint or opportunity for this platform]
+
+            - [Rule 2]: [specific constraint or opportunity]
+
+            - [Rule 3]: [specific constraint or opportunity]
+
+
+            ### Language & Cultural Calibration
+
+            - Language: [language]
+
+            - Dialect/register notes: [any localization or cultural considerations]
+
+            - Vocabulary level: [matches audienceLevel]
+
+            - What to avoid linguistically: [from creatorProfile + voiceStyle selection]
+
+
+            ### Lessons Applied From Past Performance
+
+            [If pastPerformanceNotes was provided: list each lesson that''s actually
+            relevant to THIS script''s structure/hook/retention choices, and state
+            how this plan applies it — e.g. "W-09 flagged the 0:45 pattern interrupt
+            as too abrupt on the last video — this plan spaces the first re-engagement
+            hook wider and ties it to a concrete visual change, not just a topic shift."
+            If nothing provided, write "No prior performance data provided — this
+            is a first-pass plan."]
+
+
+            ### Mandatory Elements Placement
+
+            | Element | Best Position | Reason |
+
+            |---|---|---|
+
+            | [mandatory mention] | [act / approximate timestamp] | [why this position
+            works] |'
+        - id: 1ac1c295-8bfa-4505-afbd-9c2d95d2e886
+          role: user
+          text: 'Build the script strategy plan for the following:
+
+
+            RESEARCH PACKAGE:
+
+            {{#1786742809170.researchPackage#}}
+
+
+            CONTENT TYPE: {{#Start.contentType#}}
+
+            SCRIPT LANGUAGE: {{#Start.scriptLanguage#}}
+
+            TARGET DURATION: {{#Start.targetDuration#}}
+
+            TARGET PLATFORM: {{#Start.targetPlatform#}}
+
+            VOICE STYLE: {{#Start.voiceStyle#}}
+
+            AUDIENCE LEVEL: {{#Start.audienceLevel#}}
+
+            SCRIPT FORMAT: {{#Start.scriptFormat#}}
+
+            CTA GOAL: {{#Start.ctaGoal#}}
+
+            MANDATORY MENTIONS: {{#Start.mandatoryMentions#}}
+
+            REFERENCE STYLE: {{#Start.referenceScripts#}}
+
+            SENSITIVE AREAS: {{#Start.sensitiveHandling#}}
+
+
+            CREATOR PROFILE:
+
+            {{#Start.creatorProfile#}}
+
+
+            PAST PERFORMANCE LESSONS (apply anything relevant to structure, hook,
+            or retention choices — ignore anything that doesn''t apply to this topic):
+
+            {{#Start.pastPerformanceNotes#}}
+
+
+            Produce the full Script Strategy Plan. Do not write any script content
+            — only the strategic blueprint.'
+        selected: true
+        title: Script_Strategy_Planner
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787002626748'
+      position:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: -497.43349125614645
+      y: -35.490670879904656
+      zoom: 1.0619189620206726
+  rag_pipeline_variables: []

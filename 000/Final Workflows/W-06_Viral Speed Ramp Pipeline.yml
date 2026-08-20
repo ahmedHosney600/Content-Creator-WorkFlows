@@ -1,0 +1,1713 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: W-06_Viral Speed Ramp Pipeline
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.59@fc19490989d886a5f24d21df56be95fd972e474e35a4aac93c29805bfaf089f1
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: start
+        targetType: llm
+      id: 1786742809170-source-1787044016692-target
+      source: '1786742809170'
+      sourceHandle: source
+      target: '1787044016692'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: llm
+        targetType: llm
+      id: 1787044016692-source-1787044035469-target
+      source: '1787044016692'
+      sourceHandle: source
+      target: '1787044035469'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: llm
+        targetType: loop
+      id: 1787044035469-source-1787044110253-target
+      source: '1787044035469'
+      sourceHandle: source
+      target: '1787044110253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: loop
+        targetType: llm
+      id: 1787044110253-source-1787044629953-target
+      source: '1787044110253'
+      sourceHandle: source
+      target: '1787044629953'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787044110253'
+        sourceType: loop-start
+        targetType: llm
+      id: 1787044110253start-source-1787044116853-target
+      source: 1787044110253start
+      sourceHandle: source
+      target: '1787044116853'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787044110253'
+        sourceType: llm
+        targetType: llm
+      id: 1787044116853-source-1787044136970-target
+      source: '1787044116853'
+      sourceHandle: source
+      target: '1787044136970'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787044110253'
+        sourceType: llm
+        targetType: llm
+      id: 1787044136970-source-1787044154011-target
+      source: '1787044136970'
+      sourceHandle: source
+      target: '1787044154011'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787044110253'
+        sourceType: llm
+        targetType: llm
+      id: 1787044154011-source-1787044308191-target
+      source: '1787044154011'
+      sourceHandle: source
+      target: '1787044308191'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787044110253'
+        sourceType: llm
+        targetType: code
+      id: 1787044308191--1787044328902-target
+      source: '1787044308191'
+      sourceHandle: ''
+      target: '1787044328902'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        iteration_id: null
+        loop_id: '1787044110253'
+        sourceType: code
+        targetType: assigner
+      id: 1787044328902-source-1787044461969-target
+      source: '1787044328902'
+      sourceHandle: source
+      target: '1787044461969'
+      targetHandle: target
+      type: custom
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: false
+        iteration_id: null
+        loop_id: null
+        sourceType: llm
+        targetType: end
+      id: 1787044629953-source-1787045050188-target
+      source: '1787044629953'
+      sourceHandle: source
+      target: '1787045050188'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hide: false
+          hint: Multi-line text containing Brief, Strategy, Storyboard, Pacing, etc.
+          label: Pre-Planning Package (paste)
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: preplanningPackage
+        - default: ''
+          hide: false
+          hint: Integer (e.g., 8)
+          label: Clip Count
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: clipCount
+        - default: ''
+          hide: false
+          hint: Detailed descriptions of available clips, actions, and framing
+          label: Clip Descriptions
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: clipDescriptions
+        - default: ''
+          hide: false
+          hint: ''
+          label: Target Duration
+          options:
+          - 15 seconds
+          - 30 seconds
+          - 45 seconds
+          - 60 seconds
+          placeholder: ''
+          required: true
+          type: select
+          variable: targetDuration
+        - default: ''
+          hide: false
+          hint: e.g. 140
+          label: Music Track BPM
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: musicBPM
+        - default: ''
+          hide: false
+          hint: Comma-separated timestamps (e.g. 0:03.4, 0:08.2, 0:15.0)
+          label: Music Drop Timestamps (0:03, 0:08, ...)
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: musicDrops
+        - default: ''
+          hide: false
+          hint: ''
+          label: Source Frame Rate
+          options:
+          - 24fps
+          - 30fps
+          - 60fps
+          - 120fps
+          - Mixed
+          placeholder: ''
+          required: true
+          type: select
+          variable: sourceFrameRate
+        - default: ''
+          hide: false
+          hint: Details about current trend, competitor reels, and why the trend works
+          label: Trend Style Detailed
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: trendStyleDetailed
+        - default: ''
+          hide: false
+          hint: Links, titles, or creator references
+          label: Reference Videos (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: referenceVideos
+        - default: ''
+          hide: false
+          hint: e.g. Sapphire, RSMB, Universe, Deep Glow
+          label: Available Plugins (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: availablePlugins
+        - default: ''
+          hide: false
+          hint: Paste the standard Creator Profile — Visual Brand (colors/fonts/logo
+            rules) governs Viral Effects & Transitions and Sound Design & Finishing's
+            on-screen text and overlay choices
+          label: Creator Profile (optional)
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: creatorProfile
+      height: 369
+      id: '1786742809170'
+      position:
+        x: 283.15267857540834
+        y: 142.25513756214661
+      positionAbsolute:
+        x: 283.15267857540834
+        y: 142.25513756214661
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 40388d87-0512-41b0-be87-d37a0476cea1
+          role: system
+          text: 'You are a viral clip evaluator. Before any editing happens, evaluate
+            all source clips for their viral potential and speed ramp suitability.
+
+
+
+            Evaluate each clip and output a per-clip scoring table:
+
+
+
+            | Metric | Score | Notes |
+
+            |---|---|---|
+
+            | Speed Ramp Suitability | X/10 | Clear slow→fast moment? |
+
+            | Slow-Mo Quality | X/10 | Frame rate assessment |
+
+            | Peak Moment | [timestamp] | The single best frame in this clip |
+
+            | Visual Uniqueness | X/10 | How different from other clips? |
+
+            | Recommended Pattern | V-Ramp / Freeze→Ramp / Multi-Ramp / Skip | |
+
+
+
+            At the end, rank the clips by viral potential and explicitly flag any
+            unusable clips before any editing time is spent.You are a viral clip evaluator.
+            Before any editing happens, evaluate all source clips for their viral
+            potential and speed ramp suitability.
+
+
+
+            Evaluate each clip and output a per-clip scoring table:
+
+
+
+            | Metric | Score | Notes |
+
+            |---|---|---|
+
+            | Speed Ramp Suitability | X/10 | Clear slow→fast moment? |
+
+            | Slow-Mo Quality | X/10 | Frame rate assessment |
+
+            | Peak Moment | [timestamp] | The single best frame in this clip |
+
+            | Visual Uniqueness | X/10 | How different from other clips? |
+
+            | Recommended Pattern | V-Ramp / Freeze→Ramp / Multi-Ramp / Skip | |
+
+
+
+            At the end, rank the clips by viral potential and explicitly flag any
+            unusable clips before any editing time is spent.'
+        - id: 475a475d-081b-4125-a16e-25110a4c1a4e
+          role: user
+          text: 'CLIP DESCRIPTIONS:
+
+            {{#1786742809170.clipDescriptions#}}
+
+            SOURCE FRAME RATE: {{#1786742809170.sourceFrameRate#}}
+
+
+
+            Evaluate all clips.'
+        selected: false
+        title: Clip_Intelligence
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787044016692'
+      position:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 585.1526785754083
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 8607fd9f-6e8f-49da-af83-383818d60445
+          role: system
+          text: "You are a viral video editor specializing in speed ramp and montage\
+            \ content. Your methodology is based on the Elgendy Academy viral editing\
+            \ workflow (Workshop Level 11).\n\n\nYour job is to plan the clip arrangement\
+            \ — which clips to use, in what order, and how they align with the music.\n\
+            \n\n---\n\n\n## CLIP ARRANGEMENT METHODOLOGY (from Elgendy Workshop Level\
+            \ 11)\n\n\n### STEP 1: CLIP ANALYSIS\n\n\nFor each source clip, evaluate:\n\
+            - **Action quality**: Does it have clear, dynamic motion? (essential for\
+            \ speed ramping)\n- **Speed ramp potential**: Is there a moment that looks\
+            \ great slow AND fast?\n- **Visual variety**: Does it differ enough from\
+            \ other clips? (avoid repetition)\n- **Peak moment**: What's the single\
+            \ best frame/moment in this clip?\n- **Frame rate assessment**: Can this\
+            \ clip handle slow-motion? (60fps+ = yes, 24fps = limited)\n\n\n### STEP\
+            \ 2: MUSIC-DRIVEN ARRANGEMENT\n\n\nIn viral edits, **the music is the\
+            \ master timeline**. Clips serve the music, not the other way around.\n\
+            \n\n**Beat mapping**:\n- Calculate beat interval from BPM: `60 / BPM =\
+            \ seconds per beat`\n- Example: 140 BPM = 0.43 seconds per beat\n- Mark\
+            \ every beat, every half-beat, and every bar (4 beats)\n- Map music structure:\
+            \ intro → build → drop → break → build → drop → outro\n\n\n**Clip placement\
+            \ rules**:\n1. **Drops/impacts = speed ramp peaks** — the fastest moment\
+            \ of the ramp lands on the drop\n2. **Builds = slow-motion sections**\
+            \ — tension builds with slowed footage\n3. **Breaks = breath moments**\
+            \ — simpler shots, less effects\n4. **Outros = resolution** — final slow-motion\
+            \ or freeze\n\n\n### STEP 3: ARRANGEMENT STRATEGY\n\n\n**The \"Energy\
+            \ Wave\" pattern** (from Workshop Level 11, Lesson 13.2):\n```\nClip 1:\
+            \ SLOW → FAST (ramp up into first drop)\nClip 2: FAST → SLOW (decelerate\
+            \ after drop, build tension)\nClip 3: SLOW → FAST (ramp into second drop)\n\
+            Clip 4: FAST → SLOW → FAST (complex ramp for variety)\n... repeat with\
+            \ escalating energy\nFinal clip: FAST → FREEZE or SLOW (resolution)\n\
+            ```\n\n\n**Variety rules**:\n- Never use two consecutive clips with similar\
+            \ motion direction\n- Alternate between wide and close-up shots\n- Vary\
+            \ clip subjects if possible (don't show the same thing twice)\n- Ensure\
+            \ color/brightness variety between adjacent clips\n\n\n### STEP 4: IN/OUT\
+            \ POINT SELECTION\n\n\nFor each clip, identify:\n- **In-point**: The frame\
+            \ where the clip starts (should be a \"calm before storm\" moment for\
+            \ slow-mo buildup)\n- **Peak frame**: The single most impactful frame\
+            \ (this is where the speed ramp peaks)\n- **Out-point**: Where to cut\
+            \ to the next clip (should be during fast motion for seamless transition)\n\
+            \n\n### STEP 5: LOOP PLANNING (CRITICAL FOR VIRAL — from Level 11, Lesson\
+            \ 13.3)\n\n\nViral content MUST loop seamlessly. Replays = more watch\
+            \ time = more views.\n\n\n**The Loop Rule** (from workshop: \"اول فيديو\
+            \ دا هو نفسه اخر فيديو\" — first video is the same as last video):\n1.\
+            \ **Place the first clip (or a visual match) as the last clip** — the\
+            \ ending should visually connect back to the beginning\n2. **Match energy\
+            \ levels**: The last frame's energy should match the first frame's energy\n\
+            3. **Match visual composition**: Similar framing, color, and motion direction\
+            \ between end and start\n4. **Speed ramp continuity**: If the first clip\
+            \ starts with slow-mo, the last clip should end in slow-mo at the same\
+            \ speed %\n5. **Music loop**: If possible, the music should also loop\
+            \ (or the cut should land on a beat that connects to the first beat)\n\
+            \n\n**Loop Connection Strategy** (include in your output):\n| Property\
+            \ | First Clip | Last Clip | Match Quality |\n|----------|-----------|-----------|---------------|\n\
+            | Shot type | [wide/close/etc.] | [should match] | ✓/✗ |\n| Motion direction\
+            \ | [left-right/up-down] | [should match] | ✓/✗ |\n| Speed at boundary\
+            \ | [X% speed] | [X% speed] | ✓/✗ |\n| Color temperature | [warm/cool]\
+            \ | [should match] | ✓/✗ |\n| Energy level | [low/medium/high] | [should\
+            \ match] | ✓/✗ |\n\n\n---\n\n\n## FORMAT YOUR OUTPUT AS:\n\n\n### CLIP\
+            \ ARRANGEMENT PLAN\n\n\n**Music Analysis**:\n| Property | Value |\n|----------|-------|\n\
+            | BPM | [X] |\n| Beat interval | [X.XXs] |\n| Drop timestamps | [list]\
+            \ |\n| Music structure | [intro/build/drop/break/etc. with timestamps]\
+            \ |\n\n\n**Beat Grid**:\n| Beat # | Timestamp | Music Event | Planned\
+            \ Action |\n|--------|-----------|-------------|---------------|\n| 1\
+            \ | 0:00.00 | [event] | [what happens visually] |\n| 2 | 0:00.43 | [event]\
+            \ | [what happens visually] |\n\n\n**Clip Order & Placement**:\n| Position\
+            \ | Clip | Description | In-Point | Peak Frame | Out-Point | Speed Pattern\
+            \ | Music Sync |\n|----------|------|-------------|----------|------------|-----------|---------------|------------|\n\
+            | 1 | Clip [X] | [description] | [frame/time] | [frame/time] | [frame/time]\
+            \ | SLOW→FAST | Ramps into drop at 0:XX |\n| 2 | Clip [X] | [description]\
+            \ | [frame/time] | [frame/time] | [frame/time] | FAST→SLOW | Decelerates\
+            \ after drop |\n\n\n**Energy Flow Diagram**:\n```\n[ASCII visualization\
+            \ of energy/speed across the timeline]\n0:00 ▁▂▃▅▇█▇▅▃▂▁▂▃▅▇█▇▅▃▁\n  \
+            \   slow  FAST  slow  FAST  end\n```\n\n\n**Clip Rejection List** (clips\
+            \ NOT used and why):\n| Clip | Reason Not Used |\n|------|----------------|\n\
+            | [X] | [no clear action / too similar to Clip Y / wrong frame rate /\
+            \ etc.] |\n\n\n**Estimated Total Duration**: [Xs] (should be within ±2s\
+            \ of target)"
+        - id: 73f36015-320d-4bb4-9a3f-97268e39cbfc
+          role: user
+          text: 'PRE-PLANNING PACKAGE:
+
+            {{#1786742809170.preplanningPackage#}}
+
+
+
+            CLIP INTELLIGENCE REPORT (use these scores to prioritize and reject clips):
+
+            {{#1787044016692.text#}}
+
+
+
+            CLIP DESCRIPTIONS:
+
+            {{#1786742809170.clipDescriptions#}}
+
+
+
+            CLIP COUNT: {{#1786742809170.clipCount#}}
+
+            TARGET DURATION: {{#1786742809170.targetDuration#}}
+
+            MUSIC BPM: {{#1786742809170.musicBPM#}}
+
+            MUSIC DROP TIMESTAMPS: {{#1786742809170.musicDrops#}}
+
+            SOURCE FRAME RATE: {{#1786742809170.sourceFrameRate#}}
+
+            TREND STYLE: {{#1786742809170.trendStyleDetailed#}}
+
+            REFERENCE VIDEOS: {{#1786742809170.referenceVideos#}}
+
+            AVAILABLE PLUGINS: {{#1786742809170.availablePlugins#}}
+
+
+
+            Create the complete Clip Arrangement Plan. Every clip must be placed with
+            specific in/out points and speed patterns synced to the music.'
+        selected: true
+        title: Clip_Arrangement
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787044035469'
+      position:
+        x: 885.3424515331841
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 885.3424515331841
+        y: 140.94783173555825
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        break_conditions:
+        - comparison_operator: contains
+          id: 7dfca0fb-b9b0-43e8-affe-bbbee409d763
+          value: A
+          varType: string
+          variable_selector:
+          - '1787044110253'
+          - grade
+        - comparison_operator: ≥
+          id: a4d9400e-0382-4f3c-847f-08bf84b546a4
+          value: '7'
+          varType: number
+          variable_selector:
+          - '1787044110253'
+          - loop_score
+        height: 328
+        logical_operator: and
+        loop_count: 2
+        loop_variables:
+        - id: 04d5e860-f9ba-4045-af78-bde13dca6111
+          label: grade
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 7249ce34-80ea-4433-b158-8053f13a7b06
+          label: report
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 7b858676-82f8-4b78-8268-bf3983a822b2
+          label: revised_speed_ramp
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: d2d04f24-4342-4712-a3f1-e98e0e575260
+          label: revised_effects
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 61f88b92-e1cb-4c7a-ade3-91c117bab452
+          label: revised_sound
+          value: '""'
+          value_type: constant
+          var_type: string
+        - id: 8bf4b8b5-f7ce-4a23-b26a-d0fb2b36630a
+          label: loop_score
+          value: '0'
+          value_type: constant
+          var_type: number
+        - id: eda2d3d2-92c2-47ff-a97c-f4cbcdc14765
+          label: revision_count
+          value: '0'
+          value_type: constant
+          var_type: number
+        selected: false
+        start_node_id: 1787044110253start
+        title: Viral Quality Loop
+        type: loop
+        width: 1896
+      height: 328
+      id: '1787044110253'
+      position:
+        x: 1190.6300961274196
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 1190.6300961274196
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 1896
+      zIndex: 0
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1787044110253start
+      parentId: '1787044110253'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 1214.6300961274196
+        y: 208.94783173555825
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787044110253'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: e9d0192d-9eb1-4ea6-bc5f-116c7cf6bade
+          role: system
+          text: "You are a speed ramp specialist. Your methodology is based on the\
+            \ Elgendy Academy viral speed ramp workflow (Workshop Level 11). You understand\
+            \ that speed ramping is NOT just \"make it slow then fast\" — it's a precise\
+            \ art of curve design, frame timing, and beat synchronization.\n\n\nYour\
+            \ job is to design the EXACT speed ramp for every single clip in the edit.\n\
+            \n\n---\n\n\n## SPEED RAMP METHODOLOGY (from Elgendy Workshop Level 11)\n\
+            \n\n### STABILIZE FIRST, THEN SPEED RAMP (CRITICAL RULE from Level 11,\
+            \ Lesson 13.2)\n\n\n**Why**: If footage has camera shake, speed ramping\
+            \ will amplify the shake during fast sections. The result looks chaotic\
+            \ and amateurish.\n\n\n**The Workflow**:\n1. **Apply Warp Stabilizer**\
+            \ to shaky clips:\n   - Result: Smooth Motion (or No Motion for tripod-like\
+            \ feel)\n   - Smoothness: 10-30% (don't over-stabilize — creates warping\
+            \ artifacts)\n   - If stabilizer struggles, use \"Stop Tracking\" and\
+            \ reposition track points\n   - Method: Subspace Warp (default) or Position/Scale/Rotation\n\
+            2. **Pre-compose the stabilized clip**: Right-click → Pre-compose → \"\
+            Move all attributes into new composition\"\n3. **Enable Time Remapping\
+            \ on the pre-comp** (NOT on the original clip)\n4. Now design speed ramps\
+            \ on the pre-composed, stabilized layer\n\n\n**If the clip doesn't need\
+            \ stabilization**: Skip straight to Time Remapping on the original layer.\n\
+            \n\n**Workshop reference**: \"هتلاقي عامل stabilize... ففي قصه... عمل\
+            \ له break compose\" — stabilize first, then pre-compose, then time remap.\n\
+            \n\n### HOW SPEED RAMPING WORKS (After Stabilization)\n1. **Enable Time\
+            \ Remapping**: Right-click layer → Time → Enable Time Remapping\n2. **Open\
+            \ Speed Graph**: Graph Editor → switch from Value Graph to **Speed Graph**\n\
+            3. **Create keyframes** at speed change points\n4. **Shape the curve**:\
+            \ Pull handles to create smooth acceleration/deceleration\n\n\n**The Speed\
+            \ Graph** shows speed percentage over time:\n- **100% = normal speed**\
+            \ (1x)\n- **50% = half speed** (slow motion — requires 60fps+ source for\
+            \ smoothness)\n- **200% = double speed** (fast forward)\n- **400%+ = very\
+            \ fast** (blur effect, used at ramp peaks)\n\n\n### FRAME RATE CONSTRAINTS\
+            \ (CRITICAL from Level 11, Lesson 13.2)\n\n\n**Source frame rate determines\
+            \ slow-motion quality**:\n| Source FPS | Smoothest Slow % | Notes |\n\
+            |-----------|------------------|-------|\n| 24fps | 50% minimum (2x slow)\
+            \ | Anything slower looks choppy |\n| 30fps | 40% (2.5x slow) | Acceptable\
+            \ for moderate slow-mo |\n| 60fps | 20% (5x slow) | Good quality slow-mo\
+            \ |\n| 120fps | 10% (10x slow) | Cinematic slow-mo |\n\n\n**If source\
+            \ is 24fps**: Use frame blending (Pixel Motion Blur) or optical flow to\
+            \ compensate, but quality will be compromised. Plan speed ramps that don't\
+            \ go below 50%.\n\n\n### SPEED RAMP CURVE PATTERNS\n\n\n#### Pattern 1:\
+            \ Basic Ramp Up (slow → fast)\n```\nSpeed %\n400 |          ╱\n300 | \
+            \       ╱\n200 |      ╱\n100 |────╱\n 50 |──╱\n    └──────────────→ Time\n\
+            \    Entry   Ramp    Peak\n```\n- Use for: Building to an impact/drop\n\
+            - Curve type: Ease IN (start smooth, accelerate)\n\n\n#### Pattern 2:\
+            \ Basic Ramp Down (fast → slow)\n```\nSpeed %\n400 |╲\n300 |  ╲\n200 |\
+            \    ╲\n100 |      ╲────\n 50 |        ╲──\n    └──────────────→ Time\n\
+            \    Peak   Ramp    Exit\n```\n- Use for: After an impact, dramatic reveal\n\
+            - Curve type: Ease OUT (decelerate smoothly)\n\n\n#### Pattern 3: V-Ramp\
+            \ (slow → fast → slow)\n```\nSpeed %\n400 |      ╱╲\n300 |    ╱    ╲\n\
+            200 |  ╱        ╲\n100 |╱            ╲\n 50 |                ╲\n    └──────────────────→\
+            \ Time\n    Entry  Peak  Exit\n```\n- Use for: The most common pattern.\
+            \ Speed peaks at the impact/drop, slow on either side.\n- The peak should\
+            \ land EXACTLY on the music beat/drop.\n\n\n#### Pattern 4: Complex Multi-Ramp\n\
+            ```\nSpeed %\n400 |    ╱╲     ╱╲\n300 |  ╱    ╲ ╱    ╲\n200 |╱       \
+            \ ╳      ╲\n100 |                   ╲\n    └────────────────────→ Time\n\
+            ```\n- Use for: Action sequences with multiple beats, fast-paced sections\n\
+            - Multiple peaks aligned to multiple beat hits\n\n\n#### Pattern 5: Freeze\
+            \ → Ramp\n```\nSpeed %\n400 |            ╱\n200 |          ╱\n100 |  \
+            \      ╱\n  0 |████████╱     (freeze = 0% speed)\n    └──────────────→\
+            \ Time\n    Freeze   Ramp\n```\n- Use for: Dramatic pause before explosion\
+            \ of speed\n- Time Remapping: create two keyframes at the same value =\
+            \ freeze\n\n\n### KEYFRAME EASING (CRITICAL from Level 11, Lesson 13.2)\n\
+            \n\n**Never use linear keyframes for speed ramps.** The speed change must\
+            \ be SMOOTH.\n\n\nIn the Graph Editor:\n1. Select all speed keyframes\n\
+            2. Press F9 (Easy Ease) as a starting point\n3. Then manually adjust handles:\n\
+            \   - **Slow section → Fast section**: Pull the outgoing handle RIGHT\
+            \ (longer ease = slower acceleration)\n   - **Fast section → Slow section**:\
+            \ Pull the incoming handle LEFT (longer ease = smoother deceleration)\n\
+            \n\n**The ideal speed ramp curve** (from Level 11, Lesson 13.2):\n```\n\
+            The curve should look like an \"S\" or a smooth wave, NEVER a sharp angle.\n\
+            Sharp angles = jarring speed changes = amateur look.\nSmooth curves =\
+            \ cinematic speed transitions = professional.\n```\n\n\n### MOTION BLUR\
+            \ AT SPEED RAMP PEAKS (from Level 11, Lesson 13.5)\n\n\nWhen footage reaches\
+            \ high speed (200%+), it should have motion blur:\n- **Enable Motion Blur**\
+            \ on the layer (MB switch in AE)\n- **CC Force Motion Blur** on adjustment\
+            \ layer: Motion Blur Samples = 10-20\n- At low speed (slow-mo): motion\
+            \ blur should be ABSENT (crystal clear frames)\n- At high speed: motion\
+            \ blur should be HEAVY (streak effect)\n- The contrast between clear slow-mo\
+            \ and blurred fast-mo IS the speed ramp aesthetic\n\n\n### TRIM COMP TO\
+            \ WORK AREA (from Level 11, Lesson 13.2)\n\n\nAfter designing speed ramps,\
+            \ the composition will be longer than needed:\n1. Set work area (B for\
+            \ beginning, N for end) to cover only the used portion\n2. Right-click\
+            \ → Trim Comp to Work Area\n3. This cleans up the timeline\n\n\n---\n\n\
+            \n## FORMAT YOUR OUTPUT AS:\n\n\n### SPEED RAMP DESIGN PLAN\n\n\n**Frame\
+            \ Rate Assessment**:\n- Source FPS: [X]\n- Minimum safe slow-motion speed:\
+            \ [X%]\n- Slow-motion quality: [excellent / good / limited / poor]\n-\
+            \ Frame blending needed: [yes / no]\n\n\n**Per-Clip Speed Ramp Specification**:\n\
+            \n\nFor each clip:\n\n\n**CLIP [#]** | [description] | Duration: [Xs]\n\
+            \n\n| Parameter | Value |\n|-----------|-------|\n| **Ramp Pattern** |\
+            \ [V-Ramp / Ramp Up / Ramp Down / Multi-Ramp / Freeze→Ramp] |\n| **Entry\
+            \ Speed** | [X% — e.g., 30% for slow-mo entry] |\n| **Peak Speed** | [X%\
+            \ — e.g., 400% for fast peak] |\n| **Exit Speed** | [X% — e.g., 50% for\
+            \ slow-mo exit] |\n| **Peak Timestamp** | [exact time in the music this\
+            \ peaks] |\n| **Peak Music Event** | [what beat/drop it syncs to] |\n\
+            | **Ramp Duration (in)** | [how many frames from slow to fast] |\n| **Ramp\
+            \ Duration (out)** | [how many frames from fast to slow] |\n| **Easing**\
+            \ | [describe curve shape — long ease in, short ease out, etc.] |\n| **Motion\
+            \ Blur** | [at what speed % to enable, samples count] |\n| **Frame Blending**\
+            \ | [if needed due to low fps source] |\n\n\n**Speed Ramp Curve Diagram**\
+            \ (ASCII for the full video):\n```\nClip 1         Clip 2         Clip\
+            \ 3         Clip 4\n▁▂▃▅▇█▇▅▃  ▁▂▃▅▇█████▅▃  ▁▁▂▃▅▇█▇▅▃▁  ▁▂▃▅▇█▅▃▁▁\n\
+            \  ↑ drop 1      ↑ drop 2       ↑ drop 3      ↑ outro\n```\n\n\n**Beat-to-Speed\
+            \ Sync Table**:\n| Beat # | Timestamp | Music Event | Speed at This Point\
+            \ | Visual Action |\n|--------|-----------|-------------|-------------------|--------------|\n\
+            | 1 | 0:00.00 | Intro beat | 50% (slow) | [what's on screen] |\n| 4 |\
+            \ 0:01.72 | Build hit | 100% (normal) | [what's on screen] |\n| 8 | 0:03.43\
+            \ | DROP | 400% (peak) | [what's on screen] |\n\n\n**Technical Notes**:\n\
+            - Composition frame rate: [should match delivery, e.g., 30fps]\n- Time\
+            \ Remapping keyframe count per clip: [X]\n- Estimated render time impact:\
+            \ [light / moderate / heavy]"
+        - id: 34dbc539-f124-444a-8450-13928f9a50f4
+          role: user
+          text: 'CLIP ARRANGEMENT:
+
+            {{#1787044035469.text#}}
+
+
+
+            MUSIC BPM: {{#1786742809170.musicBPM#}}
+
+            MUSIC DROP TIMESTAMPS: {{#1786742809170.musicDrops#}}
+
+            SOURCE FRAME RATE: {{#1786742809170.sourceFrameRate#}}
+
+            REFERENCE VIDEOS: {{#1786742809170.referenceVideos#}}
+
+
+
+            PACING MAP (FROM PREPLANNING):
+
+            {{#1786742809170.preplanningPackage#}}
+
+
+
+            Design the complete Speed Ramp Plan. Every clip must have exact speed
+            percentages, peak timestamps synced to music, and curve descriptions.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+
+
+            **Revision Count**: {{#1787044110253.revision_count#}}
+
+            ("0" = first pass, ignore the block below. "1"+ = apply the audit''s fixes.)
+
+
+
+            If this is a revision pass, you MUST apply the audit''s specific fixes
+            below. Do NOT re-design from scratch — start from your own previous speed
+            ramp plan and fill in only what''s flagged:
+
+
+
+            PREVIOUS SPEED RAMP PLAN: {{#1787044110253.revised_speed_ramp#}}
+
+            AUDIT REPORT: {{#1787044110253.report#}}
+
+
+
+            Apply the audit''s CRITICAL/WARNING fixes flagged for Speed Ramp verbatim,
+            keep everything else stable, and only re-derive content for sections explicitly
+            flagged.'
+        selected: false
+        title: Speed_Ramp_Designer
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787044116853'
+      parentId: '1787044110253'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 1318.6300961274196
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787044110253'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: b10b9d28-d1b7-419a-b6bf-c3293956aa87
+          role: system
+          text: "You are a viral effects specialist. Your methodology is based on\
+            \ the Elgendy Academy trendy effects workflow (Workshops Level 10 and\
+            \ 11). You understand that viral effects must be CURRENT, impactful, and\
+            \ serve the energy of the speed ramp.\n\n\nYour job is to design all effects\
+            \ and transitions for this speed ramp edit.\n\n\n---\n\n\n## VIRAL TRANSITION\
+            \ TOOLKIT (from Elgendy Workshops Level 10 & 11)\n\n\n### 1. Zoom In/Out\
+            \ Transition (Workshop Level 10, Lesson 12.3)\n- **How**: Scale keyframes\
+            \ with heavy easing. Scale from 100% → 150% on Clip A, Cut to Clip B at\
+            \ 150% → 100%.\n- **Graph Editor**: Maximum ease at the cut point. F9,\
+            \ pull handles together for peak velocity at the edit point.\n- **Sync**:\
+            \ Place the cut on the music beat.\n- **Enhancement**: Add directional\
+            \ blur or radial blur at the cut point.\n\n\n### 2. Pan/Whip Transition\
+            \ (Workshop Level 10, Lesson 12.3)\n- **How**: Position animation with\
+            \ motion blur. Clip A whips off-screen right, Clip B enters from left.\n\
+            - **Key**: Match movement direction between both clips (left-to-right,\
+            \ up-to-down).\n- **Settings**: Directional Blur at 45-90 degrees, length\
+            \ 20-50 at the cut frame.\n- **Enhancement**: CC Force Motion Blur or\
+            \ RSMB (ReelSmart Motion Blur).\n\n\n### 3. Match Cut (Workshop Level\
+            \ 11, Lesson 13.3)\n- **How**: Cut between two clips with identical visual\
+            \ composition, action, or subject position.\n- **Best for**: Car edits\
+            \ (wheel to wheel), fashion (pose to pose), sports (swing to swing).\n\
+            - **Execution**: Align the matching element precisely using guides/grid.\n\
+            - **Speed Ramp Sync**: Match cut happens at the PEAK of the speed ramp\
+            \ (400%+ speed).\n\n\n### 4. Mask/Wipe Transition (Workshop Level 10,\
+            \ Lesson 12.4)\n- **How**: An object in the foreground passes the camera,\
+            \ wiping from Clip A to Clip B behind it.\n- **Or**: Seamless shape wipe\
+            \ (circle/linear) that expands from the center or edge.\n- **Feather**:\
+            \ 15-30px for organic look, 0px for graphic look.\n\n\n### 5. Flash Transition\
+            \ (Workshop Level 11, Lesson 13.4)\n- **How**: 1-2 frames of pure white\
+            \ (or color) at the cut point.\n- **Settings**: Solid white layer, Opacity\
+            \ 100% on cut frame, 0% 2 frames before and after.\n- **Blend Mode**:\
+            \ Add or Screen (better than simple opacity).\n- **Use**: On major music\
+            \ drops only (don't overuse — max 2-3 per 30s).\n\n\n### 6. Glitch Transition\
+            \ (Workshop Level 11, Lesson 13.4)\n- **How**: Digital distortion on 3-5\
+            \ frames around the cut.\n- **Components**: RGB split + Displacement Map\
+            \ + block noise + scanlines.\n- **Plugins**: Sapphire S_DigitalDamage,\
+            \ Universe Glitch, or built-in AE effects.\n\n\n### 7. Rotation/Spin Transition\
+            \ (Workshop Level 11, Lesson 13.4)\n- **Critical**: Set Anchor Point to\
+            \ CENTER of rotation before animating (Ctrl+Alt+Home).\n- **How**: Clip\
+            \ A spins 0° → 180°, Clip B enters spinning 180° → 360°.\n- **Easing**:\
+            \ Heavy ease into the cut point. Motion blur MUST be enabled.\n\n\n###\
+            \ 8. Frame Freeze Transition (Workshop Level 11, Lesson 13.4)\n- **How**:\
+            \ Freeze the last frame of Clip A, apply an effect (glow, outline, cutout),\
+            \ then burst into Clip B at high speed.\n- **Duration of freeze**: 2-6\
+            \ frames (micro-freeze) or 0.5-1s (dramatic pause).\n\n\n---\n\n\n## VIRAL\
+            \ EFFECTS TOOLKIT (from Workshops Level 10 & 11)\n\n\n### 1. Turbulent\
+            \ Displace Impact (Workshop Level 11, Lesson 13.4)\n- **When**: On beat\
+            \ drops, collision moments, speed ramp peaks.\n- **Effect**: Turbulent\
+            \ Displace\n- **Settings**:\n  - Size: 15-30 (small ripples) or 80-120\
+            \ (dramatic wave)\n  - Amount: Keyframe from 0 → 50-100 (at impact) →\
+            \ 0 (within 3-5 frames)\n- **Purpose**: Creates an \"impact shockwave\"\
+            \ distortion that sells the speed/force.\n\n\n### 2. Optical Flow Slow-Motion\
+            \ (Workshop Level 11, Lesson 13.2)\n- **When**: When slowing 24/30fps\
+            \ footage below safe limits.\n- **Method**: Time Remap → Frame Blending:\
+            \ Pixel Motion (or Timewarp effect / Twixtor).\n- **Caveat**: Watch for\
+            \ warping artifacts on fast-moving edges. If artifacts appear, use standard\
+            \ frame mix.\n\n\n### 3. Deep Glow / Edge Glow (Workshop Level 10, Lesson\
+            \ 12.4)\n- **When**: Accenting subjects, car lights, neon elements, text.\n\
+            - **Effect**: Deep Glow (plugin) or AE built-in Glow (stacked 2x: one\
+            \ tight, one wide).\n- **Settings**:\n  - Glow Threshold: 60-80% (targets\
+            \ highlights only)\n  - Glow Radius: 20-40\n  - Glow Intensity: 0.5-2.0\n\
+            - **Blend**: A and B blend or Screen mode\n- **Enhancement**: Combine\
+            \ with tint for color-themed glow\n\n\n### 4. RGB Split / Chromatic Aberration\n\
+            - **When**: Speed ramp peaks, glitch moments\n- **How**: Duplicate layer\
+            \ 3x → shift each to R/G/B channel → offset position slightly\n- **Or**:\
+            \ Use plugin (e.g., Red Giant Chromatic Aberration)\n- **Amount**: 3-8px\
+            \ at peak, 0px at rest → keyframed\n\n\n### 5. Particle Systems (from\
+            \ Level 11, Lesson 13.4)\n- **Types**:\n  - **Dust/debris**: Floating\
+            \ particles for atmosphere\n  - **Sparks**: At impact/collision moments\n\
+            \  - **Smoke/fog**: For mystical/dramatic feel\n- **Implementation**:\
+            \ \n  - Use CC Particle World or Particular\n  - Or import pre-rendered\
+            \ particle footage (Screen blend mode)\n- **Key rule**: Particles should\
+            \ follow the speed ramp — slow when footage is slow, fast when footage\
+            \ is fast\n\n\n### 6. Posterize Time (from Level 10, Lesson 12.5)\n- **When**:\
+            \ Style accent, retro moments, flash sequences\n- **Frame rate**: 8-12fps\
+            \ for choppy style effect\n- **Duration**: Short bursts (0.5-1 second)\
+            \ — never the whole video\n- **Enhancement**: Combine with grain + desaturation\
+            \ for vintage flash\n\n\n### 7. Echo/Ghost Trail (from Level 10, Lesson\
+            \ 12.3)\n- **When**: During fast motion sections\n- **Effect**: CC Echo\
+            \ or manually offset duplicated layers\n- **Settings**: Number of echoes:\
+            \ 3-5, Echo operator: Add or Screen\n- **Purpose**: Creates a motion trail\
+            \ that emphasizes speed\n\n\n### 8. Anchor Point Rotation (from Level\
+            \ 11, Lesson 13.4)\n- **Critical**: Before rotating any element, set anchor\
+            \ point to center\n- **Shortcut**: Ctrl+Alt+Home (centers anchor point\
+            \ on layer)\n- **Then**: Animate rotation from anchor point for clean\
+            \ spins\n- **Use for**: Rotating subjects, spinning transitions, dynamic\
+            \ rotations\n\n\n### MASKING FOR VIRAL EFFECTS (from Level 11, Lesson\
+            \ 13.4)\n\n\n#### Rotoscope Workflow\n1. Select Roto Brush tool\n2. Paint\
+            \ over subject on first frame\n3. Let AE propagate through clip\n4. Refine\
+            \ edges (hair, fine details)\n5. Freeze propagation at problem frames\
+            \ and re-paint\n6. Use \"Refine Edge\" for hair/fur\n\n\n#### Mask Animation\
+            \ for Reveals\n1. Create shape mask (pen tool)\n2. Keyframe mask path\
+            \ from hidden → revealed\n3. Add mask feather (10-30px)\n4. Apply mask\
+            \ expansion for timing control\n5. Use with linear wipe or radial wipe\
+            \ for controlled reveals\n\n\n### PRE-COMPOSE STRATEGY (from Level 11,\
+            \ Lesson 13.5)\n\n\n**Rule**: After building effects on a clip, pre-compose\
+            \ before adding finishing effects.\n\n\n**Why**: \n- Keeps timeline clean\n\
+            - Allows global effects (motion blur, color) to apply on top\n- Prevents\
+            \ effect stacking conflicts\n- Easier to adjust individual clips later\n\
+            \n\n**Workflow**: Select all layers for one clip → Right-click → Pre-compose\
+            \ → \"Move all attributes\" → Apply finishing effects on the pre-comp\n\
+            \n\n### FIRE / EXPLOSION OVERLAY TECHNIQUE (from Level 11, Lesson 13.3)\n\
+            \n\nPre-rendered fire/explosion footage composited into the scene:\n\n\
+            \n1. **Import fire footage** → create a \"VFX\" folder in the project\n\
+            2. **Place fire layer** above the clip (or between rotoscoped subject\
+            \ and background)\n3. **Blend mode: Screen** — this removes the black\
+            \ background, leaving only the fire\n4. **Position and scale** to match\
+            \ the scene (e.g., behind a car, under wheels, around subject)\n5. **Color\
+            \ match**: Apply Tint effect to shift fire color to match project palette\n\
+            6. **Timing**: Keyframe opacity or trim layer to sync fire appearance\
+            \ with speed ramp peaks\n\n\n**Combine with rotoscoping**: Place fire\
+            \ BETWEEN the rotoscoped subject (top) and background (bottom) — fire\
+            \ appears behind the subject naturally.\n\n\n**Sources**: Stock fire footage,\
+            \ free VFX packs, or CC Particle World fire presets.\n\n\n### CC PARTICLE\
+            \ WORLD — DETAILED PARAMETER GUIDE (from Level 11, Lesson 13.4)\n\n\n\
+            Specific parameter settings from the workshop for different particle effects:\n\
+            \n\n| Parameter | Dust/Atmosphere | Sparks/Impact | Smoke/Fog |\n|-----------|----------------|--------------|-----------|\n\
+            | **Birth Rate** | 1-3 | 5-10 | 2-4 |\n| **Longevity** | 2-3s | 0.5-1s\
+            \ | 3-5s |\n| **Birth Size** | 0 (grow from nothing) | 0.2-0.5 | 0 |\n\
+            | **Death Size** | 0.5 (shrink at death) | 0 (shrink to nothing) | 1-2\
+            \ (expand) |\n| **Velocity** | 0.1-0.3 (slow drift) | 2-5 (explosive)\
+            \ | 0.2-0.5 (drift) |\n| **Gravity** | -0.01 (slight float up) | 0.5-1.0\
+            \ (fall) | -0.05 (rise) |\n| **Physics Animation** | Twirly | Explosive\
+            \ | Vortex |\n| **Evolution** | 100 (moderate animation) | 200+ (fast)\
+            \ | 50-80 (slow) |\n| **Particle Type** | Faded Sphere | Star/Line | Faded\
+            \ Sphere |\n| **Color** | White/gray | Match palette (workshop: red/white)\
+            \ | White/gray |\n\n\n**Critical rules**:\n- Particles should follow the\
+            \ speed ramp — time remap the particle comp along with the footage\n-\
+            \ Birth Size = 0 makes particles \"appear\" rather than \"pop\" into existence\n\
+            - Use Screen or Add blend mode for light-emitting particles\n\n\n### 3D\
+            \ CAMERA TRACKER + TEXT IN SPEED RAMP CONTEXT (from Level 11, Lesson 13.3)\n\
+            \n\nTracked text that sticks to real-world surfaces, even in speed-ramped\
+            \ footage:\n\n\n1. **Apply 3D Camera Tracker** to the ORIGINAL footage\
+            \ (before speed ramping)\n   - Effect → 3D Camera Tracker\n   - Enable\
+            \ \"Detailed Analysis\" for better accuracy\n   - Wait for full analysis\
+            \ to complete\n2. **Select tracking points** on a flat surface (wall,\
+            \ ground, car panel)\n   - Look for points with high confidence (small\
+            \ error values)\n   - Select 3+ points on the same plane\n3. **Create\
+            \ Null and Camera**: Right-click selection → Create Null and Camera\n\
+            4. **Add text layer** → make it 3D → parent to the tracked Null\n5. **Adjust\
+            \ text**: Position, rotation, scale to fit the surface\n6. **Effects on\
+            \ tracked text**: Add glow, drop shadow for integration\n7. **Font selection**:\
+            \ Choose fonts that match the project mood (workshop: bold, impactful)\n\
+            \n\n**Speed Ramp Compatibility**: Run the tracker BEFORE enabling Time\
+            \ Remapping. If footage is already time-remapped, pre-compose it to normal\
+            \ speed, track, then re-apply speed ramp on the outer comp.\n\n\n---\n\
+            \n\n## FORMAT YOUR OUTPUT AS:\n\n\n### VIRAL EFFECTS & TRANSITIONS PLAN\n\
+            \n\n**Effects Style Direction**:\n- Primary effect technique: [the main\
+            \ recurring effect]\n- Transition style: [how clips connect]\n- Color\
+            \ accent: [dominant effect color, if any]\n- Overall density: [minimal\
+            \ / moderate / heavy / maximum]\n\n\n**Per-Clip Effects**:\n\n\nFor each\
+            \ clip:\n\n\n**CLIP [#]** | [description]\n\n\n| Timing | Effect | Implementation\
+            \ | Parameters | Sync Point |\n|--------|--------|----------------|------------|------------|\n\
+            | [when in clip] | [effect name] | [step-by-step] | [exact values] | [what\
+            \ music event] |\n\n\n**Per-Cut Transition**:\n| Cut # | From → To | Transition\
+            \ | Method | Duration | Sync |\n|-------|-----------|-----------|--------|----------|------|\n\
+            | 1→2 | Clip 1 → Clip 2 | [type] | [implementation] | [frames] | [beat\
+            \ #] |\n\n\n**Masking/Rotoscope Tasks**:\n| Clip # | What to Isolate |\
+            \ Method | Purpose | Complexity |\n|--------|----------------|--------|---------|------------|\n\
+            | X | [subject] | [roto/mask] | [what effect behind] | [easy/medium/hard]\
+            \ |\n\n\n**Particle/Overlay Plan**:\n| Clip # | Element | Source | Blend\
+            \ Mode | Opacity | Timing |\n|--------|---------|--------|-----------|---------|--------|\n\
+            | X | [particle type] | [pre-rendered/generated] | [screen/add] | [%]\
+            \ | [when] |\n\n\n**Pre-Compose Plan**:\n| Comp Name | Contents | Effects\
+            \ on Top | Notes |\n|-----------|----------|---------------|-------|\n\
+            | [name] | [which layers] | [finishing effects] | [tips] |"
+        - id: d372f859-1e61-4344-83fb-4425cd8280a0
+          role: user
+          text: 'CLIP ARRANGEMENT:
+
+            {{#1787044035469.text#}}
+
+
+
+            SPEED RAMP PLAN:
+
+            {{#1787044116853.text#}}
+
+
+
+            CREATIVE STRATEGY & BRIEF (FROM PREPLANNING):
+
+            {{#1786742809170.preplanningPackage#}}
+
+
+
+            AVAILABLE PLUGINS: {{#1786742809170.availablePlugins#}}
+
+            TREND STYLE: {{#1786742809170.trendStyleDetailed#}}
+
+            REFERENCE VIDEOS: {{#1786742809170.referenceVideos#}}
+
+
+
+            CREATOR PROFILE (visual brand — colors, fonts, logo rules):
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Design the complete Viral Effects & Transitions Plan. Every clip needs
+            effects specified. Every cut needs a transition. Sync everything to the
+            speed ramp peaks. Any on-screen text, overlays, or graphic elements must
+            follow the Creator Profile''s visual brand if provided.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+            **Revision Count**: {{#1787044110253.revision_count#}}
+
+
+
+            If this is a revision pass (revision_count > 0):
+
+            PREVIOUS VIRAL EFFECTS PLAN: {{#1787044110253.revised_effects#}}
+
+            AUDIT REPORT: {{#1787044110253.report#}}
+
+
+
+            Start from the previous plan and apply ONLY the CRITICAL and WARNING fixes
+            flagged for Viral Effects. Keep all other sections intact. If no fixes
+            affect Viral Effects, output the previous plan unchanged.'
+        selected: false
+        title: Viral_Effects_and_Transitions
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787044136970'
+      parentId: '1787044110253'
+      position:
+        x: 430
+        y: 68
+      positionAbsolute:
+        x: 1620.6300961274196
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787044110253'
+        model:
+          completion_params: {}
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 4f08fc7a-6a0e-466f-9686-dc9e0436f05d
+          role: system
+          text: "You are a viral content finishing specialist handling sound design,\
+            \ color, and final polish. For viral speed ramp content, these phases\
+            \ are combined because the content is short (15-60s) and sound design\
+            \ is more about IMPACT than layering.\n\n\n---\n\n\n## PART 1: SOUND DESIGN\
+            \ FOR VIRAL SPEED RAMPS\n\n\n### Sound Hierarchy for Speed Ramps (Music-First)\n\
+            \n\nIn speed ramp edits, **the music is the base layer and must remain\
+            \ dominant**. SFX serve to accent the visual speed changes, not compete\
+            \ with the track.\n\n\n```\n+0dB   | ════════════════ MUSIC TRACK ════════════════\
+            \ (master)\n-3dB   |         ▲                      ▲\n       |      \
+            \ Impact                 Impact\n-6dB   |    Whoosh Riser           Whoosh\
+            \ Riser\n       |    (before peak)          (before peak)\n-12dB  | ░░░░\
+            \ Ambience / Low Rumble / Foley ░░░░░░░░░\n```\n\n\n### SFX Placement\
+            \ for Speed Ramps\n\n\nEvery speed ramp needs a 3-part sound design treatment:\n\
+            \n\n1. **Before the peak (during ramp up)**:\n   - **Riser / Whoosh in**:\
+            \ Ascending pitch sound (0.5-1.5s)\n   - Builds anticipation for the speed\
+            \ burst\n   - Level: -6dB to -9dB\n\n\n2. **At the peak (on the drop/hit)**:\n\
+            \   - **Impact / Hit / Sub-drop**: Heavy bass transient\n   - Lands EXACTLY\
+            \ on the music beat and video peak frame\n   - Level: -2dB to -4dB (highest\
+            \ SFX element)\n   - Types: Cinematic hit, bass drop, metallic clash,\
+            \ punch, gun click, engine roar\n\n\n3. **After the peak (during decelerate)**:\n\
+            \   - **Whoosh out / Sub-bass tail**: Descending decay\n   - Lets the\
+            \ energy dissipate smoothly into the slow section\n   - Level: -9dB to\
+            \ -14dB\n\n\n4. **During slow-motion sections**:\n   - **Muffled / low-pass\
+            \ filtered audio**: Low-pass filter on music (cut high frequencies)\n\
+            \   - Creates an \"underwater\" or \"isolated\" feeling during slow-mo\n\
+            \   - Re-open filter on the next ramp up!\n\n\n### Silence as an Effect\
+            \ (from Level 11, Lesson 13.4)\n\n\n**The most powerful viral sound technique**:\
+            \ Complete silence for 2-4 frames right before a massive drop.\n- Cut\
+            \ ALL audio (music + SFX) for 2-4 frames\n- Visual: freeze frame or high-speed\
+            \ approach\n- Then: MASSIVE impact on the drop frame\n- Contrast = viral\
+            \ impact\n\n\n### Music Editing for Viral (from Level 11, Lesson 13.2)\n\
+            \n\nIf the music track doesn't naturally match the edit:\n- **Cut/splice\
+            \ on beats**: Always edit music on bar lines (every 4 beats)\n- **Add\
+            \ custom drops**: Insert an impact SFX over a beat to create a drop where\
+            \ the music didn't have one\n- **Extend sections**: Loop a 4-bar section\
+            \ to make room for more clips\n- **Speed up/slow down**: Pitch-shift +\
+            \ time-stretch music to match target BPM\n\n\n---\n\n\n## PART 2: COLOR\
+            \ FOR VIRAL CONTENT\n\n\n### Viral Color Strategy\nViral content on phone\
+            \ screens needs:\n- **Higher contrast** than cinematic content (phones\
+            \ have high ambient light)\n- **Vibrant saturation** on hero colors (car\
+            \ paint, clothing, lights)\n- **Clean skin tones** (protect with secondaries/HSL\
+            \ qualifiers)\n- **Moody shadows** (crushed blacks for drama, not milky\
+            \ blacks)\n\n\n### Color Matching Workflow (from Level 10, Lesson 12.5)\n\
+            1. **Balance**: Match exposure across all clips using waveform monitor\n\
+            2. **Temperature match**: Align white balance (parade scope)\n3. **Contrast\
+            \ match**: Match black points and white points\n4. **Saturation match**:\
+            \ Vectorscope — keep saturation consistent\n5. **Creative Look**: Apply\
+            \ creative grade on adjustment layer LAST\n\n\n---\n\n\n## PART 3: FINISHING\n\
+            \n\n### CC Force Motion Blur (from Level 11, Lesson 13.5)\n- **Critical\
+            \ finishing step**: Apply on an adjustment layer ABOVE everything\n- **Settings**:\
+            \ Motion Blur Samples = 10-15\n- **Why**: Unifies all clips with consistent\
+            \ motion blur, especially important for speed-ramped content\n- **Caveat**:\
+            \ Heavy on render time. Set to lower samples for preview.\n\n\n### Film\
+            \ Grain (from Level 11, Lesson 13.5)\n- **Effect**: Add Grain\n- **Intensity**:\
+            \ 1.0-1.5\n- **Size**: 1.5\n- **Application**: Adjustment layer on top\n\
+            - **Purpose**: Unifies mixed-source footage, adds texture\n\n\n### Vignette\n\
+            - **Effect**: CC Vignette\n- **Amount**: Subtle (-0.5 to -1.0)\n- **Purpose**:\
+            \ Draws eye to center on small screens\n\n\n### Sharpening\n- **Apply\
+            \ LAST after all effects**\n- **Amount**: 30-50 (moderate)\n- **Avoid**:\
+            \ Over-sharpening creates halo artifacts\n\n\n\n### Platform Format Matrix\n\
+            \n\n| Platform | Aspect | Resolution | Safe Zone (bottom) | Caption Area\
+            \ | Export |\n|---|---|---|---|---|---|\n| TikTok | 9:16 | 1080x1920 |\
+            \ Bottom 250px (TikTok UI) | 250-700px | H.264, 15-25 Mbps |\n| Instagram\
+            \ Reels | 9:16 | 1080x1920 | Bottom 200px | 200-650px | H.264, 15-20 Mbps\
+            \ |\n| YouTube Shorts | 9:16 | 1080x1920 | Bottom 150px | 150-600px |\
+            \ H.264, 35+ Mbps |\n\n\n### Export for Viral Platforms\n| Setting | Value\
+            \ |\n|---------|-------|\n| Format | H.264 |\n| Resolution | 1080x1920\
+            \ (9:16) or 1920x1080 (16:9) |\n| Frame Rate | 30fps (match delivery platform)\
+            \ |\n| Bitrate | 15-25 Mbps |\n| Audio | AAC, 48kHz, 320kbps |\n\n\n---\n\
+            \n\n## FORMAT YOUR OUTPUT AS:\n\n\n### SOUND DESIGN & FINISHING PLAN\n\
+            \n\n**SOUND DESIGN**:\n\n\n**SFX Placement Table**:\n| Timestamp | Speed\
+            \ Event | SFX Type | Specific Sound | Duration | Level | Sync |\n|-----------|------------|----------|----------------|----------|-------|------|\n\
+            | 0:XX | [event] | [type] | [description] | [Xs] | [-XdB] | [beat #] |\n\
+            \n\n**Music Editing Notes**:\n| Action | Timestamp | Description |\n|--------|-----------|-------------|\n\
+            | [cut/extend/add drop] | 0:XX | [what to do to the music] |\n\n\n**Silence\
+            \ Moments**:\n| Timestamp | Duration | Purpose |\n|-----------|----------|---------|\n\
+            | 0:XX | [Xs] | [dramatic reason] |\n\n\n---\n\n\n**COLOR GRADING**:\n\
+            \n\n**Base Grade** (all clips):\n| Setting | Value |\n|---------|-------|\n\
+            | Contrast | [+X] |\n| Saturation | [+X] |\n| Temperature | [value] |\n\
+            | Shadows Color | [warm/cool + hex] |\n| Highlights Color | [warm/cool\
+            \ + hex] |\n\n\n**Per-Clip Adjustments** (if needed for matching):\n|\
+            \ Clip # | Exposure Adj | Temp Adj | Notes |\n|--------|-------------|----------|-------|\n\
+            | X | [±X] | [±X] | [why] |\n\n\n---\n\n\n**FINISHING CHECKLIST**:\n\n\
+            \n| Layer | Effect | Settings | Order |\n|-------|--------|----------|-------|\n\
+            | Adj Layer (top) | CC Force Motion Blur | Samples: X | 1st |\n| Adj Layer\
+            \ (top) | Add Grain | Intensity: X | 2nd |\n| Adj Layer (top) | CC Vignette\
+            \ | Amount: X | 3rd |\n| Adj Layer (top) | Sharpen | Amount: X | Last\
+            \ |\n\n\n**Export Settings**:\n| Setting | Value |\n|---------|-------|\n\
+            | Format | [format] |\n| Resolution | [res] |\n| Frame Rate | [fps] |\n\
+            | Bitrate | [Mbps] |"
+        - id: b8219bb7-3688-4e47-b2ed-d11144cfd691
+          role: user
+          text: 'CLIP ARRANGEMENT:
+
+            {{#1787044035469.text#}}
+
+
+
+            SPEED RAMP PLAN:
+
+            {{#1787044116853.text#}}
+
+
+
+            VIRAL EFFECTS PLAN:
+
+            {{#1787044136970.text#}}
+
+
+
+            CREATIVE STRATEGY & BRIEF (FROM PREPLANNING):
+
+            {{#1786742809170.preplanningPackage#}}
+
+
+
+            MUSIC BPM: {{#1786742809170.musicBPM#}}
+
+
+
+            CREATOR PROFILE (visual brand — governs color grading palette and finishing
+            look):
+
+            {{#1786742809170.creatorProfile#}}
+
+
+
+            Create the combined Sound Design & Finishing Plan. Every speed ramp peak
+            must have sound. Color must be specified. Finishing effects must be in
+            order.
+
+
+
+            ---
+
+
+
+            ## MODE: REVISION PASS
+
+            **Revision Count**: {{#1787044110253.revision_count#}}
+
+
+
+            If this is a revision pass (revision_count > 0):
+
+            PREVIOUS SOUND DESIGN PLAN: {{#1787044110253.revised_sound#}}
+
+            AUDIT REPORT: {{#1787044110253.report#}}
+
+
+
+            Start from the previous plan and apply ONLY the CRITICAL and WARNING fixes
+            flagged for Sound Design. Keep all other sections intact. If no fixes
+            affect Sound Design, output the previous plan unchanged.'
+        selected: false
+        title: Sound_Design_and_Finishing
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787044154011'
+      parentId: '1787044110253'
+      position:
+        x: 733.3073058265885
+        y: 66.69269417341164
+      positionAbsolute:
+        x: 1923.9374019540082
+        y: 207.6405259089699
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787044110253'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 38b27014-8726-4d13-9d92-ece8a3caa6b4
+          role: system
+          text: "=== CRITICAL: OUTPUT FORMAT ===\nYou MUST respond with a single valid\
+            \ JSON object. Do NOT include prose outside the JSON.\nStructure:\n{\n\
+            \  \"critique_report\": \"markdown string with the full audit\",\n  \"\
+            critique_grade\": \"A+\" | \"A\" | \"B\" | \"C\" | \"D\" | \"F\",\n  \"\
+            issues_summary\": \"short text summary of key issues\",\n  \"viral_score\"\
+            : 8,\n  \"loop_score\": 7\n}\nRules:\n- Always emit valid JSON. No text\
+            \ before or after.\n- Escape newlines as \\n inside strings.\n- critique_grade\
+            \ MUST be one of the enum values EXACTLY.\n\n\nYou are a viral content\
+            \ creative director reviewing a speed ramp edit plan. Your standards are\
+            \ based on the Elgendy Academy viral editing methodology. Audit the ENTIRE\
+            \ plan and grade it honestly.\n\n\n---\n\n\n## VIRAL-SPECIFIC AUDIT CRITERIA\n\
+            [Include Beat Sync, Speed Ramp Quality, Effects Appropriateness, Clip\
+            \ Arrangement, Sound for Viral, Finishing, Loop-Ability Check]\n\n\n**Expanded\
+            \ Viral Potential Scoring**:\n| Criterion | Weight | Score (1-10) |\n\
+            |---|---|---|\n| Hook strength (first 0.5s demands attention) | 20% |\
+            \ |\n| Beat sync precision (peaks land on the beat) | 20% | |\n| Effect\
+            \ cohesion (one consistent style feel) | 15% | |\n| Loop quality (end\
+            \ connects seamlessly to start) | 20% | |\n| Sound impact (SFX hit hard\
+            \ enough) | 15% | |\n| Visual variety (enough different clips/angles)\
+            \ | 10% | |\n| **Weighted Total** | 100% | **X.X / 10** |\n| **Verdict**\
+            \ | | Will go viral / Solid / Needs work / Not there yet |"
+        - id: 82dc27c0-e916-461f-8b4a-4707a705aaec
+          role: user
+          text: 'Audit this complete viral speed ramp edit plan:
+
+
+
+            CLIP ARRANGEMENT:
+
+            {{#1787044035469.text#}}
+
+
+
+            SPEED RAMP PLAN:
+
+            {{#1787044116853.text#}}
+
+
+
+            VIRAL EFFECTS PLAN:
+
+            {{#1787044136970.text#}}
+
+
+
+            SOUND & FINISHING PLAN:
+
+            {{#1787044154011.text#}}
+
+
+
+            CREATIVE STRATEGY (FROM PREPLANNING):
+
+            {{#1786742809170.preplanningPackage#}}
+
+
+
+            MUSIC BPM: {{#1786742809170.musicBPM#}}
+
+            CLIP COUNT: {{#1786742809170.clipCount#}}
+
+            TARGET DURATION: {{#1786742809170.targetDuration#}}
+
+
+
+            ## IF THIS IS A RE-AUDIT (revision_count > 0)
+
+            REVISION COUNT: {{#1787044110253.revision_count#}}
+
+            Verify whether previously flagged issues are now resolved.
+
+
+
+            Perform your full self-critique.'
+        selected: false
+        title: Self_Critique_Audit
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1787044308191'
+      parentId: '1787044110253'
+      position:
+        x: 1034
+        y: 68
+      positionAbsolute:
+        x: 2224.6300961274196
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        code: "import json\nimport re\n\ndef main(llm_output: str) -> dict:\n    cleaned\
+          \ = llm_output.strip()\n    \n    # Strip markdown code blocks if present\n\
+          \    if cleaned.startswith(\"```json\"):\n        cleaned = cleaned[7:]\n\
+          \    elif cleaned.startswith(\"```\"):\n        cleaned = cleaned[3:]\n\
+          \    if cleaned.endswith(\"```\"):\n        cleaned = cleaned[:-3]\n   \
+          \ cleaned = cleaned.strip()\n\n    try:\n        data = json.loads(cleaned)\n\
+          \        grade = str(data.get(\"critique_grade\", \"\")).strip().upper()\n\
+          \        report = str(data.get(\"critique_report\", \"\")).strip()\n   \
+          \     summary = str(data.get(\"issues_summary\", \"\")).strip()\n      \
+          \  score = int(data.get(\"viral_score\", 0))\n        loop_score = int(data.get(\"\
+          loop_score\", 0))\n        \n        # Validate grade format\n        if\
+          \ not grade or grade not in [\"A+\", \"A\", \"B\", \"C\", \"D\", \"F\"]:\n\
+          \            grade = \"F\"\n            \n        return {\n           \
+          \ \"current_grade\": grade,\n            \"current_report\": report if report\
+          \ else cleaned,\n            \"current_issues_summary\": summary,\n    \
+          \        \"current_viral_score\": score,\n            \"current_loop_score\"\
+          : loop_score\n        }\n    except Exception as e:\n        # Fail Closed\
+          \ to F\n        return {\n            \"current_grade\": \"F\",\n      \
+          \      \"current_report\": cleaned,\n            \"current_issues_summary\"\
+          : \"Automatic parsing fallback triggered\",\n            \"current_viral_score\"\
+          : 0,\n            \"current_loop_score\": 0\n        }"
+        code_language: python3
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1787044110253'
+        outputs:
+          current_grade:
+            children: null
+            type: string
+          current_issues_summary:
+            children: null
+            type: string
+          current_loop_score:
+            children: null
+            type: number
+          current_report:
+            children: null
+            type: string
+          current_viral_score:
+            children: null
+            type: number
+        selected: false
+        title: Critique_Parser
+        type: code
+        variables:
+        - value_selector:
+          - '1787044308191'
+          - text
+          value_type: string
+          variable: llm_output
+      height: 52
+      id: '1787044328902'
+      parentId: '1787044110253'
+      position:
+        x: 1336
+        y: 68
+      positionAbsolute:
+        x: 2526.6300961274196
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787044328902'
+          - current_grade
+          variable_selector:
+          - '1787044110253'
+          - grade
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787044328902'
+          - current_report
+          variable_selector:
+          - '1787044110253'
+          - report
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787044328902'
+          - current_loop_score
+          variable_selector:
+          - '1787044110253'
+          - loop_score
+        - input_type: constant
+          operation: +=
+          value: 1
+          variable_selector:
+          - '1787044110253'
+          - revision_count
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787044116853'
+          - text
+          variable_selector:
+          - '1787044110253'
+          - revised_speed_ramp
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787044136970'
+          - text
+          variable_selector:
+          - '1787044110253'
+          - revised_effects
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1787044154011'
+          - text
+          variable_selector:
+          - '1787044110253'
+          - revised_sound
+        loop_id: '1787044110253'
+        selected: false
+        title: Variable Assigner
+        type: assigner
+        version: '2'
+      height: 240
+      id: '1787044461969'
+      parentId: '1787044110253'
+      position:
+        x: 1638
+        y: 68
+      positionAbsolute:
+        x: 2828.6300961274196
+        y: 208.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1001
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-3.1-pro
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 4c10fdf8-c282-4f56-b850-2dede8fbb440
+          role: system
+          text: 'You are a senior viral content editor compiling a final, actionable
+            edit package for a speed ramp video. Your output is the editor''s complete
+            execution guide — they should be able to open After Effects and follow
+            this document step-by-step without any guesswork.
+
+
+
+            Compile the approved plans into a single, clean deliverable. Structure
+            your output as:
+
+            1. **Executive Summary** — video concept, target platform, total duration,
+            music BPM
+
+            2. **Clip Order & Timing** — final sequence with in/out points and speed
+            patterns
+
+            3. **Speed Ramp Specifications** — per-clip ramp curves, keyframe positions,
+            easing
+
+            4. **Effects & Transitions** — per-clip effects and per-cut transitions
+            with exact parameters
+
+            5. **Sound Design** — SFX placement table with timestamps, levels, and
+            descriptions
+
+            6. **Color & Finishing** — grade settings and finishing layer order
+
+            7. **Export Settings** — platform-specific format, resolution, bitrate
+
+            8. **Editor Time Estimate** — realistic hours broken down by phase
+
+
+
+            Be direct and specific. Use tables wherever possible. Keep it action-oriented.'
+        - id: b85bedc7-3b4a-4a83-bc63-55afba493713
+          role: user
+          text: 'Compile the Final Viral Edit Package from:
+
+
+
+            CLIP ARRANGEMENT:
+
+            {{#1787044035469.text#}}
+
+
+
+            SPEED RAMP PLAN:
+
+            {{#1787044110253.revised_speed_ramp#}}
+
+
+
+            VIRAL EFFECTS PLAN:
+
+            {{#1787044110253.revised_effects#}}
+
+
+
+            SOUND & FINISHING PLAN:
+
+            {{#1787044110253.revised_sound#}}
+
+
+
+            CRITIQUE REPORT:
+
+            {{#1787044110253.report#}}
+
+
+
+            CREATIVE STRATEGY & BRIEF:
+
+            {{#1786742809170.preplanningPackage#}}
+
+
+
+            CLIP COUNT: {{#1786742809170.clipCount#}} clips
+
+            MUSIC BPM: {{#1786742809170.musicBPM#}}
+
+
+
+            (Viral flow assumes Intermediate skill level. If the editor is Beginner,
+            multiply all time figures by 1.5. If Advanced/Expert, multiply by 0.85
+            / 0.7 respectively.)
+
+
+
+            Compile into the Final Viral Edit Package. Include all specs in full.
+            Keep it action-oriented.'
+        selected: false
+        title: Final_Viral_Package
+        type: llm
+        vision:
+          enabled: false
+      height: 52
+      id: '1787044629953'
+      position:
+        x: 3143.84537274882
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 3143.84537274882
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1787044629953'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: Output
+        type: end
+      height: 52
+      id: '1787045050188'
+      position:
+        x: 3445.84537274882
+        y: 140.94783173555825
+      positionAbsolute:
+        x: 3445.84537274882
+        y: 140.94783173555825
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -1446.38564199449
+      y: 209.77519734186103
+      zoom: 0.5524168939445769
+  rag_pipeline_variables: []

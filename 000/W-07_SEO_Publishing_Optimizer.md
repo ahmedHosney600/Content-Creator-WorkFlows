@@ -121,14 +121,14 @@ OUTPUT FORMAT:
 Generate title options for this video.
 
 FINISHED CONTENT PACKAGE:
-{{#Start.finishedContentPackage#}}
+{{#1786742809170.finishedContentPackage#}}
 
-PRIMARY PLATFORM: {{#Start.primaryPlatform#}}
-TARGET KEYWORDS (if provided — otherwise derive from content): {{#Start.targetKeywords#}}
-CHANNEL CONTEXT: {{#Start.channelContext#}}
+PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+TARGET KEYWORDS (if provided — otherwise derive from content): {{#1786742809170.targetKeywords#}}
+CHANNEL CONTEXT: {{#1786742809170.channelContext#}}
 
 CREATOR PROFILE:
-{{#Start.creatorProfile#}}
+{{#1786742809170.creatorProfile#}}
 
 Produce 10 title options across distinct angles, scored, with a recommended primary and an A/B test pair.
 ```
@@ -145,7 +145,7 @@ Produce 10 title options across distinct angles, scored, with a recommended prim
 * **Max Tokens**: `3000`
 
 #### System Prompt
-```markdown
+````markdown
 You are writing the video description and chapter markers. This copy has two audiences at once: the platform's search algorithm and a human deciding whether to keep reading before clicking away.
 
 STRUCTURE (in this order):
@@ -175,25 +175,25 @@ OUTPUT FORMAT:
 
 ### Hashtags
 [3–5 hashtags]
-```
+````
 
 #### User Prompt
 ```text
 Write the description and chapters for this video.
 
 FINISHED CONTENT PACKAGE:
-{{#Start.finishedContentPackage#}}
+{{#1786742809170.finishedContentPackage#}}
 
-ACTUAL DURATION: {{#Start.actualDuration#}}
-PRIMARY PLATFORM: {{#Start.primaryPlatform#}}
-TARGET KEYWORDS: {{#Start.targetKeywords#}}
-CHANNEL CONTEXT: {{#Start.channelContext#}}
+ACTUAL DURATION: {{#1786742809170.actualDuration#}}
+PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+TARGET KEYWORDS: {{#1786742809170.targetKeywords#}}
+CHANNEL CONTEXT: {{#1786742809170.channelContext#}}
 
-RECOMMENDED TITLE (for consistency):
-{{#Title_Generator.text#}}
+TITLE GENERATOR OUTPUT (full — includes all 10 options, scores, and the Recommended Primary Title; use the recommended title for consistency):
+{{#1787050431914.text#}}
 
 CREATOR PROFILE:
-{{#Start.creatorProfile#}}
+{{#1786742809170.creatorProfile#}}
 
 Produce the complete description with chapter markers extracted from the content package's actual structure — do not invent chapters that don't correspond to real sections of the video.
 ```
@@ -220,6 +220,8 @@ TAG MIX (aim for this distribution):
 
 Do not repeat the same word stem across multiple tags. Do not include competitor channel names or unrelated trending tags just because they're popular — mismatched tags hurt discoverability signal.
 
+CONSISTENCY CHECK: Cross-reference the chapter titles and description below. Where a chapter title or description phrase already names a specific concept well, reuse that exact wording in a long-tail tag rather than inventing different phrasing for the same thing — this keeps the published metadata internally consistent.
+
 OUTPUT FORMAT:
 
 ---
@@ -243,13 +245,15 @@ OUTPUT FORMAT:
 Optimize tags for this video.
 
 FINISHED CONTENT PACKAGE:
-{{#Start.finishedContentPackage#}}
+{{#1786742809170.finishedContentPackage#}}
 
-PRIMARY PLATFORM: {{#Start.primaryPlatform#}}
-TARGET KEYWORDS: {{#Start.targetKeywords#}}
-CHANNEL CONTEXT: {{#Start.channelContext#}}
+PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+TARGET KEYWORDS: {{#1786742809170.targetKeywords#}}
+CHANNEL CONTEXT: {{#1786742809170.channelContext#}}
 
-RECOMMENDED TITLE: {{#Title_Generator.text#}}
+TITLE GENERATOR OUTPUT (full — includes all 10 options, scores, and the Recommended Primary Title): {{#1787050431914.text#}}
+
+DESCRIPTION & CHAPTERS (for terminology consistency): {{#1787050463492.text#}}
 
 Produce the tag set following the broad/niche/long-tail mix exactly.
 ```
@@ -308,13 +312,13 @@ OUTPUT FORMAT:
 Brief the thumbnail for this video.
 
 FINISHED CONTENT PACKAGE:
-{{#Start.finishedContentPackage#}}
+{{#1786742809170.finishedContentPackage#}}
 
-RECOMMENDED TITLE: {{#Title_Generator.text#}}
-PRIMARY PLATFORM: {{#Start.primaryPlatform#}}
+TITLE GENERATOR OUTPUT (full — includes all 10 options, scores, and the Recommended Primary Title): {{#1787050431914.text#}}
+PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
 
 CREATOR PROFILE (visual brand — colors, fonts, logo rules):
-{{#Start.creatorProfile#}}
+{{#1786742809170.creatorProfile#}}
 
 Produce 2–3 distinct thumbnail concepts. If the content package indicates Arabic-language content, apply the RTL guidance explicitly.
 ```
@@ -371,10 +375,10 @@ This is an automated first-pass check, not legal review. High-severity flags sho
 Run the rights & compliance check.
 
 FINISHED CONTENT PACKAGE:
-{{#Start.finishedContentPackage#}}
+{{#1786742809170.finishedContentPackage#}}
 
-MONETIZATION CONTEXT: {{#Start.monetizationContext#}}
-PRIMARY PLATFORM: {{#Start.primaryPlatform#}}
+MONETIZATION CONTEXT: {{#1786742809170.monetizationContext#}}
+PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
 
 Flag only real risk. Most videos should come back clean.
 ```
@@ -423,13 +427,13 @@ OUTPUT FORMAT:
 ```text
 Build the cross-platform publishing plan.
 
-RECOMMENDED TITLE: {{#Title_Generator.text#}}
-DESCRIPTION: {{#Description_Chapter_Writer.text#}}
+TITLE GENERATOR OUTPUT (full — includes all 10 options, scores, and the Recommended Primary Title): {{#1787050431914.text#}}
+DESCRIPTION: {{#1787050463492.text#}}
 
-PRIMARY PLATFORM: {{#Start.primaryPlatform#}}
-SECONDARY PLATFORMS: {{#Start.secondaryPlatforms#}}
-PUBLISH TIMING PREFERENCE: {{#Start.publishTiming#}}
-ACTUAL DURATION: {{#Start.actualDuration#}}
+PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+SECONDARY PLATFORMS: {{#1786742809170.secondaryPlatforms#}}
+PUBLISH TIMING PREFERENCE: {{#1786742809170.publishTiming#}}
+ACTUAL DURATION: {{#1786742809170.actualDuration#}}
 ```
 
 **Output Port**: `text`
@@ -446,7 +450,7 @@ ACTUAL DURATION: {{#Start.actualDuration#}}
 * **Max Tokens**: `6000`
 
 #### System Prompt
-```markdown
+````markdown
 You are compiling the complete, ready-to-publish package. Assemble every upstream component — nothing summarized away.
 
 FORMAT:
@@ -504,33 +508,33 @@ For W-08 (Content Repurposing): the full content package above already contains 
 
 For W-09 (Performance Analyzer, after this video is live): note the video title and platform above — W-09 will ask for these plus real analytics once performance data is available.
 ```
-```
+````
 
 #### User Prompt
 ```text
 Compile the Final Publishing Package.
 
 TITLES:
-{{#Title_Generator.text#}}
+{{#1787050431914.text#}}
 
 DESCRIPTION & CHAPTERS:
-{{#Description_Chapter_Writer.text#}}
+{{#1787050463492.text#}}
 
 TAGS & METADATA:
-{{#Tags_Metadata_Optimizer.text#}}
+{{#1787050477876.text#}}
 
 THUMBNAIL BRIEF:
-{{#Thumbnail_Brief_Generator.text#}}
+{{#1787050494109.text#}}
 
 RIGHTS & COMPLIANCE CHECK:
-{{#Rights_Compliance_Check.text#}}
+{{#1787050512051.text#}}
 
 CROSS-PLATFORM PUBLISHING PLAN:
-{{#Cross_Platform_Publishing_Plan.text#}}
+{{#1787050535059.text#}}
 
-ACTUAL DURATION: {{#Start.actualDuration#}}
-PRIMARY PLATFORM: {{#Start.primaryPlatform#}}
-PUBLISH TIMING: {{#Start.publishTiming#}}
+ACTUAL DURATION: {{#1786742809170.actualDuration#}}
+PRIMARY PLATFORM: {{#1786742809170.primaryPlatform#}}
+PUBLISH TIMING: {{#1786742809170.publishTiming#}}
 
 Compile the complete package with the pre-publish checklist.
 ```
@@ -542,7 +546,7 @@ Compile the complete package with the pre-publish checklist.
 ### End Node
 * **Node Title**: `End`
 * **Node Type**: `end`
-* **Output**: `text` = `{{#Final_Publishing_Package.text#}}`
+* **Output**: `text` = `{{#1787050562284.text#}}`
 
 ---
 
@@ -550,7 +554,7 @@ Compile the complete package with the pre-publish checklist.
 
 | From Node | Output | To Node | Input Mapping | Condition |
 |---|---|---|---|---|
-| `Start` | form submission | `Title_Generator` | all `{{#Start.*#}}` | Unconditional |
+| `Start` | form submission | `Title_Generator` | all `{{#1786742809170.*#}}` | Unconditional |
 | `Title_Generator` | `text` | `Description_Chapter_Writer` | via prompt | Unconditional |
 | `Title_Generator`, `Description_Chapter_Writer` | `text` | `Tags_Metadata_Optimizer` | via prompt | Unconditional |
 | `Title_Generator` | `text` | `Thumbnail_Brief_Generator` | via prompt | Unconditional |
